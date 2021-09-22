@@ -22,9 +22,23 @@ io.use(
   })
 )
 
+const mockUser = {
+  email: 'testuser123@gmail.com',
+  username: 'testuser123',
+  authid: 'testAuthId',
+  role: 'junior'
+}
+
+let users = {}
+
 io.on('connection', (socket) => {
-  console.log('A user has joined', socket.decoded_token);
-  
+  users[socket.id] = { user: socket.decoded_token.sub}
+  console.log(users)
+  socket.emit('action', {type: 'setUser', data: mockUser})
+  socket.on('disconnect', () => {
+    delete users[socket.id]
+    console.log(users)
+  })
   socket.on('action', (action) => {
     switch (action.type) {
       case 'server/hello':
