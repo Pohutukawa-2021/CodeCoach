@@ -2,10 +2,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('messages', (table) => {
     table.increments('id').primary()
-    table.string('messages')
-    table.string('to')
-    table.string('from')
-    table.string('auth_id')
+    table.string('message')
     table.datetime('date')
     table.timestamp('time')
   })

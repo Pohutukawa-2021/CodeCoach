@@ -4,8 +4,9 @@ exports.up = function(knex) {
       table.increments('id').primary()
       table.string('email')
       table.string('username')
-      table.string('auth_id')
       table.string('role')
+      table.string('auth_id')
+      table.string('image_url')
   })
 };
 

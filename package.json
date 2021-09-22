@@ -1,6 +1,35 @@
 {
+<<<<<<< HEAD
   "dependencies": {
     "knex": "^0.95.11",
     "sqlite3": "^5.0.2"
+=======
+  "name": "codecoach",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npm-run-all --parallel startServer startClient",
+    "startClient": "cd ./client && npm run start",
+    "startServer": "cd ./server && npm run dev",
+    "install": "npm-run-all --parallel installServer installClient",
+    "installServer": "cd ./server && npm install",
+    "installClient": "cd ./client && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pohutukawa-2021/CodeCoach.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pohutukawa-2021/CodeCoach/issues"
+  },
+  "homepage": "https://github.com/Pohutukawa-2021/CodeCoach#readme",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+>>>>>>> 446ac00105c11103d47c11cacee4fc4b5947f939
   }
 }
