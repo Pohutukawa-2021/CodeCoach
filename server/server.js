@@ -30,11 +30,13 @@ const mockUser = {
 }
 
 let users = {}
+let messages = []
 
 io.on('connection', (socket) => {
   users[socket.id] = { user: socket.decoded_token.sub}
   console.log(users)
   socket.emit('action', {type: 'setUser', data: mockUser})
+  socket.emit('action', {type: 'setMessages', data: messages})
   socket.on('disconnect', () => {
     delete users[socket.id]
     console.log(users)
@@ -44,6 +46,9 @@ io.on('connection', (socket) => {
       case 'server/hello':
         console.log('hello')
         socket.emit('action', {type: 'hello'})
+      case 'server/sendMessage':
+        messages.push(action.data)
+        io.emit('action', {type: 'setNewMessage', data: action.data})
     }
   })
 })
