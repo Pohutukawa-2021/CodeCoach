@@ -1,9 +1,4 @@
 {
-<<<<<<< HEAD
-  "dependencies": {
-    "knex": "^0.95.11",
-    "sqlite3": "^5.0.2"
-=======
   "name": "codecoach",
   "version": "1.0.0",
   "description": "",
@@ -30,6 +25,5 @@
   "homepage": "https://github.com/Pohutukawa-2021/CodeCoach#readme",
   "devDependencies": {
     "npm-run-all": "^4.1.5"
->>>>>>> 446ac00105c11103d47c11cacee4fc4b5947f939
   }
 }
