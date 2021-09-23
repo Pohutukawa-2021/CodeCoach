@@ -3,11 +3,14 @@ import LogoutButton from "../components/buttons/LogoutButton";
 import {hello} from "../redux/actions/testAction"
 import {sendMessage} from "../redux/actions/messages"
 import { useDispatch, useSelector } from 'react-redux'
+import UsersOnline from "../components/UsersOnline";
+import { useAuth0 } from "@auth0/auth0-react"
 
 function AppHome() {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user)
+  const userAccount = useSelector((state) => state.userAccount)
   const messages = useSelector((state) => state.messages)
+  const waiting = useSelector(state => state.waiting)
 
   const [testMessage, setTestMessage] = useState("")
 
@@ -25,19 +28,23 @@ function AppHome() {
     messages.map((message, index) => <li key={index}>{message}</li>)
     )
   }
-  
-  console.log(user)
+
   const messageList = setMessageList()
   return (
     <div>
+      {waiting ? <div className="spinner"></div> : 
+      <>
       <h1>Welcome to the Auth Land</h1>
       <ul>
         {messageList}
       </ul>
       <input value={testMessage} onChange={(e) => setTestMessage(e.target.value)} />
       <button onClick={(e) => dispatchMessage(e)}>Submit</button>
+      <UsersOnline />
       <LogoutButton />
           <button onClick={() => testReducerClick()}>Test Reducer</button>
+          </>}
+      
     </div>
   )
 }
