@@ -43,6 +43,7 @@ function AppHome() {
     }
   }
 
+  console.log(userAccount)
   const messageList = setMessageList()
   return (
     <div>

@@ -43,7 +43,6 @@ io.on('connection', (socket) => {
     if(rows.length == 0) {
       createUser(socket.decoded_token.sub).then(newData => {
         socket.emit('action', {type: 'setUser', data: newData})
-        users[socket.id] = { user: newData}
         initializeAccount(io, socket)
       })
     } else {
@@ -64,6 +63,8 @@ io.on('connection', (socket) => {
         break;
       case 'server/sendUserDetails':
         updateUserDetails(action.data, socket.decoded_token.sub).then(data => {
+          users[socket.id] = { user: data}
+          io.emit('action', {type: 'setOnlineUsers', data: users})
           socket.emit('action', {type: 'setUser', data})
         })
     }
