@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import LogoutButton from "../components/LogoutButton";
+import LogoutButton from "../components/buttons/LogoutButton";
 import {hello} from "../redux/actions/testAction"
 import {sendMessage} from "../redux/actions/messages"
 import { useDispatch, useSelector } from 'react-redux'
