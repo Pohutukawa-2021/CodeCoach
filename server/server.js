@@ -1,4 +1,8 @@
-const { getUserData, createUser } = require("./db/users")
+const { 
+  getUserData, 
+  createUser, 
+  updateUserDetails } = require("./db/users")
+
 const io = require('socket.io')({
   cors: {
     origin: '*',
@@ -23,41 +27,45 @@ io.use(
   })
 )
 
-const mockUser = {
-  email: 'testuser123@gmail.com',
-  username: 'testuser123',
-  authid: 'testAuthId',
-  role: 'junior'
-}
-
 let users = {}
 let messages = []
 
+function initializeAccount(io, socket) {
+  io.emit('action', {type: 'setOnlineUsers', data: users})
+  socket.emit('action', {type: 'setMessages', data: messages})
+  socket.emit('action', {type: 'finishWaiting'})
+}
+
+
+
 io.on('connection', (socket) => {
   getUserData(socket.decoded_token.sub).then(rows => {
-    console.log(rows)
     if(rows.length == 0) {
-      createUser(socket.decoded_token.sub).then(newData => 
+      createUser(socket.decoded_token.sub).then(newData => {
         socket.emit('action', {type: 'setUser', data: newData})
-      )
+        users[socket.id] = { user: newData}
+        initializeAccount(io, socket)
+      })
     } else {
       socket.emit('action', {type: 'setUser', data: rows[0]})
+      users[socket.id] = { user: rows[0]}
+      initializeAccount(io, socket)
     }
   })
-  users[socket.id] = { user: socket.decoded_token.sub}
-  console.log(users)
-  socket.emit('action', {type: 'setMessages', data: messages})
   socket.on('disconnect', () => {
     delete users[socket.id]
+    io.emit('action', {type: 'setOnlineUsers', data: users})
   })
   socket.on('action', (action) => {
     switch (action.type) {
-      case 'server/hello':
-        console.log('hello')
-        socket.emit('action', {type: 'hello'})
       case 'server/sendMessage':
         messages.push(action.data)
         io.emit('action', {type: 'setNewMessage', data: action.data})
+        break;
+      case 'server/sendUserDetails':
+        updateUserDetails(action.data, socket.decoded_token.sub).then(data => {
+          socket.emit('action', {type: 'setUser', data})
+        })
     }
   })
 })
