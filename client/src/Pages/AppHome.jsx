@@ -5,9 +5,16 @@ import {sendMessage} from "../redux/actions/messages"
 import { useDispatch, useSelector } from 'react-redux'
 import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react"
+import {sendUserDetails} from "../redux/actions/user"
+
+function emailToUsername(email) {
+  let username = email.split('@')
+  return username[0]
+}
 
 function AppHome() {
   const dispatch = useDispatch()
+  const { user } = useAuth0()
   const userAccount = useSelector((state) => state.userAccount)
   const messages = useSelector((state) => state.messages)
   const waiting = useSelector(state => state.waiting)
@@ -27,6 +34,13 @@ function AppHome() {
     return (
     messages.map((message, index) => <li key={index}>{message}</li>)
     )
+  }
+
+  if(!waiting) {
+    if(userAccount.email === "") {
+      const defaultUser = {...user, name: emailToUsername(user.email)}
+      dispatch(sendUserDetails(defaultUser))
+    }
   }
 
   const messageList = setMessageList()
