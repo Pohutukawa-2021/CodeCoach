@@ -1,3 +1,4 @@
+const { getUserData, createUser } = require("./db/users")
 const io = require('socket.io')({
   cors: {
     origin: '*',
@@ -33,13 +34,21 @@ let users = {}
 let messages = []
 
 io.on('connection', (socket) => {
+  getUserData(socket.decoded_token.sub).then(rows => {
+    console.log(rows)
+    if(rows.length == 0) {
+      createUser(socket.decoded_token.sub).then(newData => 
+        socket.emit('action', {type: 'setUser', data: newData})
+      )
+    } else {
+      socket.emit('action', {type: 'setUser', data: rows[0]})
+    }
+  })
   users[socket.id] = { user: socket.decoded_token.sub}
   console.log(users)
-  socket.emit('action', {type: 'setUser', data: mockUser})
   socket.emit('action', {type: 'setMessages', data: messages})
   socket.on('disconnect', () => {
     delete users[socket.id]
-    console.log(users)
   })
   socket.on('action', (action) => {
     switch (action.type) {
