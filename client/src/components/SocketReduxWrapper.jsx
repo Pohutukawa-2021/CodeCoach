@@ -26,6 +26,7 @@ export function SocketReduxWrapper({ children }) {
     return <Redirect to="/" />
   }
 
+  console.log("rerender")
   if(jwt !== '') {
     const socket = io('http://localhost:3001', {
       query: `token=${jwt}`
