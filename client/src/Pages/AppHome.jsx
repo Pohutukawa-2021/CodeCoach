@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState } from "react";
 import LogoutButton from "../components/buttons/LogoutButton";
 import {hello} from "../redux/actions/testAction"
 import {sendMessage} from "../redux/actions/messages"
@@ -37,11 +37,13 @@ function AppHome() {
   }
 
   if(!waiting) {
-    if(userAccount.email === "") {
+    if(userAccount.email == "") {
+      console.log("hey")
       const defaultUser = {...user, name: emailToUsername(user.email)}
       dispatch(sendUserDetails(defaultUser))
     }
   }
+  
 
   const messageList = setMessageList()
   return (
