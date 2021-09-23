@@ -1,0 +1,1 @@
+const development = require('../knexfile').development

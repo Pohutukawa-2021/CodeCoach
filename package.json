@@ -8,7 +8,8 @@
     "dev": "npm-run-all --parallel startServer startClient",
     "startClient": "cd ./client && npm run start",
     "startServer": "cd ./server && npm run dev",
-    "installMod": "npm-run-all --parallel installServer installClient",
+    "install": "npm-run-all --parallel installServer installClient",
+    "migrate": "cd ./server && npx knex migrate:latest",
     "installServer": "cd ./server && npm install",
     "installClient": "cd ./client && npm install"
   },
