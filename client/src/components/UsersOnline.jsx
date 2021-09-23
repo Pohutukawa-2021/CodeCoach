@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useAuth0 } from '@auth0/auth0-react'
 
 function UsersOnline() {
   const usersOnline = useSelector((state) => state.usersOnline)

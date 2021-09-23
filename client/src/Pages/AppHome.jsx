@@ -4,10 +4,11 @@ import {hello} from "../redux/actions/testAction"
 import {sendMessage} from "../redux/actions/messages"
 import { useDispatch, useSelector } from 'react-redux'
 import UsersOnline from "../components/UsersOnline";
+import { useAuth0 } from "@auth0/auth0-react"
 
 function AppHome() {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user)
+  const userAccount = useSelector((state) => state.userAccount)
   const messages = useSelector((state) => state.messages)
   const waiting = useSelector(state => state.waiting)
 
@@ -28,8 +29,6 @@ function AppHome() {
     )
   }
 
-  
-  
   const messageList = setMessageList()
   return (
     <div>

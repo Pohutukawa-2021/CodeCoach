@@ -1,4 +1,4 @@
-function user(state={}, action) {
+function userAccount(state={}, action) {
   switch (action.type) {
     case 'setUser':
       return {...action.data}
@@ -7,4 +7,4 @@ function user(state={}, action) {
   }
 }
 
-export default user;
+export default userAccount;
