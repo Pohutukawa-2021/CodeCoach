@@ -8,7 +8,7 @@
     "dev": "npm-run-all --parallel startServer startClient",
     "startClient": "cd ./client && npm run start",
     "startServer": "cd ./server && npm run dev",
-    "install": "npm-run-all --parallel installServer installClient",
+    "installMod": "npm-run-all --parallel installServer installClient",
     "installServer": "cd ./server && npm install",
     "installClient": "cd ./client && npm install"
   },
