@@ -1,4 +1,8 @@
-const { getUserData, createUser } = require("./db/users")
+const { 
+  getUserData, 
+  createUser, 
+  updateUserDetails } = require("./db/users")
+
 const io = require('socket.io')({
   cors: {
     origin: '*',
@@ -54,12 +58,14 @@ io.on('connection', (socket) => {
   })
   socket.on('action', (action) => {
     switch (action.type) {
-      case 'server/hello':
-        console.log('hello')
-        socket.emit('action', {type: 'hello'})
       case 'server/sendMessage':
         messages.push(action.data)
         io.emit('action', {type: 'setNewMessage', data: action.data})
+        break;
+      case 'server/sendUserDetails':
+        updateUserDetails(action.data, socket.decoded_token.sub).then(data => {
+          socket.emit('action', {type: 'setUser', data})
+        })
     }
   })
 })
