@@ -40,5 +40,7 @@ function updateUserDetails(user, authToken, db = connection) {
     return getUserData(authToken).then(data => {
       return data[0]
     })
+  }).catch(err => {
+    console.log(err.message)
   })
 }
