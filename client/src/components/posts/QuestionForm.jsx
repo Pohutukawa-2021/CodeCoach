@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../redux/actions/posts";

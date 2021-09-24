@@ -7,6 +7,8 @@ const {
   changeShape,
 } = require("./db/users");
 
+const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
+
 const io = require("socket.io")({
   cors: {
     origin: "*",
@@ -32,7 +34,6 @@ io.use(
 );
 
 let users = {};
-let messages = [];
 
 io.on("connection", (socket) => {
   getUserData(socket.decoded_token.sub).then((rows) => {
@@ -46,14 +47,19 @@ io.on("connection", (socket) => {
       socket.emit("action", { type: "setUser", data: rows[0] });
       users[socket.id] = { user: rows[0] };
       io.emit("action", { type: "setOnlineUsers", data: users });
-      socket.emit("action", { type: "setMessages", data: messages });
+
+      //This will send the user his/her text messages;
+      getDirectMessages(socket);
+
       socket.emit("action", { type: "finishWaiting" });
     }
   });
+
   socket.on("disconnect", () => {
     delete users[socket.id];
     io.emit("action", { type: "setOnlineUsers", data: users });
   });
+
   socket.on("action", (action) => {
     switch (action.type) {
       case "server/sendMessage":
@@ -68,6 +74,8 @@ io.on("connection", (socket) => {
             socket.emit("action", { type: "setUser", data });
           }
         );
+        break;
+      case "server/getDirectMessages":
         break;
       case "server/addPost":
         console.log("adding post");

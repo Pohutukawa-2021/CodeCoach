@@ -5,7 +5,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
+import Nav from "../components/navigation/Nav";
 import ChatComponent from "../components/ChatComponent";
+import LogoutButton from "../components/buttons/LogoutButton";
+import UserProfile from "../components/UserProfile";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -25,6 +28,7 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
+
   return (
     <div>
       {waiting ? (
@@ -32,6 +36,8 @@ function AppHome() {
       ) : (
         <>
           <UsersOnline />
+          <LogoutButton />
+          <Nav />
           <QuestionForm />
           <Switch>
             <Route exact path={path}>
@@ -39,6 +45,9 @@ function AppHome() {
             </Route>
             <Route path={`${path}/messaging/:id`}>
               <ChatComponent />
+            </Route>
+            <Route path={`${path}/users`}>
+              <UserProfile />
             </Route>
           </Switch>
         </>
