@@ -1,4 +1,5 @@
 const { getUserData, createUser, updateUserDetails } = require("./db/users");
+const { getDM } = require("./db/messages");
 
 const io = require("socket.io")({
   cors: {
@@ -42,10 +43,12 @@ io.on("connection", (socket) => {
       socket.emit("action", { type: "finishWaiting" });
     }
   });
+
   socket.on("disconnect", () => {
     delete users[socket.id];
     io.emit("action", { type: "setOnlineUsers", data: users });
   });
+
   socket.on("action", (action) => {
     switch (action.type) {
       case "server/sendMessage":
@@ -61,6 +64,30 @@ io.on("connection", (socket) => {
           }
         );
         break;
+      case "server/getDirectMessages":
+        getUserData(socket.decoded_token.sub)
+          .then((data) => {
+            userId = data[0].id;
+            let directMessages = [];
+            getDM(userId, action.recepientId)
+              .then((data) => {
+                directMessages = data;
+                getDM(action.recepientId, userId).then((data) => {
+                  directMessages = [...directMessages, ...data];
+                  directMessages.sort((a, b) => {
+                    return a.date - b.date;
+                  });
+                  socket.emit("action", {
+                    type: "setDirectMessages",
+                    data: directMessages,
+                  });
+                });
+              })
+              .catch((err) => console.log(err.message));
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     }
   });
 });
