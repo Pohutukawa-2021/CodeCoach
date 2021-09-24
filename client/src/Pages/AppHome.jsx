@@ -7,7 +7,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
 import Search from "../layouts/sidebar/Search";
-import {Route} from 'react-router-dom'
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -50,9 +49,7 @@ function AppHome() {
         <div className="spinner"></div>
       ) : (
         <>
-        <Route path='/app'>
           <Header />
-          </Route>
           <h1>Welcome to the Auth Land</h1>
           <ul>{messageList}</ul>
           <input

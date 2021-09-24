@@ -9,10 +9,10 @@ function Nav() {
   return (
     <div>
       <Link to="/app" className='nav'>Home</Link>
-      <Link to="/users" className='nav'>Users</Link>
-      <Link to="/messages" className='nav'>Messages</Link>
-      <Link to="/createpost" className='nav'>Ask a Question</Link>
-      <Link to="/myprofile" className='nav'>Avatar</Link>
+      <Link to="/app/users" className='nav'>Users</Link>
+      <Link to="/app/messages" className='nav'>Messages</Link>
+      <Link to="/app/createpost" className='nav'>Ask a Question</Link>
+      <Link to="/app/myprofile" className='nav'>Avatar</Link>
     </div>
   )
 }

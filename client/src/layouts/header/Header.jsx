@@ -8,7 +8,6 @@ function Header() {
       <span>Logo</span>
       <Nav />
       <LogoutButton />
-
     </div>
   )
 }
