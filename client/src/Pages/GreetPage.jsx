@@ -13,11 +13,8 @@ function GreetPage() {
   }
   return (
     <div>
-    <Header />
     <h1>Hello</h1>
     <LoginButton />
-    <Search />
-
     </div>
   )
 }

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import LogoutButton from "../components/buttons/LogoutButton";
 import { hello } from "../redux/actions/testAction";
 import { sendMessage } from "../redux/actions/messages";
 import { useDispatch, useSelector } from "react-redux";
 import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
+import Header from "../layouts/header/Header";
+import Search from "../layouts/sidebar/Search";
+import {Route} from 'react-router-dom'
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -48,6 +50,9 @@ function AppHome() {
         <div className="spinner"></div>
       ) : (
         <>
+        <Route path='/app'>
+          <Header />
+          </Route>
           <h1>Welcome to the Auth Land</h1>
           <ul>{messageList}</ul>
           <input
@@ -55,9 +60,9 @@ function AppHome() {
             onChange={(e) => setTestMessage(e.target.value)}
           />
           <button onClick={(e) => dispatchMessage(e)}>Submit</button>
-          <UsersOnline />
-          <LogoutButton />
           <button onClick={() => testReducerClick()}>Test Reducer</button>
+          <UsersOnline />
+          <Search />
         </>
       )}
     </div>
