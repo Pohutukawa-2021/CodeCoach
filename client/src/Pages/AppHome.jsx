@@ -28,6 +28,7 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
+
   return (
     <div>
       {waiting ? (

@@ -32,12 +32,25 @@ function getDirectMessages(socket) {
                 ];
               }
             });
-            const newConvo = Object.assign(
-              {},
-              directMessagesTo,
-              directMessagesFrom
-            );
-            console.log(newConvo);
+            let convos = {};
+            let toKeys = Object.keys(directMessagesTo);
+            let fromKeys = Object.keys(directMessagesFrom);
+            toKeys.forEach((key) => {
+              convos[key] = directMessagesTo[key];
+            });
+            fromKeys.forEach((key) => {
+              if (convos[key] == undefined) {
+                convos[key] = directMessagesFrom[key];
+              } else {
+                convos[key] = [...convos[key], ...directMessagesFrom[key]];
+              }
+            });
+            for (const [key, value] of Object.entries(convos)) {
+              value.sort((a, b) => {
+                return a.date - b.date;
+              });
+            }
+            socket.emit("action", { type: "setMessages", data: convos });
           });
         })
         .catch((err) => console.log(err.message));

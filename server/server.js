@@ -34,7 +34,6 @@ io.use(
 );
 
 let users = {};
-let messages = [];
 
 io.on("connection", (socket) => {
   getUserData(socket.decoded_token.sub).then((rows) => {
@@ -48,7 +47,10 @@ io.on("connection", (socket) => {
       socket.emit("action", { type: "setUser", data: rows[0] });
       users[socket.id] = { user: rows[0] };
       io.emit("action", { type: "setOnlineUsers", data: users });
-      socket.emit("action", { type: "setMessages", data: messages });
+
+      //This will send the user his/her text messages;
+      getDirectMessages(socket);
+
       socket.emit("action", { type: "finishWaiting" });
     }
   });
@@ -74,7 +76,6 @@ io.on("connection", (socket) => {
         );
         break;
       case "server/getDirectMessages":
-        getDirectMessages(socket);
         break;
       case "server/addPost":
         console.log("adding post");

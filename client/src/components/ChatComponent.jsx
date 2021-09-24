@@ -2,14 +2,13 @@ import { ChatFeed, Message } from "react-chat-ui";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { getDirectMessages } from "../redux/actions/messages";
 
 function ChatComponent() {
   const [userText, setUserText] = useState("");
   const dispatch = useDispatch();
-  const directMessages = useSelector((state) => state.directMessage);
   const userId = useSelector((state) => state.userAccount.id);
   const { id } = useParams();
+  const directMessages = useSelector((state) => state.messages[id]);
 
   // function sendMessage(e) {
   //   e.preventDefault();
@@ -17,22 +16,24 @@ function ChatComponent() {
   //   setUserText("");
   // }
 
-  useEffect(() => {
-    dispatch(getDirectMessages(id));
-  }, [id]);
-
-  const messages = directMessages.map((msg) => {
-    if (msg.from == userId) {
-      msg.id = 0;
+  function setMessages() {
+    if (directMessages != undefined) {
+      return directMessages.map((msg) => {
+        if (msg.from === userId) {
+          msg.id = 0;
+        }
+        return new Message({
+          id: msg.id,
+          message: msg.message,
+        });
+      });
     }
-    return new Message({
-      id: msg.id,
-      message: msg.message,
-    });
-  });
+    return [];
+  }
+
+  const messages = setMessages();
 
   console.log(directMessages);
-  console.log(userId);
   return (
     <div className="chat">
       <ChatFeed
