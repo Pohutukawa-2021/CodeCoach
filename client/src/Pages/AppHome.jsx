@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
+import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 
@@ -31,6 +32,7 @@ function AppHome() {
       ) : (
         <>
           <UsersOnline />
+          <QuestionForm />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
