@@ -6,7 +6,8 @@ import { sendUserDetails } from "../redux/actions/user";
 import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
-
+import { PostComponent } from "../components/posts/PostComponent";
+import Header from "../layouts/header/Header";
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -33,12 +34,16 @@ function AppHome() {
         <>
           <UsersOnline />
           <QuestionForm />
+          <Header />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
             </Route>
             <Route path={`${path}/messaging/:id`}>
               <ChatComponent />
+            </Route>
+            <Route path={`${path}/post/:postId`}>
+              <PostComponent />
             </Route>
           </Switch>
         </>

@@ -87,7 +87,7 @@ function addPost(post, authToken, db = connection) {
 }
 function changeShape(post, db = connection) {
   return getUserDataById(post.user_id).then((user) => {
-    return { ...post, ...user };
+    return { ...user, ...post };
   });
 }
 // function getUserByPost(userId, db = connection) {

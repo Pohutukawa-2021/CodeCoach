@@ -4,6 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../redux/actions/posts";
+import { Link } from "react-router-dom";
 
 export function QuestionForm() {
   const dispatch = useDispatch();
@@ -36,7 +37,9 @@ export function QuestionForm() {
       <ul>
         {allPosts.map((post) => (
           <li>
-            {post.text} === {post.username}
+            <Link to={`/app/post/${post.id}`}>
+              {post.text} === {post.username}
+            </Link>
           </li>
         ))}
       </ul>
