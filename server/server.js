@@ -68,6 +68,7 @@ io.on("connection", (socket) => {
             socket.emit("action", { type: "setUser", data });
           }
         );
+        break;
       case "server/addPost":
         console.log("adding post");
         if (action.data.title != null || action.data.body != null) {
@@ -89,6 +90,7 @@ io.on("connection", (socket) => {
         } else {
           console.log("not accurate niggerboi");
         }
+        break;
     }
   });
 });

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function UsersOnline() {
   const usersOnline = useSelector((state) => state.usersOnline);
@@ -9,9 +9,9 @@ function UsersOnline() {
     Object.entries(usersOnline).forEach(([key, value]) => {
       test.push(
         <li key={key} id={value.user.auth_id}>
-          <NavLink to={`/app`}>
+          <Link to={`/app/messaging/${value.user.id}`}>
             <img src={value.user.image_url} alt={value.user.username} />
-          </NavLink>
+          </Link>
         </li>
       );
     });

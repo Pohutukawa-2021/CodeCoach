@@ -21,7 +21,6 @@
     "pg": "^8.5.1",
     "socket.io": "^4.2.0",
     "socketio-jwt": "^4.6.2",
-    "sqlite3": "^5.0.2",
-    "superagent": "^6.1.0"
+    "sqlite3": "^5.0.2"
   }
 }
