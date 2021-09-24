@@ -1,0 +1,67 @@
+/* global styling */
+html, body {
+  box-sizing: border-box;
+  font-family: "Roboto";
+  margin: 0;
+  padding: 0;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* colors styles
+primary - #12558A
+secondary - #A5D2F3
+darktext - #031B44
+lighttext - #F4F6F7
+background - #F4F8FB
+white - #FFFFFF
+grey - #DDDDDD
+offsetYellow - #FCD35B
+offsetOrange - #FF760C
+offsetGreen - #77B69E */
+
+/* header */
+.header-container {
+    background-color: #12558A;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    background-color: white;
+    color: #12558A;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.nav-center {
+    background-color: aqua;    
+}
+
+.nav-right {
+    display: flex;
+    width: 30px;
+}
+
+@media screen and (min-width: 415px) {
+  .logo-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .large-screen-logo-container {
+    display: none;
+  }
+}

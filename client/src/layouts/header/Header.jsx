@@ -5,10 +5,9 @@ import LogoutButton from '../../components/buttons/LogoutButton'
 function Header() {
   return (
     <div className='header-container'>
-      <span>Logo</span>
+      <span className='mobile-logo-container'></span>
       <Nav />
-      <LogoutButton />
-
+      {/* <LogoutButton /> */}
     </div>
   )
 }
