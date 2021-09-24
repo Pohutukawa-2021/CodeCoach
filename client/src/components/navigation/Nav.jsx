@@ -8,7 +8,7 @@ function Nav() {
   if(isAuthenticated) {
   return (
     <div>
-      <Link to="/" className='nav'>Home</Link>
+      <Link to="/app" className='nav'>Home</Link>
       <Link to="/users" className='nav'>Users</Link>
       <Link to="/messages" className='nav'>Messages</Link>
       <Link to="/createpost" className='nav'>Ask a Question</Link>
