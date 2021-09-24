@@ -5,7 +5,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
 import Search from "../layouts/sidebar/Search";
-import ProfilePage from "./ProfilePage";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 
@@ -42,10 +41,10 @@ function AppHome() {
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
-            <Route path={`${path}/users`}>
-              <ProfilePage />
-            </Route>
+            <Route path='/app/users'>
             <Search />
+              {/* <ProfilePage /> */}
+            </Route>
           </Switch>
         </>
       )}
