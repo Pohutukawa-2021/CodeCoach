@@ -11,7 +11,7 @@ function App() {
         <Route exact path="/">
           <GreetPage />
         </Route>
-        <Route exact path="/app">
+        <Route path="/app">
           <SocketReduxWrapperMemoized>
             <AppHome />
           </SocketReduxWrapperMemoized>
