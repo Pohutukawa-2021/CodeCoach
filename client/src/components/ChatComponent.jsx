@@ -1,24 +1,39 @@
 import { ChatFeed, Message } from "react-chat-ui";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router";
 
 function ChatComponent() {
   const [userText, setUserText] = useState("");
+  const dispatch = useDispatch();
+  const userId = useSelector((state) => state.userAccount.id);
+  const { id } = useParams();
+  const directMessages = useSelector((state) => state.messages[id]);
 
-  const [messages, setMessages] = useState([
-    new Message({
-      id: 1,
-      message: "I'm the recipient! (The person you're talking to)",
-    }), // Gray bubble
-    new Message({ id: 0, message: "I'm you -- the blue bubble!" }), // Blue bubble
-  ]);
+  // function sendMessage(e) {
+  //   e.preventDefault();
+  //   setMessages([...messages, new Message({ id: 0, message: userText })]);
+  //   setUserText("");
+  // }
 
-  function sendMessage(e) {
-    e.preventDefault();
-    setMessages([...messages, new Message({ id: 0, message: userText })]);
-    setUserText("");
+  function setMessages() {
+    if (directMessages != undefined) {
+      return directMessages.map((msg) => {
+        if (msg.from === userId) {
+          msg.id = 0;
+        }
+        return new Message({
+          id: msg.id,
+          message: msg.message,
+        });
+      });
+    }
+    return [];
   }
 
-  console.log("chat is rendered");
+  const messages = setMessages();
+
+  console.log(directMessages);
   return (
     <div className="chat">
       <ChatFeed
@@ -36,7 +51,7 @@ function ChatComponent() {
         }}
       />
       <input value={userText} onChange={(e) => setUserText(e.target.value)} />
-      <button onClick={(e) => sendMessage(e)}>Send</button>
+      <button>Send</button>
     </div>
   );
 }

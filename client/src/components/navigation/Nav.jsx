@@ -11,7 +11,7 @@ function Nav() {
         <Link to="/" className="nav">
           Home
         </Link>
-        <Link to="/users" className="nav">
+        <Link to="/app/users" className="nav">
           Users
         </Link>
         <Link to="/messages" className="nav">
@@ -22,9 +22,6 @@ function Nav() {
         </Link>
         <Link to="/myprofile" className="nav">
           Avatar
-        </Link>
-        <Link to="/app/post/189" className="nav">
-          vzxdfh
         </Link>
       </div>
     );
