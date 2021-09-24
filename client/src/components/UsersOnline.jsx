@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 
 function UsersOnline() {
   const usersOnline = useSelector((state) => state.usersOnline);
-
   function setUsersOnlineList() {
     let test = [];
     Object.entries(usersOnline).forEach(([key, value]) => {

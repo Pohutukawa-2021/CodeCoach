@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
+import { QuestionForm } from "../components/posts/QuestionForm";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -56,6 +57,7 @@ function AppHome() {
           />
           <button onClick={(e) => dispatchMessage(e)}>Submit</button>
           <UsersOnline />
+          <QuestionForm />
           <LogoutButton />
           <button onClick={() => testReducerClick()}>Test Reducer</button>
         </>

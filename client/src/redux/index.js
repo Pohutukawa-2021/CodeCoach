@@ -3,7 +3,7 @@ import userAccount from "./reducers/user";
 import messages from "./reducers/messages";
 import usersOnline from "./reducers/usersOnline";
 import waiting from "./reducers/waiting";
-
+import posts from "./reducers/posts";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -11,7 +11,8 @@ const allReducers = combineReducers({
   userAccount,
   waiting,
   usersOnline,
-  messages
+  messages,
+  posts
 })
 
 export default allReducers;
