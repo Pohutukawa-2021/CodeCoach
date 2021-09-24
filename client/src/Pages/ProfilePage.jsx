@@ -1,7 +1,6 @@
 import React from 'react'
 import Header from '../layouts/header/Header'
 import UsersList from '../components/users/UsersList'
-import UsersOnline from '../components/UsersOnline'
 
 
 function ProfilePage() {
@@ -9,7 +8,6 @@ function ProfilePage() {
     <div>
       <Header />
       <UsersList />
-      <UsersOnline />
     </div>
   )
 }
