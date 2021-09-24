@@ -4,9 +4,9 @@ import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
-import Search from "../layouts/sidebar/Search";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
+import UserProfile from "../components/users/UserProfile";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -33,17 +33,16 @@ function AppHome() {
       ) : (
         <>
           <UsersOnline />
-          <Switch>
             <Header />
+          <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
             </Route>
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
-            <Route path='/app/users'>
-            <Search />
-              {/* <ProfilePage /> */}
+            <Route path='/ app/users'>
+              <UserProfile />
             </Route>
           </Switch>
         </>
