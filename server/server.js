@@ -60,6 +60,7 @@ io.on("connection", (socket) => {
             socket.emit("action", { type: "setUser", data });
           }
         );
+        break;
     }
   });
 });
