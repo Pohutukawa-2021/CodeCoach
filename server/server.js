@@ -1,5 +1,6 @@
 const { getUserData, createUser, updateUserDetails } = require("./db/users");
-const { getDM } = require("./db/messages");
+
+const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
 
 const io = require("socket.io")({
   cors: {
@@ -65,29 +66,7 @@ io.on("connection", (socket) => {
         );
         break;
       case "server/getDirectMessages":
-        getUserData(socket.decoded_token.sub)
-          .then((data) => {
-            userId = data[0].id;
-            let directMessages = [];
-            getDM(userId, action.recepientId)
-              .then((data) => {
-                directMessages = data;
-                getDM(action.recepientId, userId).then((data) => {
-                  directMessages = [...directMessages, ...data];
-                  directMessages.sort((a, b) => {
-                    return a.date - b.date;
-                  });
-                  socket.emit("action", {
-                    type: "setDirectMessages",
-                    data: directMessages,
-                  });
-                });
-              })
-              .catch((err) => console.log(err.message));
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        getDirectMessages(socket);
     }
   });
 });
