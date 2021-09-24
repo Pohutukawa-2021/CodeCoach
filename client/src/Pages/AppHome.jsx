@@ -4,6 +4,7 @@ import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
+import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import UserProfile from "../components/users/UserProfile";
@@ -26,6 +27,7 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
+
   return (
     <div>
       {waiting ? (
@@ -34,6 +36,7 @@ function AppHome() {
         <>
           <UsersOnline />
             <Header />
+          <QuestionForm />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
@@ -41,7 +44,7 @@ function AppHome() {
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
-            <Route path='/ app/users'>
+            <Route path={`${path}/users`}>
               <UserProfile />
             </Route>
           </Switch>
