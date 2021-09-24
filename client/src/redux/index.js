@@ -5,6 +5,7 @@ import usersOnline from "./reducers/usersOnline";
 import waiting from "./reducers/waiting";
 import directMessage from "./reducers/directMessage";
 
+import posts from "./reducers/posts";
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
@@ -14,6 +15,7 @@ const allReducers = combineReducers({
   directMessage,
   usersOnline,
   messages,
+  posts,
 });
 
 export default allReducers;

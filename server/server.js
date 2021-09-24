@@ -1,4 +1,11 @@
-const { getUserData, createUser, updateUserDetails } = require("./db/users");
+const {
+  getUserData,
+  createUser,
+  updateUserDetails,
+  addPost,
+  getUserDataById,
+  changeShape,
+} = require("./db/users");
 
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
 
@@ -31,6 +38,7 @@ let messages = [];
 
 io.on("connection", (socket) => {
   getUserData(socket.decoded_token.sub).then((rows) => {
+    // console.log(rows);
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
@@ -67,6 +75,29 @@ io.on("connection", (socket) => {
         break;
       case "server/getDirectMessages":
         getDirectMessages(socket);
+        break;
+      case "server/addPost":
+        console.log("adding post");
+        if (action.data.title != null || action.data.body != null) {
+          addPost(action.data, socket.decoded_token.sub).then(
+            async (allPosts) => {
+              return await Promise.all(
+                allPosts.map(async (post) => {
+                  return await changeShape(post).then((newObj) => {
+                    // console.log(newObj);
+                    return newObj;
+                  });
+                })
+              ).then((results) => {
+                //cnsole.log(results, "sdfghuidfghuhg");
+                io.emit("action", { type: "setPosts", data: results });
+              });
+            }
+          );
+        } else {
+          console.log("not accurate niggerboi");
+        }
+        break;
     }
   });
 });
