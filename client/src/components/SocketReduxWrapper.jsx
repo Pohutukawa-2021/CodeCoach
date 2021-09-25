@@ -22,7 +22,7 @@ export function SocketReduxWrapper({ children }) {
   }, []);
 
   if (jwt !== "") {
-    const socket = io("http://localhost:3001", {
+    const socket = io("http://localhost:3000", {
       query: `token=${jwt}`,
     });
 

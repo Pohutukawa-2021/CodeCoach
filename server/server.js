@@ -1,3 +1,9 @@
+const path = require("path");
+const express = require("express");
+const app = express();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
+const port = process.eventNames.PORT || 3000;
 const {
   getUserData,
   createUser,
@@ -8,18 +14,15 @@ const {
   getAllUsers,
 } = require("./db/users");
 
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("/", (req, res, next) => res.sendFile(__dirname + "./index.html"));
+
 //message functions
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
 const sendMessage = require("./SocketFunctions/Messages/sendMessage");
 
 //user function
 const ridOfDuplicateUsersOnline = require("./SocketFunctions/User/userOnline");
-
-const io = require("socket.io")({
-  cors: {
-    origin: "*",
-  },
-});
 
 const jwt = require("express-jwt");
 const socketioJwt = require("socketio-jwt");
@@ -113,6 +116,5 @@ io.on("connection", (socket) => {
   });
 });
 
-const port = 3001;
-io.listen(port);
+server.listen(port);
 console.log("Server is listening on port ", port);
