@@ -9,7 +9,7 @@ function UsersOnline() {
     let test = [];
     Object.entries(usersOnline).forEach(([key, value]) => {
       test.push(
-        <li key={key} id={value.auth_id}>
+        <li key={key} id={value.auth_id} className="online-user-list-item">
           <Link to={`/app/messaging/${value.id}`}>
             <img src={value.image_url} alt={value.username} />
           </Link>
@@ -21,8 +21,8 @@ function UsersOnline() {
   const onlineList = setUsersOnlineList();
   return (
     <div>
-      <h2>Online Users</h2>
-      <ul>{onlineList}</ul>
+      <h2 className="right-col-title">Online Users</h2>
+      <ul className="online-user-list">{onlineList}</ul>
     </div>
   );
 }

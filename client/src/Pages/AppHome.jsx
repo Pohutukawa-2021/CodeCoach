@@ -42,7 +42,7 @@ function AppHome() {
                 <div className="layout-left-col"> 
                   <Switch>
                     <Route exact path={path}>
-                      <h1>Home</h1>
+                      <h1 className="left-col-title">Home</h1>
                     </Route>
                     <Route exact path={`${path}/messaging/:id`}>
                       <ChatComponent />

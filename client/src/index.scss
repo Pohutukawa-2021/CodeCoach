@@ -260,3 +260,24 @@ $offsetGreen: #77B69E;
   width: 300px;
   background-color: $secondary;
 }
+
+.left-col-title {
+  font-size: 2.2rem;
+  margin-top: 0;
+}
+
+.right-col-title {
+  font-size: 1.4rem;
+  margin-top: 0;
+  font-weight: lighter;
+}
+
+.center-col-title {
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+/* styling online users */
+.online-user-list {
+  list-style-type: none;
+}
