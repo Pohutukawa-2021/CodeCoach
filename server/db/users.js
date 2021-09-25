@@ -25,7 +25,8 @@ function createUser(authId, db = connection) {
     username: "",
     role: "",
     auth_id: authId,
-    image_url: "",
+    image_url:
+      "https://www.pngarts.com/files/10/Default-Profile-Picture-Download-PNG-Image.png",
   };
   return db("users")
     .insert(newUser)

@@ -50,6 +50,12 @@ io.on("connection", (socket) => {
         socket.emit("action", { type: "setUser", data: newData });
         socket.emit("action", { type: "finishWaiting" });
       });
+      getAllPosts().then((allPosts) => {
+        io.emit("action", { type: "setPosts", data: allPosts });
+      });
+      getAllUsers().then((allUsers) => {
+        socket.emit("action", { type: "setAllUsers", data: allUsers });
+      });
     } else {
       socket.emit("action", { type: "setUser", data: rows[0] });
 
@@ -81,8 +87,7 @@ io.on("connection", (socket) => {
       case "server/sendUserDetails":
         updateUserDetails(action.data, socket.decoded_token.sub).then(
           (data) => {
-            console.log(data);
-            users[socket.id] = { user: data };
+            users[socket.id] = { ...data };
             io.emit("action", { type: "setOnlineUsers", data: users });
             socket.emit("action", { type: "setUser", data });
           }

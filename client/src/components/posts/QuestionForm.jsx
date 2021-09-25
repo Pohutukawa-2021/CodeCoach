@@ -22,7 +22,6 @@ export function QuestionForm() {
   }
 
   function handleClick(e) {
-    console.log("inHandleClick");
     e.preventDefault();
     dispatch(addPost(form));
     setForm({
@@ -30,7 +29,7 @@ export function QuestionForm() {
       body: "",
     });
   }
-  //console.log(allPosts[0].comments[0]);
+  //console.log("allposts: ", allPosts);
   return (
     <>
       <ul>
