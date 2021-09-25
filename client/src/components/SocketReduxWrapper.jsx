@@ -22,7 +22,7 @@ export function SocketReduxWrapper({ children }) {
   }, []);
 
   if (jwt !== "") {
-    const socket = io("http://localhost:3000", {
+    const socket = io("https://thecodecoach.herokuapp.com/", {
       query: `token=${jwt}`,
     });
 
