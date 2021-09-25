@@ -8,7 +8,6 @@ function UsersOnline() {
   function setUsersOnlineList() {
     let test = [];
     Object.entries(usersOnline).forEach(([key, value]) => {
-      console.log(value);
       test.push(
         <li key={key} id={value.auth_id}>
           <Link to={`/app/messaging/${value.id}`}>

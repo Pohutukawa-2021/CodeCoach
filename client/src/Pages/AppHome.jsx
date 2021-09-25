@@ -4,7 +4,6 @@ import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
-import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";

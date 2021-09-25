@@ -13,28 +13,81 @@ function getDirectMessages(socket) {
         .then((data) => {
           data.forEach((msg) => {
             if (directMessagesTo[msg.from] === undefined) {
-              directMessagesTo[msg.from] = [{ ...msg }];
+              directMessagesTo[msg.from] = {
+                email: msg.email,
+                username: msg.username,
+                imageUrl: msg.image_url,
+                conversation: [
+                  {
+                    id: msg.id,
+                    message_id: msg.message_id,
+                    to: msg.to,
+                    from: msg.from,
+                    message: msg.message,
+                    date: msg.date,
+                    time: msg.time,
+                  },
+                ],
+              };
             } else {
-              directMessagesTo[msg.from] = [
+              directMessagesTo[msg.from] = {
                 ...directMessagesTo[msg.from],
-                { ...msg },
-              ];
+                conversation: [
+                  ...directMessagesTo[msg.from].conversation,
+                  {
+                    id: msg.id,
+                    message_id: msg.message_id,
+                    to: msg.to,
+                    from: msg.from,
+                    message: msg.message,
+                    date: msg.date,
+                    time: msg.time,
+                  },
+                ],
+              };
             }
           });
           getDMFrom(userId).then((data) => {
             data.forEach((msg) => {
               if (directMessagesFrom[msg.to] === undefined) {
-                directMessagesFrom[msg.to] = [{ ...msg }];
+                directMessagesFrom[msg.to] = {
+                  email: msg.email,
+                  username: msg.username,
+                  imageUrl: msg.image_url,
+                  conversation: [
+                    {
+                      id: msg.id,
+                      message_id: msg.message_id,
+                      to: msg.to,
+                      from: msg.from,
+                      message: msg.message,
+                      date: msg.date,
+                      time: msg.time,
+                    },
+                  ],
+                };
               } else {
-                directMessagesFrom[msg.to] = [
+                directMessagesFrom[msg.to] = {
                   ...directMessagesFrom[msg.to],
-                  { ...msg },
-                ];
+                  conversation: [
+                    ...directMessagesFrom[msg.to].conversation,
+                    {
+                      id: msg.id,
+                      message_id: msg.message_id,
+                      to: msg.to,
+                      from: msg.from,
+                      message: msg.message,
+                      date: msg.date,
+                      time: msg.time,
+                    },
+                  ],
+                };
               }
             });
             let convos = {};
             let toKeys = Object.keys(directMessagesTo);
             let fromKeys = Object.keys(directMessagesFrom);
+
             toKeys.forEach((key) => {
               convos[key] = directMessagesTo[key];
             });
@@ -42,14 +95,19 @@ function getDirectMessages(socket) {
               if (convos[key] == undefined) {
                 convos[key] = directMessagesFrom[key];
               } else {
-                convos[key] = [...convos[key], ...directMessagesFrom[key]];
+                convos[key].conversation = [
+                  ...convos[key].conversation,
+                  ...directMessagesFrom[key].conversation,
+                ];
               }
             });
+
             for (const [key, value] of Object.entries(convos)) {
-              value.sort((a, b) => {
+              value.conversation.sort((a, b) => {
                 return a.date - b.date;
               });
             }
+            console.log(convos);
             socket.emit("action", { type: "setMessages", data: convos });
           });
         })

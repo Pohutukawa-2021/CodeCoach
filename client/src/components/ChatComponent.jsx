@@ -9,13 +9,18 @@ function ChatComponent() {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.userAccount.id);
   const { id } = useParams();
-  const directMessages = useSelector((state) => state.messages[id]);
+  const directMessages = useSelector((state) => {
+    if (state.messages[id] === undefined) {
+      return [];
+    }
+    return state.messages[id].conversation;
+  });
 
   function sendMessage() {
     dispatch({
       type: "setNewMessage",
       data: {
-        id: uuidv4(),
+        message_id: uuidv4(),
         from: userId,
         to: id,
         date: Date.now(),
@@ -23,16 +28,16 @@ function ChatComponent() {
         message: userText,
       },
     });
-    dispatch({
-      type: "server/sendMessage",
-      data: {
-        from: userId + "",
-        to: id,
-        date: Date.now(),
-        time: Date.now(),
-        message: userText,
-      },
-    });
+    // dispatch({
+    //   type: "server/sendMessage",
+    //   data: {
+    //     from: userId + "",
+    //     to: id,
+    //     date: Date.now(),
+    //     time: Date.now(),
+    //     message: userText,
+    //   },
+    // });
     setUserText("");
   }
 
@@ -44,12 +49,14 @@ function ChatComponent() {
 
   function setMessages() {
     if (directMessages !== undefined) {
-      console.log(directMessages);
       let messageIds = [
-        ...new Set(directMessages.map((message) => message.id)),
+        ...new Set(directMessages.map((message) => message.message_id)),
       ];
+      console.log(messageIds);
       let result = messageIds.map((msgId) => {
-        let msg = directMessages.find((message) => message.id == msgId);
+        let msg = directMessages.find(
+          (message) => message.message_id === msgId
+        );
         if (msg.from === userId) {
           msg.from = 0;
         }
@@ -63,6 +70,7 @@ function ChatComponent() {
     return [];
   }
 
+  console.log(directMessages);
   const messages = setMessages();
   return (
     <div className="chat">
