@@ -2,6 +2,7 @@ import { ChatFeed, Message } from "react-chat-ui";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { v4 as uuidv4 } from "uuid";
 
 function ChatComponent() {
   const [userText, setUserText] = useState("");
@@ -10,17 +11,11 @@ function ChatComponent() {
   const { id } = useParams();
   const directMessages = useSelector((state) => state.messages[id]);
 
-  // function sendMessage(e) {
-  //   e.preventDefault();
-  //   setMessages([...messages, new Message({ id: 0, message: userText })]);
-  //   setUserText("");
-  // }
-
-  function sendMessage(e) {
-    e.preventDefault();
+  function sendMessage() {
     dispatch({
       type: "setNewMessage",
       data: {
+        id: uuidv4(),
         from: userId,
         to: id,
         date: Date.now(),
@@ -41,23 +36,34 @@ function ChatComponent() {
     setUserText("");
   }
 
+  function onEnter(e) {
+    if (e.keyCode === 13 && userText !== "") {
+      sendMessage();
+    }
+  }
+
   function setMessages() {
     if (directMessages !== undefined) {
-      return directMessages.map((msg) => {
+      console.log(directMessages);
+      let messageIds = [
+        ...new Set(directMessages.map((message) => message.id)),
+      ];
+      let result = messageIds.map((msgId) => {
+        let msg = directMessages.find((message) => message.id == msgId);
         if (msg.from === userId) {
-          msg.id = 0;
+          msg.from = 0;
         }
         return new Message({
-          id: msg.id,
+          id: msg.from,
           message: msg.message,
         });
       });
+      return result;
     }
     return [];
   }
 
   const messages = setMessages();
-
   return (
     <div className="chat">
       <ChatFeed
@@ -74,8 +80,12 @@ function ChatComponent() {
           },
         }}
       />
-      <input value={userText} onChange={(e) => setUserText(e.target.value)} />
-      <button onClick={(e) => sendMessage(e)}>Send</button>
+      <input
+        onKeyDown={(e) => onEnter(e)}
+        value={userText}
+        onChange={(e) => setUserText(e.target.value)}
+      />
+      <button onClick={() => sendMessage()}>Send</button>
     </div>
   );
 }

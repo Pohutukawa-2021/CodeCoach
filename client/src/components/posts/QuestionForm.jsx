@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 export function QuestionForm() {
   const dispatch = useDispatch();
   const allPosts = useSelector((state) => state.posts);
+  const users = useSelector((state) => state.users);
   const [form, setForm] = useState({
     title: "",
     body: "",
@@ -21,7 +22,6 @@ export function QuestionForm() {
   }
 
   function handleClick(e) {
-    console.log("inHandleClick");
     e.preventDefault();
     dispatch(addPost(form));
     setForm({
@@ -29,16 +29,27 @@ export function QuestionForm() {
       body: "",
     });
   }
+  //console.log("allposts: ", allPosts);
   return (
     <>
       <ul>
-        {allPosts.map((post) => (
-          <li>
-            <Link to={`/app/post/${post.id}`}>
-              {post.text} === {post.username}
-            </Link>
-          </li>
-        ))}
+        {allPosts.map((post) => {
+          return (
+            <li>
+              <Link to={`/app/post/${post.postId}`}>
+                {post.question} === {post.user.name}
+                <ul>
+                  {post.comments.map((commentObj) => (
+                    <li>
+                      {" "}
+                      {commentObj.comment} --- {commentObj.username}
+                    </li>
+                  ))}
+                </ul>
+              </Link>
+            </li>
+          );
+        })}
       </ul>
 
       <section className="flex-container">
@@ -66,7 +77,7 @@ export function QuestionForm() {
             ></input>
           </div>
           <button
-            type="button"
+            type="submit"
             className="button-primary"
             onClick={handleClick}
             data-testid="submitButton"

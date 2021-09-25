@@ -10,6 +10,7 @@ import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
 import ProfilePage from "./ProfilePage";
+import EditProfile from "../components/users/EditProfile";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -29,15 +30,15 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
-
+  //console.log(userAccount);
   return (
     <div>
       {waiting ? (
         <div className="spinner"></div>
       ) : (
         <>
+          <Header />
           <UsersOnline />
-            <Header />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
@@ -52,11 +53,14 @@ function AppHome() {
               <PostComponent />
             </Route>
             <Route path={`${path}/users`}>
-            <ProfilePage />
+              <ProfilePage />
             </Route>
             <Route path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
+             <Route path={`${path}/editprofile`}>
+              <EditProfile />
+             </Route>
           </Switch>
         </>
       )}

@@ -4,18 +4,21 @@ import Modal from 'react-modal'
 
 function UsersList() {
   const users = useSelector((state) => state.users)
-  
+  console.log(users);
   return (
     <>
     <div className='user-container'>
     <ul>
       {users.map((user) => 
-      <div key={user.id}>
-            <img className='avatar' src={user.image_url} alt={user.username} />
-            <p>username: {user.username}</p>
-            <p>Role: {user.role}</p>
-      </div>
-            )}
+        <div key={user.id}>
+          <img className='avatar' src={user.image_url} alt={user.username} />
+          <li>username: {user.username}</li>
+          <li>{user.email}</li>
+          <li>Role: {user.role}</li>
+          <li>Experience: {user.experience}</li>
+          <li>Bio: {user.bio}</li>      
+        </div>
+      )}
     </ul>
     </div>
     </>
