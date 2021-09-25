@@ -50,8 +50,11 @@ io.on("connection", (socket) => {
       });
     } else {
       socket.emit("action", { type: "setUser", data: rows[0] });
+
+      //This will get rid of previous logins of users and update to new socket
       ridOfDuplicateUsersOnline(users, socket.decoded_token.sub);
       users[socket.id] = rows[0];
+
       io.emit("action", { type: "setOnlineUsers", data: users });
 
       //This will send the user his/her text messages;
