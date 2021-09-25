@@ -7,7 +7,6 @@ module.exports = {
   getUserDataById,
   getAllUsers
 };
-
 function getUserData(authId, db = connection) {
   return db("users").where({ auth_id: authId });
 }
