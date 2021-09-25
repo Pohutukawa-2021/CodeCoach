@@ -1,12 +1,14 @@
 import React from 'react'
+import { useSelector } from "react-redux";
+
 
 function UserProfile() {
+  const user = useSelector((state) => state.userAccount)
   return (
-    <div>
-      <p>Name: Test User</p>
-      <p>Username: testuser123</p>
-      <p>testuser123@gmail.com</p>
-      <p>Role: Junior</p>
+    <div className='user-container'>
+      <img className='avatar' src={user.image_url} alt={user.username} />
+      <p>username: {user.username}</p>
+      <p>Role: {user.role}</p>
     </div>
   )
 }
