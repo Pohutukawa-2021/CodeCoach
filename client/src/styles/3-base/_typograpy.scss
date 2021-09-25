@@ -1,0 +1,18 @@
+@use '../2-helpers/vars';
+@use '../2-helpers/mixins';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-size: vars.$font-size;
+  font-family: vars.$font-fam;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: vars.$dark-text;
+}
+
+a {
+  color: vars.$primary;
+}

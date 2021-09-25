@@ -8,6 +8,7 @@ module.exports = {
   getAllPosts,
   getUserDataById,
   changeShape,
+  getAllUsers
 };
 
 function getUserData(authId, db = connection) {
@@ -89,6 +90,10 @@ function changeShape(post, db = connection) {
   return getUserDataById(post.user_id).then((user) => {
     return { ...post, ...user };
   });
+}
+
+function getAllUsers(db = connection) {
+  return db("users").select()
 }
 // function getUserByPost(userId, db = connection) {
 //   return db("users")
