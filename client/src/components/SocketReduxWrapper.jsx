@@ -31,7 +31,7 @@ export function SocketReduxWrapper({ children }) {
     const store = applyMiddleware(socketIoMiddleware)(createStore)(allReducers);
     return <Provider store={store}>{children}</Provider>;
   } else {
-    const socket = io("http://192.168.1.207:3001");
+    const socket = io("https://thecodecoach.herokuapp.com/");
     const socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
     const store = applyMiddleware(socketIoMiddleware)(createStore)(allReducers);
     return (
