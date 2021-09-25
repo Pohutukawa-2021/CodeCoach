@@ -44,17 +44,17 @@ io.use(
 let users = {};
 
 io.on("connection", (socket) => {
+  getAllUsers().then((allUsers) => {
+    socket.emit("action", { type: "setAllUsers", data: allUsers });
+  });
+  getAllPosts().then((allPosts) => {
+    io.emit("action", { type: "setPosts", data: allPosts });
+  });
   getUserData(socket.decoded_token.sub).then((rows) => {
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
         socket.emit("action", { type: "finishWaiting" });
-      });
-      getAllPosts().then((allPosts) => {
-        io.emit("action", { type: "setPosts", data: allPosts });
-      });
-      getAllUsers().then((allUsers) => {
-        socket.emit("action", { type: "setAllUsers", data: allUsers });
       });
     } else {
       socket.emit("action", { type: "setUser", data: rows[0] });
@@ -70,11 +70,7 @@ io.on("connection", (socket) => {
       socket.emit("action", { type: "finishWaiting" });
     }
   });
-  getAllPosts().then((allPosts) => {
-    io.emit("action", { type: "setPosts", data: allPosts });
-  });
-  getAllUsers().then((allUsers) => {
-    socket.emit("action", { type: "setAllUsers", data: allUsers });
+
   socket.on("disconnect", () => {
     delete users[socket.id];
     io.emit("action", { type: "setOnlineUsers", data: users });
