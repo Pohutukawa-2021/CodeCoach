@@ -76,7 +76,7 @@ io.on("connection", (socket) => {
       case "server/sendUserDetails":
         updateUserDetails(action.data, socket.decoded_token.sub).then(
           (data) => {
-            users[socket.id] = { user: data };
+            users[socket.id] = { ...data };
             io.emit("action", { type: "setOnlineUsers", data: users });
             socket.emit("action", { type: "setUser", data });
           }
