@@ -1,15 +1,12 @@
 import React from 'react'
-import Header from '../layouts/header'
-import ProfileList from '../components/users/ProfileList'
-import UsersOnline from '../components/UsersOnline'
+import UsersList from '../components/users/UsersList'
 
 
 function ProfilePage() {
   return (
     <div>
-      <Header />
-      <ProfileList />
-      <UsersOnline />
+      <span>THIS IS LOADING</span>
+      <UsersList />
     </div>
   )
 }

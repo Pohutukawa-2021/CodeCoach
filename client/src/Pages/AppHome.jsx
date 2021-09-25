@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
+import Header from "../layouts/header/Header";
 import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Header from "../layouts/header/Header";
 import ChatComponent from "../components/ChatComponent";
-import LogoutButton from "../components/buttons/LogoutButton";
-import UserProfile from "../components/UserProfile";
+import { PostComponent } from "../components/posts/PostComponent";
+import UserProfile from "../components/users/UserProfile";
+import UsersList from "../components/users/UsersList";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -28,7 +29,7 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
-
+  //console.log(userAccount);
   return (
     <div>
       {waiting ? (
@@ -36,17 +37,22 @@ function AppHome() {
       ) : (
         <>
           <Header />
-          <UsersOnline />
-          <LogoutButton />
           <QuestionForm />
+          <UsersOnline />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
             </Route>
-            <Route path={`${path}/messaging/:id`}>
+            <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
+            <Route path={`${path}/post/:postId`}>
+              <PostComponent />
+            </Route>
             <Route path={`${path}/users`}>
+              <UsersList />
+            </Route>
+            <Route path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
           </Switch>

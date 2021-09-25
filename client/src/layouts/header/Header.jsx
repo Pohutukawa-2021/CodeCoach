@@ -7,7 +7,7 @@ function Header() {
     <div className='header-container'>
       <span className='mobile-logo-container'></span>
       <Nav />
-      {/* <LogoutButton /> */}
+      <LogoutButton />
     </div>
   )
 }
