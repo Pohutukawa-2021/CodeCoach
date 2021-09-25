@@ -4,6 +4,7 @@ html, body {
   font-family: "Roboto";
   margin: 0;
   padding: 0;
+  width: 100vw;
 }
 *,
 *:before,
@@ -75,10 +76,6 @@ $offsetGreen: #77B69E;
       transition: background-color 0.2s ease;
       -webkit-transition: background-color 0.2s ease;
     }
-}
-
-.nav-link-active--active {
-  background-color: black;
 }
 
 .large-screen-logo {
@@ -212,6 +209,7 @@ $offsetGreen: #77B69E;
   color: $darktext;
 }
 
+/* Display different header logo dependig on screen size */
 @media screen and (min-width: 415px) {
   .logo-container {
     display: none;
@@ -227,4 +225,17 @@ $offsetGreen: #77B69E;
 /* This is how you edit the chat panel */
 #chat-panel {
   width: 50%;
+}
+
+/* layout columns styling */
+.layout-left-col {
+
+}
+
+.layout-center-col {
+  
+}
+
+.layout-right-col {
+  
 }
