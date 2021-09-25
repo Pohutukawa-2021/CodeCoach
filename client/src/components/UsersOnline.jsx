@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function UsersOnline() {
   const usersOnline = useSelector((state) => state.usersOnline);
+
   function setUsersOnlineList() {
     let test = [];
     Object.entries(usersOnline).forEach(([key, value]) => {
@@ -17,7 +18,6 @@ function UsersOnline() {
     });
     return test;
   }
-
   const onlineList = setUsersOnlineList();
   return (
     <div>

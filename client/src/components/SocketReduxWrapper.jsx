@@ -5,7 +5,6 @@ import io from "socket.io-client";
 import { Provider } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
 import allReducers from "../redux";
-import { Redirect } from "react-router-dom";
 
 export function SocketReduxWrapper({ children }) {
   const [jwt, setJwt] = useState("");

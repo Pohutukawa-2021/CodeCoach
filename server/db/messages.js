@@ -19,13 +19,11 @@ function getDMFrom(userId, db = connection) {
 }
 
 function addUserMessageRelationship(msgId, toId, fromId, db = connection) {
-  console.log(toId);
   const newRelationship = {
     message_id: msgId,
     to: parseInt(toId),
     from: parseInt(fromId),
   };
-
   return db("user_message_relationship").insert(newRelationship);
 }
 
@@ -38,7 +36,6 @@ function addMessage(msgObj, db = connection) {
   return db("messages")
     .insert(newMessage)
     .then(([id]) => {
-      console.log(msgObj);
       return addUserMessageRelationship(id, msgObj.data.to, msgObj.data.from);
     });
 }

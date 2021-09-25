@@ -26,7 +26,8 @@ function createUser(authId, db = connection) {
     username: "",
     role: "",
     auth_id: authId,
-    image_url: "",
+    image_url:
+      "https://www.pngarts.com/files/10/Default-Profile-Picture-Download-PNG-Image.png",
   };
   return db("users")
     .insert(newUser)
@@ -56,6 +57,10 @@ function updateUserDetails(user, authToken, db = connection) {
     });
 }
 
+function getAllUsers(db = connection) {
+  return db("users").select();
+}
+
 // function getUserByPost(userId, db = connection) {
 //   return db("users")
 //     .join("posts", "posts.user_id", "users.id")
@@ -83,3 +88,4 @@ function updateUserDetails(user, authToken, db = connection) {
 //       };
 //     });
 // }
+//

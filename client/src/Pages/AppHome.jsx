@@ -29,17 +29,16 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
-
+  //console.log(userAccount);
   return (
     <div>
       {waiting ? (
         <div className="spinner"></div>
       ) : (
         <>
-          <UsersOnline />
-            <Header />
-          <QuestionForm />
           <Header />
+          <QuestionForm />
+          <UsersOnline />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
@@ -51,7 +50,7 @@ function AppHome() {
               <PostComponent />
             </Route>
             <Route path={`${path}/users`}>
-            <UsersList />
+              <UsersList />
             </Route>
             <Route path={`${path}/myprofile`}>
               <UserProfile />
