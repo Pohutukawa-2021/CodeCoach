@@ -2,13 +2,17 @@ const {
   getUserData,
   createUser,
   updateUserDetails,
-  addPost,
-  getAllPosts,
   getUserDataById,
-  changeShape,
   getAllUsers,
-  addCommentById,
 } = require("./db/users");
+
+const {
+  getAllPosts,
+  changeShape,
+  addPost,
+  addCommentById,
+  getCommentsByPost
+} = require("./db/post")
 
 //message functions
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
