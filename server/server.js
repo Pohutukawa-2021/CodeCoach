@@ -3,16 +3,19 @@ const {
   createUser,
   updateUserDetails,
   addPost,
+  getAllPosts,
   getUserDataById,
   changeShape,
   getAllUsers,
   addCommentById,
-  getAllPosts,
 } = require("./db/users");
 
 //message functions
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
 const sendMessage = require("./SocketFunctions/Messages/sendMessage");
+
+//user function
+const ridOfDuplicateUsersOnline = require("./SocketFunctions/User/userOnline");
 
 const io = require("socket.io")({
   cors: {
@@ -42,7 +45,6 @@ let users = {};
 
 io.on("connection", (socket) => {
   getUserData(socket.decoded_token.sub).then((rows) => {
-    // console.log(rows);
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
@@ -50,7 +52,11 @@ io.on("connection", (socket) => {
       });
     } else {
       socket.emit("action", { type: "setUser", data: rows[0] });
+
+      //This will get rid of previous logins of users and update to new socket
+      ridOfDuplicateUsersOnline(users, socket.decoded_token.sub);
       users[socket.id] = rows[0];
+
       io.emit("action", { type: "setOnlineUsers", data: users });
 
       //This will send the user his/her text messages;
@@ -75,6 +81,7 @@ io.on("connection", (socket) => {
       case "server/sendUserDetails":
         updateUserDetails(action.data, socket.decoded_token.sub).then(
           (data) => {
+            console.log(data);
             users[socket.id] = { user: data };
             io.emit("action", { type: "setOnlineUsers", data: users });
             socket.emit("action", { type: "setUser", data });

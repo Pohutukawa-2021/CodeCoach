@@ -17,8 +17,8 @@ function UsersOnline() {
     });
     return test;
   }
-
   const onlineList = setUsersOnlineList();
+  console.log("users:", onlineList);
   return (
     <div>
       <h3>Online Users</h3>
