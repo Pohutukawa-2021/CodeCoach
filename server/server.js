@@ -42,6 +42,9 @@ io.on("connection", (socket) => {
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
+      getAllUsers().then(allUsers => {
+        socket.emit("action", {type: "setAllUsers", data: allUsers})
+      })
         socket.emit("action", { type: "finishWaiting" });
       });
     } else {
@@ -51,7 +54,9 @@ io.on("connection", (socket) => {
 
       //This will send the user his/her text messages;
       getDirectMessages(socket);
-
+      getAllUsers().then(allUsers => {
+        socket.emit("action", {type: "setAllUsers", data: allUsers})
+      })
       socket.emit("action", { type: "finishWaiting" });
     }
   });
@@ -100,12 +105,6 @@ io.on("connection", (socket) => {
           console.log("not accurate niggerboi");
         }
         break;
-      case "server/getAllUsers":
-        console.log('Im here');
-        getAllUsers().then(allUsers => {
-          console.log(allUsers);
-          socket.emit("action", {type: "setAllUsers", data: allUsers})
-        })
     }
   });
 });
