@@ -1,5 +1,5 @@
 import { ChatFeed, Message } from "react-chat-ui";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
@@ -16,8 +16,33 @@ function ChatComponent() {
   //   setUserText("");
   // }
 
+  function sendMessage(e) {
+    e.preventDefault();
+    dispatch({
+      type: "setNewMessage",
+      data: {
+        from: userId,
+        to: id,
+        date: Date.now(),
+        time: Date.now(),
+        message: userText,
+      },
+    });
+    dispatch({
+      type: "server/sendMessage",
+      data: {
+        from: userId + "",
+        to: id,
+        date: Date.now(),
+        time: Date.now(),
+        message: userText,
+      },
+    });
+    setUserText("");
+  }
+
   function setMessages() {
-    if (directMessages != undefined) {
+    if (directMessages !== undefined) {
       return directMessages.map((msg) => {
         if (msg.from === userId) {
           msg.id = 0;
@@ -33,7 +58,6 @@ function ChatComponent() {
 
   const messages = setMessages();
 
-  console.log(directMessages);
   return (
     <div className="chat">
       <ChatFeed
@@ -51,7 +75,7 @@ function ChatComponent() {
         }}
       />
       <input value={userText} onChange={(e) => setUserText(e.target.value)} />
-      <button>Send</button>
+      <button onClick={(e) => sendMessage(e)}>Send</button>
     </div>
   );
 }
