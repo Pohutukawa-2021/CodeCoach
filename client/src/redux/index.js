@@ -3,6 +3,7 @@ import userAccount from "./reducers/user";
 import messages from "./reducers/messages";
 import usersOnline from "./reducers/usersOnline";
 import waiting from "./reducers/waiting";
+import commentsByPost from "./reducers/comments";
 
 import posts from "./reducers/posts";
 import { combineReducers } from "redux";
@@ -14,6 +15,7 @@ const allReducers = combineReducers({
   usersOnline,
   messages,
   posts,
+  commentsByPost
 });
 
 export default allReducers;

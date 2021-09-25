@@ -99,6 +99,8 @@ io.on("connection", (socket) => {
           console.log("emptyemptyempty");
         }
         break;
+      case "server/addComment":
+        console.log("adding a comment")
     }
   });
 });
