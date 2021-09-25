@@ -8,6 +8,7 @@ import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import UserProfile from "../components/users/UserProfile";
+import UsersList from "../components/users/UsersList";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -37,6 +38,7 @@ function AppHome() {
           <UsersOnline />
             <Header />
           <QuestionForm />
+          <UsersList />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
@@ -44,7 +46,7 @@ function AppHome() {
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
-            <Route path={`${path}/users`}>
+            <Route path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
           </Switch>

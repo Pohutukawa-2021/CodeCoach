@@ -7,7 +7,7 @@ function UserProfile() {
   return (
     <div className='user-container'>
       <img className='avatar' src={user.image_url} alt={user.username} />
-      <p>username: {user.name}</p>
+      <p>username: {user.username}</p>
       <p>Role: {user.role}</p>
     </div>
   )

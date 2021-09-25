@@ -5,6 +5,7 @@ const {
   addPost,
   getUserDataById,
   changeShape,
+  getAllUsers
 } = require("./db/users");
 
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
@@ -99,6 +100,12 @@ io.on("connection", (socket) => {
           console.log("not accurate niggerboi");
         }
         break;
+      case "server/getAllUsers":
+        console.log('Im here');
+        getAllUsers().then(allUsers => {
+          console.log(allUsers);
+          socket.emit("action", {type: "setAllUsers", data: allUsers})
+        })
     }
   });
 });
