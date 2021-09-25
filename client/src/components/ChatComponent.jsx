@@ -44,12 +44,12 @@ function ChatComponent() {
 
   function setMessages() {
     if (directMessages !== undefined) {
-      console.log(directMessages);
       let messageIds = [
-        ...new Set(directMessages.map((message) => message.id)),
+        ...new Set(directMessages.map((message) => message.message_id)),
       ];
+      console.log(messageIds);
       let result = messageIds.map((msgId) => {
-        let msg = directMessages.find((message) => message.id == msgId);
+        let msg = directMessages.find((message) => message.message_id == msgId);
         if (msg.from === userId) {
           msg.from = 0;
         }

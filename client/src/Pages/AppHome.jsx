@@ -10,6 +10,7 @@ import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
 import UsersList from "../components/users/UsersList";
+import MessageListComponent from "../components/MessageListComponent";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -39,6 +40,7 @@ function AppHome() {
           <Header />
           <QuestionForm />
           <UsersOnline />
+          <MessageListComponent />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
