@@ -29,7 +29,7 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
-
+  //console.log(userAccount);
   return (
     <div>
       {waiting ? (
@@ -37,6 +37,7 @@ function AppHome() {
       ) : (
         <>
           <Header />
+          <QuestionForm />
           <UsersOnline />
           <Switch>
             <Route exact path={path}>
