@@ -10,12 +10,6 @@ function ChatComponent() {
   const { id } = useParams();
   const directMessages = useSelector((state) => state.messages[id]);
 
-  // function sendMessage(e) {
-  //   e.preventDefault();
-  //   setMessages([...messages, new Message({ id: 0, message: userText })]);
-  //   setUserText("");
-  // }
-
   function sendMessage(e) {
     e.preventDefault();
     dispatch({

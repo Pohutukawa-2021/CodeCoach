@@ -5,12 +5,15 @@ const {
   addPost,
   getUserDataById,
   changeShape,
-  getAllUsers
+  getAllUsers,
 } = require("./db/users");
 
 //message functions
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
 const sendMessage = require("./SocketFunctions/Messages/sendMessage");
+
+//user function
+const ridOfDuplicateUsersOnline = require("./SocketFunctions/User/userOnline");
 
 const io = require("socket.io")({
   cors: {
@@ -40,25 +43,22 @@ let users = {};
 
 io.on("connection", (socket) => {
   getUserData(socket.decoded_token.sub).then((rows) => {
-    // console.log(rows);
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
-      getAllUsers().then(allUsers => {
-        socket.emit("action", {type: "setAllUsers", data: allUsers})
-      })
         socket.emit("action", { type: "finishWaiting" });
       });
     } else {
       socket.emit("action", { type: "setUser", data: rows[0] });
+      ridOfDuplicateUsersOnline(users, socket.decoded_token.sub);
       users[socket.id] = rows[0];
       io.emit("action", { type: "setOnlineUsers", data: users });
 
       //This will send the user his/her text messages;
       getDirectMessages(socket);
-      getAllUsers().then(allUsers => {
-        socket.emit("action", {type: "setAllUsers", data: allUsers})
-      })
+      getAllUsers().then((allUsers) => {
+        socket.emit("action", { type: "setAllUsers", data: allUsers });
+      });
       socket.emit("action", { type: "finishWaiting" });
     }
   });
@@ -105,7 +105,7 @@ io.on("connection", (socket) => {
         }
         break;
       case "server/addComment":
-        console.log("adding a comment")
+        console.log("adding a comment");
     }
   });
 });
