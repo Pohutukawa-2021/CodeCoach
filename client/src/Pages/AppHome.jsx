@@ -37,9 +37,8 @@ function AppHome() {
       ) : (
         <>
           <UsersOnline />
-            <Header />
-          <QuestionForm />
           <Header />
+          <QuestionForm />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
@@ -51,7 +50,7 @@ function AppHome() {
               <PostComponent />
             </Route>
             <Route path={`${path}/users`}>
-            <UsersList />
+              <UsersList />
             </Route>
             <Route path={`${path}/myprofile`}>
               <UserProfile />

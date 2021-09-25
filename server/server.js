@@ -5,7 +5,9 @@ const {
   addPost,
   getUserDataById,
   changeShape,
-  getAllUsers
+  getAllUsers,
+  addCommentById,
+  getAllPosts,
 } = require("./db/users");
 
 //message functions
@@ -44,9 +46,6 @@ io.on("connection", (socket) => {
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
-      getAllUsers().then(allUsers => {
-        socket.emit("action", {type: "setAllUsers", data: allUsers})
-      })
         socket.emit("action", { type: "finishWaiting" });
       });
     } else {
@@ -56,9 +55,12 @@ io.on("connection", (socket) => {
 
       //This will send the user his/her text messages;
       getDirectMessages(socket);
-      getAllUsers().then(allUsers => {
-        socket.emit("action", {type: "setAllUsers", data: allUsers})
-      })
+      getAllUsers().then((allUsers) => {
+        socket.emit("action", { type: "setAllUsers", data: allUsers });
+      });
+      getAllPosts().then((allPosts) => {
+        io.emit("action", { type: "setPosts", data: allPosts });
+      });
       socket.emit("action", { type: "finishWaiting" });
     }
   });
@@ -85,27 +87,25 @@ io.on("connection", (socket) => {
       case "server/addPost":
         console.log("adding post");
         if (action.data.title != null || action.data.body != null) {
-          addPost(action.data, socket.decoded_token.sub).then(
-            async (allPosts) => {
-              return await Promise.all(
-                allPosts.map(async (post) => {
-                  return await changeShape(post).then((newObj) => {
-                    // console.log(newObj);
-                    return newObj;
-                  });
-                })
-              ).then((results) => {
-                //cnsole.log(results, "sdfghuidfghuhg");
-                io.emit("action", { type: "setPosts", data: results });
-              });
-            }
-          );
+          addPost(action.data, socket.decoded_token.sub).then((results) => {
+            io.emit("action", { type: "setPosts", data: results });
+          });
         } else {
           console.log("emptyemptyempty");
         }
         break;
       case "server/addComment":
-        console.log("adding a comment")
+        // console.log(action.data);
+        addCommentById(
+          action.data.postId,
+          action.data.comment,
+          socket.decoded_token.sub
+        ).then(() => {
+          getAllPosts().then((allPosts) => {
+            //console.log(allPosts);
+            io.emit("action", { type: "setPosts", data: allPosts });
+          });
+        });
     }
   });
 });
