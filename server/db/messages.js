@@ -24,7 +24,6 @@ function addUserMessageRelationship(msgId, toId, fromId, db = connection) {
     to: parseInt(toId),
     from: parseInt(fromId),
   };
-
   return db("user_message_relationship").insert(newRelationship);
 }
 
