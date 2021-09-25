@@ -8,9 +8,9 @@ function UsersOnline() {
     let test = [];
     Object.entries(usersOnline).forEach(([key, value]) => {
       test.push(
-        <li key={key} id={value.user.auth_id}>
-          <Link to={`/app/messaging/${value.user.id}`}>
-            <img src={value.user.image_url} alt={value.user.username} />
+        <li key={key} id={value.auth_id}>
+          <Link to={`/app/messaging/${value.id}`}>
+            <img src={value.image_url} alt={value.username} />
           </Link>
         </li>
       );

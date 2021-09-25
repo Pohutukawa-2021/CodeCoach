@@ -22,7 +22,6 @@ export function QuestionForm() {
   function handleClick(e) {
     console.log("inHandleClick");
     e.preventDefault();
-    //console.log(form);
     dispatch(addPost(form));
     setForm({
       title: "",
