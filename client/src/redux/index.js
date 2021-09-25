@@ -4,6 +4,7 @@ import messages from "./reducers/messages";
 import usersOnline from "./reducers/usersOnline";
 import users from "./reducers/users";
 import waiting from "./reducers/waiting";
+import commentsByPost from "./reducers/comments";
 
 import posts from "./reducers/posts";
 import { combineReducers } from "redux";
@@ -15,6 +16,7 @@ const allReducers = combineReducers({
   usersOnline,
   messages,
   posts,
+  commentsByPost,
   users
 });
 

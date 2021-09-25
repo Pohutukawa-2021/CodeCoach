@@ -7,6 +7,7 @@ import Header from "../layouts/header/Header";
 import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
+import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
 import UsersList from "../components/users/UsersList";
 
@@ -38,12 +39,16 @@ function AppHome() {
           <UsersOnline />
             <Header />
           <QuestionForm />
+          <Header />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
             </Route>
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
+            </Route>
+            <Route path={`${path}/post/:postId`}>
+              <PostComponent />
             </Route>
             <Route path={`${path}/users`}>
             <UsersList />

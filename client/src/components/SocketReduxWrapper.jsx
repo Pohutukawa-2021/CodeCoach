@@ -22,10 +22,6 @@ export function SocketReduxWrapper({ children }) {
     getToken();
   }, []);
 
-  if (!isAuthenticated) {
-    return <Redirect to="/" />;
-  }
-
   if (jwt !== "") {
     const socket = io("http://localhost:3001", {
       query: `token=${jwt}`,

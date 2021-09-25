@@ -101,9 +101,11 @@ io.on("connection", (socket) => {
             }
           );
         } else {
-          console.log("not accurate niggerboi");
+          console.log("emptyemptyempty");
         }
         break;
+      case "server/addComment":
+        console.log("adding a comment")
     }
   });
 });
