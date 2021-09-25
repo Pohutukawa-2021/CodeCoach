@@ -15,7 +15,7 @@ function ChatComponent() {
     dispatch({
       type: "setNewMessage",
       data: {
-        id: uuidv4(),
+        message_id: uuidv4(),
         from: userId,
         to: id,
         date: Date.now(),
