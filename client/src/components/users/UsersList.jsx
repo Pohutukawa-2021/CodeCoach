@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import Modal from 'react-modal'
 
 function UsersList() {
   const users = useSelector((state) => state.users)
-  console.log(users);
+  
   return (
     <>
-    <h1>Hey</h1>
     <div className='user-container'>
     <ul>
       {users.map((user) => 
