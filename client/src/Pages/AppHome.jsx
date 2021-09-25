@@ -38,13 +38,15 @@ function AppHome() {
           <UsersOnline />
           <LogoutButton />
           <Nav />
-          <QuestionForm />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
             </Route>
             <Route path={`${path}/messaging/:id`}>
               <ChatComponent />
+            </Route>
+            <Route path={`${path}/createpost`}>
+            <QuestionForm />
             </Route>
             <Route path={`${path}/users`}>
               <UserProfile />
