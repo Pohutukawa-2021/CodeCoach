@@ -5,6 +5,7 @@ import { ChatboxEllipsesOutline } from 'react-ionicons'
 import { PeopleOutline } from 'react-ionicons'
 import { HomeOutline } from 'react-ionicons'
 import { useDetectOutsideClick } from "../../useDetectOutsideClick"
+import LogoutButton from "../buttons/LogoutButton"
 
 function Nav() {
   const { isAuthenticated } = useAuth0();
@@ -53,7 +54,7 @@ function Nav() {
             className={`menu ${isActive ? "active" : "inactive"}`}
           >
             <div>
-              <a className="signout-text" href="/">Sign out</a>
+              <LogoutButton />
             </div>
           </div>
         </div>

@@ -207,6 +207,10 @@ $offsetGreen: #77B69E;
 .signout-text {
   text-decoration: none;
   color: $darktext;
+  font-size: 1.2rem;
+  background-color: $background;
+  border: none;
+  cursor: pointer;
 }
 
 /* Display different header logo dependig on screen size */
@@ -228,3 +232,31 @@ $offsetGreen: #77B69E;
 }
 
 /* layout columns styling */
+.max-width-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1600px;
+  margin-top: 82px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.layout-left-col {
+  width: 300px;
+  background-color: $secondary;
+}
+
+.layout-center-col {
+  width: 780px;
+  background-color: $background;
+}
+
+.layout-right-col {
+  width: 300px;
+  background-color: $secondary;
+}

@@ -36,26 +36,36 @@ function AppHome() {
         <div className="spinner"></div>
       ) : (
         <>
-          <Header />
-          <QuestionForm />
-          <UsersOnline />
-          <Switch>
-            <Route exact path={path}>
-              <h1>Home</h1>
-            </Route>
-            <Route exact path={`${path}/messaging/:id`}>
-              <ChatComponent />
-            </Route>
-            <Route path={`${path}/post/:postId`}>
-              <PostComponent />
-            </Route>
-            <Route path={`${path}/users`}>
-              <UsersList />
-            </Route>
-            <Route path={`${path}/myprofile`}>
-              <UserProfile />
-            </Route>
-          </Switch>
+            <Header />
+            <div className="max-width-container">
+              <div className="main-container">
+                <div className="layout-left-col"> 
+                  <Switch>
+                    <Route exact path={path}>
+                      <h1>Home</h1>
+                    </Route>
+                    <Route exact path={`${path}/messaging/:id`}>
+                      <ChatComponent />
+                    </Route>
+                    <Route path={`${path}/post/:postId`}>
+                      <PostComponent />
+                    </Route>
+                    <Route path={`${path}/users`}>
+                      <UsersList />
+                    </Route>
+                    <Route path={`${path}/myprofile`}>
+                      <UserProfile />
+                    </Route>
+                  </Switch>
+                </div>
+                <div className="layout-center-col">
+                  <QuestionForm />
+                </div>
+                <div className="layout-right-col">
+                  <UsersOnline />
+                </div>
+              </div>
+            </div>
         </>
       )}
     </div>
