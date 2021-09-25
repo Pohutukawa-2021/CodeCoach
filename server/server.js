@@ -67,16 +67,14 @@ io.on("connection", (socket) => {
 
       //This will send the user his/her text messages;
       getDirectMessages(socket);
-      getAllUsers().then((allUsers) => {
-        socket.emit("action", { type: "setAllUsers", data: allUsers });
-      });
-      getAllPosts().then((allPosts) => {
-        io.emit("action", { type: "setPosts", data: allPosts });
-      });
       socket.emit("action", { type: "finishWaiting" });
     }
   });
-
+  getAllPosts().then((allPosts) => {
+    io.emit("action", { type: "setPosts", data: allPosts });
+  });
+  getAllUsers().then((allUsers) => {
+    socket.emit("action", { type: "setAllUsers", data: allUsers });
   socket.on("disconnect", () => {
     delete users[socket.id];
     io.emit("action", { type: "setOnlineUsers", data: users });
