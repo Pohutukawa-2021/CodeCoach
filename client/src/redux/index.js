@@ -2,6 +2,7 @@ import testReducer from "./reducers/testReducer";
 import userAccount from "./reducers/user";
 import messages from "./reducers/messages";
 import usersOnline from "./reducers/usersOnline";
+import users from "./reducers/users";
 import waiting from "./reducers/waiting";
 import commentsByPost from "./reducers/comments";
 
@@ -15,7 +16,8 @@ const allReducers = combineReducers({
   usersOnline,
   messages,
   posts,
-  commentsByPost
+  commentsByPost,
+  users
 });
 
 export default allReducers;
