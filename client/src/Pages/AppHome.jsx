@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
-import Nav from "../components/navigation/Nav";
+import Header from "../layouts/header/Header";
 import ChatComponent from "../components/ChatComponent";
 import LogoutButton from "../components/buttons/LogoutButton";
 import UserProfile from "../components/UserProfile";
@@ -35,9 +35,9 @@ function AppHome() {
         <div className="spinner"></div>
       ) : (
         <>
+          <Header />
           <UsersOnline />
           <LogoutButton />
-          <Nav />
           <QuestionForm />
           <Switch>
             <Route exact path={path}>
