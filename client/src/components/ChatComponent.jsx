@@ -47,7 +47,6 @@ function ChatComponent() {
       let messageIds = [
         ...new Set(directMessages.map((message) => message.message_id)),
       ];
-      console.log(messageIds);
       let result = messageIds.map((msgId) => {
         let msg = directMessages.find((message) => message.message_id == msgId);
         if (msg.from === userId) {
