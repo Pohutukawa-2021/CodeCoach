@@ -1,27 +1,32 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useSelector } from 'react-redux'
-import Modal from 'react-modal'
+import { useDetectOutsideClick } from '../../useDetectOutsideClick'
 
 function UsersList() {
   const users = useSelector((state) => state.users)
-  console.log(users);
+  const popUpRef = useRef(null);
+  console.log(popUpRef);
+  const [isActive, setIsActive] = useDetectOutsideClick(popUpRef, false);
+  const onClick = () => setIsActive(!isActive);
   return (
-    <>
-    <div className='user-container'>
-    <ul>
-      {users.map((user) => 
-        <div key={user.id}>
+    <div className='container'>
+      <div className='user-container'>
+        {users.map((user) => 
+          <button key={user.id} onClick={onClick} className="menu-trigger">
           <img className='avatar' src={user.image_url} alt={user.username} />
-          <li>username: {user.username}</li>
-          <li>{user.email}</li>
-          <li>Role: {user.role}</li>
-          <li>Experience: {user.experience}</li>
-          <li>Bio: {user.bio}</li>      
-        </div>
+          <span>username: {user.username}</span>
+          <span>{user.email}</span>
+          <span>Role: {user.role}</span>
+          <span>Experience: {user.experience}</span>
+          <span>Bio: {user.bio}</span>
+          </button>     
       )}
-    </ul>
+          <div ref={popUpRef}
+          className={`menu ${isActive ? "active" : "inactive"}`}>
+        <p>IM A POP UP</p>
+        </div>
+      </div>
     </div>
-    </>
   )
 }
 

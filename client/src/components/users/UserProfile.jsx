@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 function UserProfile() {
   const user = useSelector((state) => state.userAccount)
-  console.log(user)
   return (
     <div className='user-container'>
       <img className='avatar' src={user.image_url} alt={user.username} />
@@ -20,3 +19,6 @@ function UserProfile() {
 }
 
 export default UserProfile
+
+// if userAccount is === to currentUser use userAccount
+// if not use Users
