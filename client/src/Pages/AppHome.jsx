@@ -9,6 +9,8 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
+import UsersList from "../components/users/UsersList";
+import MessageListComponent from "../components/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
 
@@ -46,7 +48,10 @@ function AppHome() {
                   </Route>
                 </div>
                 <div className="layout-center-col">
-                <Switch>
+                  <Switch>
+                  <Route>
+                    <MessageListComponent />
+                  </Route>
                   <Route exact path={`${path}/messaging/:id`}>
                     <ChatComponent />
                   </Route>
