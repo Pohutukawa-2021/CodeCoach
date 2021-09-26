@@ -40,37 +40,38 @@ function AppHome() {
             <Header />
             <div className="max-width-container">
               <div className="main-container">
-                <div className="layout-left-col"> 
-                  <Switch>
-                    <Route exact path={path}>
-                      <h1 className="left-col-title">Home</h1>
-                    </Route>
-                    <Route exact path={`${path}/messaging/:id`}>
-                      <ChatComponent />
-                    </Route>
-                    <Route path={`${path}/createpost`}>
-                      <QuestionForm />
-                    </Route>
-                    <Route path={`${path}/post/:postId`}>
-                      <PostComponent />
-                    </Route>
-                    <Route path={`${path}/users`}>
-                      <ProfilePage />
-                    </Route>
-                    <Route path={`${path}/myprofile`}>
-                      <UserProfile />
-                    </Route>
-                    <Route path={`${path}/editprofile`}>
-                      <EditProfile />
-                    </Route>
-                  </Switch>
+                <div className="layout-left-col">
+                <Route exact path={path}>
+                    <h1 className="left-col-title">Home</h1>
+                  </Route>
                 </div>
                 <div className="layout-center-col">
-                  <QuestionForm />
+                <Switch>
+                  <Route exact path={`${path}/messaging/:id`}>
+                    <ChatComponent />
+                  </Route>
+                  <Route path={`${path}/createpost`}>
+                    <QuestionForm />
+                  </Route>
+                  <Route path={`${path}/post/:postId`}>
+                    <PostComponent />
+                  </Route>
+                  <Route path={`${path}/users`}>
+                    <ProfilePage />
+                  </Route>
+                  <Route path={`${path}/myprofile`}>
+                    <UserProfile />
+                  </Route>
+                  <Route path={`${path}/editprofile`}>
+                    <EditProfile />
+                  </Route>
+                  </Switch>
                 </div>
                 <div className="layout-right-col">
+                <Route path={path}>
                   <UsersOnline />
-                </div>
+                  </Route>
+                  </div>
               </div>
             </div>
         </>

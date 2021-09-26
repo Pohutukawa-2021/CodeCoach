@@ -255,6 +255,7 @@ $offsetGreen: #77B69E;
 .layout-center-col {
   width: 780px;
   background-color: $background;
+  z-index: 99999;
 }
 
 .layout-right-col {
