@@ -50,7 +50,7 @@ function AppHome() {
               <ChatComponent />
             </Route>
             <Route path={`${path}/createpost`}>
-            <QuestionForm />
+              <QuestionForm />
             </Route>
             <Route path={`${path}/post/:postId`}>
               <PostComponent />
@@ -61,9 +61,9 @@ function AppHome() {
             <Route path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
-             <Route path={`${path}/editprofile`}>
+            <Route path={`${path}/editprofile`}>
               <EditProfile />
-             </Route>
+            </Route>
           </Switch>
         </>
       )}
