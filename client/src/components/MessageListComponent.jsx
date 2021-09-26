@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function MessageListComponent() {
   const allUsers = useSelector((state) => state.users);
@@ -18,12 +19,12 @@ function MessageListComponent() {
     return peopleInConversationWithId.map((key) => {
       const userDetails = getUserDetailsById(key);
       const lastMessage = getLatestMessageForUser(key);
-      console.log(userDetails);
-      console.log(lastMessage);
       return (
         <li>
-          <img src={userDetails.image_url} />
-          <p>{lastMessage.message}</p>
+          <Link to={`/app/messaging/${userDetails.id}`}>
+            <img src={userDetails.image_url} alt={userDetails.username} />
+            <p>{lastMessage.message}</p>
+          </Link>
         </li>
       );
     });
