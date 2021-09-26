@@ -57,7 +57,7 @@ io.on("connection", (socket) => {
     .then((allPosts) => {
       io.emit("action", { type: "setPosts", data: allPosts });
     })
-    .catch((err) => console.log(err.message));
+    .catch((err) => console.log("getAllPost function", err.message));
   getUserData(socket.decoded_token.sub)
     .then((rows) => {
       if (rows.length == 0) {
@@ -68,10 +68,12 @@ io.on("connection", (socket) => {
               .then((allUsers) => {
                 socket.emit("action", { type: "setAllUsers", data: allUsers });
               })
-              .catch((err) => console.log(err.message));
+              .catch((err) =>
+                console.log("getAll users function", err.message)
+              );
             socket.emit("action", { type: "finishWaiting" });
           })
-          .catch((err) => console.log(err.message));
+          .catch((err) => console.log("create user", err.message));
       } else {
         socket.emit("action", { type: "setUser", data: rows[0] });
 
@@ -87,11 +89,11 @@ io.on("connection", (socket) => {
           .then((allUsers) => {
             socket.emit("action", { type: "setAllUsers", data: allUsers });
           })
-          .catch((err) => console.log(err.message));
+          .catch((err) => console.log("getAllUsers", err.message));
         socket.emit("action", { type: "finishWaiting" });
       }
     })
-    .catch((err) => console.log(err.message));
+    .catch((err) => console.log("getUserData function", err.message));
 
   socket.on("disconnect", () => {
     delete users[socket.id];

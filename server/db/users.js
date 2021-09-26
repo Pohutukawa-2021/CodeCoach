@@ -30,7 +30,7 @@ function createUser(authId, db = connection) {
   return db("users")
     .insert(newUser)
     .then(([id]) => {
-      return getUserData(id).then((data) => {
+      return getUserDataById(id).then((data) => {
         return data;
       });
     });
