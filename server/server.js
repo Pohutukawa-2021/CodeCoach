@@ -53,9 +53,6 @@ io.use(
 let users = {};
 
 io.on("connection", (socket) => {
-  // getAllUsers().then((allUsers) => {
-  //   socket.emit("action", { type: "setAllUsers", data: allUsers });
-  // });
   getAllPosts().then((allPosts) => {
     io.emit("action", { type: "setPosts", data: allPosts });
   });

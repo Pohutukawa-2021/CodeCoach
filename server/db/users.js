@@ -5,14 +5,14 @@ module.exports = {
   createUser,
   updateUserDetails,
   getUserDataById,
-  getAllUsers
+  getAllUsers,
 };
 function getUserData(authId, db = connection) {
   return db("users").where({ auth_id: authId });
 }
 
 function getAllUsers(db = connection) {
-  return db("users").select()
+  return db("users").select();
 }
 
 function getUserDataById(userId, db = connection) {
@@ -25,8 +25,7 @@ function createUser(authId, db = connection) {
     username: "",
     role: "",
     auth_id: authId,
-    image_url:
-      "https://www.pngarts.com/files/10/Default-Profile-Picture-Download-PNG-Image.png",
+    image_url: "",
   };
   return db("users")
     .insert(newUser)
@@ -44,7 +43,7 @@ function updateUserDetails(user, authToken, db = connection) {
     image_url: user.picture,
     bio: user.bio,
     role: user.role,
-    experience: user.experience
+    experience: user.experience,
   };
   return db("users")
     .where({ auth_id: authToken })
