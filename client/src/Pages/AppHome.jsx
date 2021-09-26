@@ -9,7 +9,8 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
-import UsersList from "../components/users/UsersList";
+import ProfilePage from "./ProfilePage";
+import EditProfile from "../components/users/EditProfile";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -47,14 +48,20 @@ function AppHome() {
                     <Route exact path={`${path}/messaging/:id`}>
                       <ChatComponent />
                     </Route>
+                    <Route path={`${path}/createpost`}>
+                      <QuestionForm />
+                    </Route>
                     <Route path={`${path}/post/:postId`}>
                       <PostComponent />
                     </Route>
                     <Route path={`${path}/users`}>
-                      <UsersList />
+                      <ProfilePage />
                     </Route>
                     <Route path={`${path}/myprofile`}>
                       <UserProfile />
+                    </Route>
+                    <Route path={`${path}/editprofile`}>
+                      <EditProfile />
                     </Route>
                   </Switch>
                 </div>

@@ -5,7 +5,7 @@ import UsersList from '../components/users/UsersList'
 function ProfilePage() {
   return (
     <div>
-      <span>THIS IS LOADING</span>
+      <h2>Developers List</h2>
       <UsersList />
     </div>
   )

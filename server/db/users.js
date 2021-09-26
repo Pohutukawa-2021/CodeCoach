@@ -42,6 +42,9 @@ function updateUserDetails(user, authToken, db = connection) {
     email: user.email,
     username: user.name,
     image_url: user.picture,
+    bio: user.bio,
+    role: user.role,
+    experience: user.experience
   };
   return db("users")
     .where({ auth_id: authToken })
