@@ -34,9 +34,11 @@ function createUser(authId, db = connection) {
         .then((data) => {
           return data;
         })
-        .catch((err) => console.log("happens on second level catch"));
+        .catch((err) =>
+          console.log("happens on second level catch", err.message)
+        );
     })
-    .catch((err) => console.log("happens on first level catch"));
+    .catch((err) => console.log("happens on first level catch", err.message));
 }
 
 function updateUserDetails(user, authToken, db = connection) {
