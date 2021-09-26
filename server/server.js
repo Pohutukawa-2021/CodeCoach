@@ -2,13 +2,17 @@ const {
   getUserData,
   createUser,
   updateUserDetails,
-  addPost,
-  getAllPosts,
   getUserDataById,
-  changeShape,
   getAllUsers,
-  addCommentById,
 } = require("./db/users");
+
+const {
+  getAllPosts,
+  changeShape,
+  addPost,
+  addCommentById,
+  getCommentsByPost
+} = require("./db/post")
 
 //message functions
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
@@ -44,9 +48,9 @@ io.use(
 let users = {};
 
 io.on("connection", (socket) => {
-  getAllUsers().then((allUsers) => {
-    socket.emit("action", { type: "setAllUsers", data: allUsers });
-  });
+  // getAllUsers().then((allUsers) => {
+  //   socket.emit("action", { type: "setAllUsers", data: allUsers });
+  // });
   getAllPosts().then((allPosts) => {
     io.emit("action", { type: "setPosts", data: allPosts });
   });
@@ -54,6 +58,9 @@ io.on("connection", (socket) => {
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
+      getAllUsers().then(allUsers => {
+        socket.emit("action", {type: "setAllUsers", data: allUsers})
+      })
         socket.emit("action", { type: "finishWaiting" });
       });
     } else {
@@ -67,6 +74,9 @@ io.on("connection", (socket) => {
 
       //This will send the user his/her text messages;
       getDirectMessages(socket);
+      getAllUsers().then((allUsers) => {
+        socket.emit("action", { type: "setAllUsers", data: allUsers });
+      });
       socket.emit("action", { type: "finishWaiting" });
     }
   });
@@ -84,6 +94,9 @@ io.on("connection", (socket) => {
             users[socket.id] = { ...data };
             io.emit("action", { type: "setOnlineUsers", data: users });
             socket.emit("action", { type: "setUser", data });
+        getAllUsers().then((allUsers) => {
+          socket.emit("action", { type: "setAllUsers", data: allUsers });
+        });
           }
         );
         break;

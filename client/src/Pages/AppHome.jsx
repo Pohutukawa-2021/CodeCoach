@@ -11,6 +11,8 @@ import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
 import UsersList from "../components/users/UsersList";
 import MessageListComponent from "../components/MessageListComponent";
+import ProfilePage from "./ProfilePage";
+import EditProfile from "../components/users/EditProfile";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -38,7 +40,6 @@ function AppHome() {
       ) : (
         <>
           <Header />
-          <QuestionForm />
           <UsersOnline />
           <MessageListComponent />
           <Switch>
@@ -48,15 +49,21 @@ function AppHome() {
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
+            <Route path={`${path}/createpost`}>
+            <QuestionForm />
+            </Route>
             <Route path={`${path}/post/:postId`}>
               <PostComponent />
             </Route>
             <Route path={`${path}/users`}>
-              <UsersList />
+              <ProfilePage />
             </Route>
             <Route path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
+             <Route path={`${path}/editprofile`}>
+              <EditProfile />
+             </Route>
           </Switch>
         </>
       )}

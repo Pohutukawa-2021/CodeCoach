@@ -1,13 +1,12 @@
 import React from "react";
-import UserProfile from "./UserProfile";
 import { useSelector } from "react-redux";
+import Modal from "react-modal";
 
 function UsersList() {
   const users = useSelector((state) => state.users);
 
   return (
     <>
-      <h1>Hey</h1>
       <div className="user-container">
         <ul>
           {users.map((user) => (
@@ -17,8 +16,11 @@ function UsersList() {
                 src={user.image_url}
                 alt={user.username}
               />
-              <p>username: {user.username}</p>
-              <p>Role: {user.role}</p>
+              <li>username: {user.username}</li>
+              <li>{user.email}</li>
+              <li>Role: {user.role}</li>
+              <li>Experience: {user.experience}</li>
+              <li>Bio: {user.bio}</li>
             </div>
           ))}
         </ul>
