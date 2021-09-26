@@ -30,10 +30,13 @@ function createUser(authId, db = connection) {
   return db("users")
     .insert(newUser)
     .then(([id]) => {
-      return getUserDataById(id).then((data) => {
-        return data;
-      });
-    });
+      return getUserDataById(id)
+        .then((data) => {
+          return data;
+        })
+        .catch((err) => console.log("happens on second level catch"));
+    })
+    .catch((err) => console.log("happens on first level catch"));
 }
 
 function updateUserDetails(user, authToken, db = connection) {
