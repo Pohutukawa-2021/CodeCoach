@@ -15,7 +15,7 @@ function ChatComponent() {
     dispatch({
       type: "setNewMessage",
       data: {
-        id: uuidv4(),
+        message_id: uuidv4(),
         from: userId,
         to: id,
         date: Date.now(),
@@ -44,12 +44,11 @@ function ChatComponent() {
 
   function setMessages() {
     if (directMessages !== undefined) {
-      console.log(directMessages);
       let messageIds = [
-        ...new Set(directMessages.map((message) => message.id)),
+        ...new Set(directMessages.map((message) => message.message_id)),
       ];
       let result = messageIds.map((msgId) => {
-        let msg = directMessages.find((message) => message.id == msgId);
+        let msg = directMessages.find((message) => message.message_id == msgId);
         if (msg.from === userId) {
           msg.from = 0;
         }

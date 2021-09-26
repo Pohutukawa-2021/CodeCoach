@@ -9,6 +9,8 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
+import UsersList from "../components/users/UsersList";
+import MessageListComponent from "../components/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
 
@@ -39,6 +41,7 @@ function AppHome() {
         <>
           <Header />
           <UsersOnline />
+          <MessageListComponent />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>

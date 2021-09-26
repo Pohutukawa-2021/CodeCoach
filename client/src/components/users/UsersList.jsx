@@ -30,4 +30,4 @@ function UsersList() {
   )
 }
 
-export default UsersList
+export default UsersList;
