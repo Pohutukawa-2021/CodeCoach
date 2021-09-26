@@ -1,3 +1,14 @@
+const path = require("path");
+const express = require("express");
+const app = express();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
+
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("/*", (req, res, next) =>
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+);
+
 const {
   getUserData,
   createUser,
@@ -11,8 +22,8 @@ const {
   changeShape,
   addPost,
   addCommentById,
-  getCommentsByPost
-} = require("./db/post")
+  getCommentsByPost,
+} = require("./db/post");
 
 //message functions
 const getDirectMessages = require("./SocketFunctions/Messages/getDirectMessages");
@@ -20,12 +31,6 @@ const sendMessage = require("./SocketFunctions/Messages/sendMessage");
 
 //user function
 const ridOfDuplicateUsersOnline = require("./SocketFunctions/User/userOnline");
-
-const io = require("socket.io")({
-  cors: {
-    origin: "*",
-  },
-});
 
 const jwt = require("express-jwt");
 const socketioJwt = require("socketio-jwt");
@@ -58,9 +63,9 @@ io.on("connection", (socket) => {
     if (rows.length == 0) {
       createUser(socket.decoded_token.sub).then((newData) => {
         socket.emit("action", { type: "setUser", data: newData });
-      getAllUsers().then(allUsers => {
-        socket.emit("action", {type: "setAllUsers", data: allUsers})
-      })
+        getAllUsers().then((allUsers) => {
+          socket.emit("action", { type: "setAllUsers", data: allUsers });
+        });
         socket.emit("action", { type: "finishWaiting" });
       });
     } else {
@@ -94,9 +99,9 @@ io.on("connection", (socket) => {
             users[socket.id] = { ...data };
             io.emit("action", { type: "setOnlineUsers", data: users });
             socket.emit("action", { type: "setUser", data });
-        getAllUsers().then((allUsers) => {
-          socket.emit("action", { type: "setAllUsers", data: allUsers });
-        });
+            getAllUsers().then((allUsers) => {
+              socket.emit("action", { type: "setAllUsers", data: allUsers });
+            });
           }
         );
         break;
@@ -129,6 +134,6 @@ io.on("connection", (socket) => {
   });
 });
 
-const port = 3001;
-io.listen(port);
+const port = process.env.PORT || 3000;
+server.listen(port);
 console.log("Server is listening on port ", port);
