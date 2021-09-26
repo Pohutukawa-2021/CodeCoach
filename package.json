@@ -8,11 +8,11 @@
     "dev": "npm-run-all --parallel startServer startClient",
     "startClient": "cd ./client && npm run start",
     "startServer": "cd ./server && npm run dev",
-    "install": "npm-run-all --parallel installServer installClient",
+    "install": "npm-run-all installClient installServer",
     "migrate": "cd ./server && npx knex migrate:latest && npx knex seed:run",
     "seed": "cd ./server && npx knex seed:run",
-    "installServer": "cd ./server && npm install",
-    "installClient": "cd ./client && npm install"
+    "installServer": "cd ./server && npm install && npm run build",
+    "installClient": "cd ./client && npm install && npm run build"
   },
   "repository": {
     "type": "git",
