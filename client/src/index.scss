@@ -249,6 +249,7 @@ $offsetGreen: #77B69E;
 .layout-left-col {
   width: 300px;
   background-color: $secondary;
+  margin-left: 20px;
 }
 
 .layout-center-col {
@@ -258,12 +259,13 @@ $offsetGreen: #77B69E;
 
 .layout-right-col {
   width: 300px;
-  background-color: $secondary;
+  margin-right: 20px;
 }
 
 .left-col-title {
   font-size: 2.2rem;
   margin-top: 0;
+  
 }
 
 .right-col-title {
@@ -280,4 +282,11 @@ $offsetGreen: #77B69E;
 /* styling online users */
 .online-user-list {
   list-style-type: none;
+  padding-left: 0;
+}
+
+.online-user-avatar {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
 }
