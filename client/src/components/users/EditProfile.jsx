@@ -1,16 +1,17 @@
-import React, {useState} from 'react'
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import React, {useState } from 'react'
+import {useHistory} from 'react-router-dom'
+import { useSelector, useDispatch } from "react-redux";
 import {sendUserDetails} from "../../redux/actions/user"
 
 function EditProfile() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const user = useSelector((state) => state.userAccount)
   const [form, setForm] = useState({
-    name: "",
+    name: user.username,
     role: "",
     experience: "",
-    bio: "",
+    bio: user.bio,
   });
   
   function handleChange(e) {
@@ -24,12 +25,7 @@ function EditProfile() {
   function handleClick(e) {
     e.preventDefault();
     dispatch(sendUserDetails(form));
-    setForm({
-      name: "",
-      role: "",
-      experience: "",
-      bio: "",
-    });
+    history.push('/app/myprofile')
   }
   return (
     <div>
@@ -53,8 +49,8 @@ function EditProfile() {
             className='select'
             name='role'>
             <option hidden>Select from this list</option>
-            <option value={1}>Junior</option>
-            <option value={2}>Senior</option>
+            <option value="Junior">Junior</option>
+            <option value="Senior">Senior</option>
           </select>
           </div>
           <div>
@@ -64,11 +60,11 @@ function EditProfile() {
             className='select'
             name='experience'>
             <option hidden>Select from this list</option>
-            <option value={1}>0-1 year experience</option>
-            <option value={2}>1-2 year experience</option>
-            <option value={3}>2-3 year experience</option>
-            <option value={4}>3-4 year experience</option>
-            <option value={5}>5+ year experience</option>
+            <option value="0-1 year experience">0-1 year experience</option>
+            <option value="1-2 years experience">1-2 years experience</option>
+            <option value="2-3 years experience">2-3 years experience</option>
+            <option value="3-4 years experience">3-4 years experience</option>
+            <option value="5+ year experience">5+ year experience</option>
           </select>
           </div>
           <div className="field">
