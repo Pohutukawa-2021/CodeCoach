@@ -1,4 +1,4 @@
-import React, { useRef} from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { ChatboxEllipsesOutline } from 'react-ionicons'
@@ -17,10 +17,10 @@ function Nav() {
     return (
       <div className="nav">
         <div className="nav-left-col">
-          <Link to="/" className="nav-link large-screen-logo">Logo</Link>
+          <Link to="/app" className="nav-link large-screen-logo">Logo</Link>
         </div>
         <div className="nav-center-col">
-          <Link to="/" className="nav-link nav-link-active">
+          <Link to="/app" className="nav-link nav-link-active">
             <HomeOutline
               color={'#ffffff'}
               height="30px"
@@ -34,19 +34,19 @@ function Nav() {
               width="30px"
             />
           </Link>
-          <Link to="/messages" className="nav-link nav-link-active">
+          <Link to="/app/messages" className="nav-link nav-link-active">
             <ChatboxEllipsesOutline
               color={'#ffffff'}
               height="30px"
               width="30px"
             />
           </Link>
-          <Link to="/createpost" className="nav-link nav-link-ask-question nav-link-active">
+          <Link to="/app/createpost" className="nav-link nav-link-ask-question nav-link-active">
             <button className="nav-question-button">Ask Question</button>
           </Link>
         </div>
         <div className="nav-right-col">
-          <Link to="/myprofile" className="nav-link nav-avatar-link">CP</Link>
+          <Link to="/app/myprofile" className="nav-link nav-avatar-link">CP</Link>
           <button onClick={onClick} className="nav-triangle-button">
             <div className="nav-triangle"></div>
           </button>

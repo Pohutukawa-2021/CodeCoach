@@ -290,3 +290,14 @@ $offsetGreen: #77B69E;
   height: 66px;
   border-radius: 50%;
 }
+
+.online-user-link {
+  display: flex;
+  text-decoration: none;
+}
+
+.onlineusers-name {
+  font-size: 1.2rem;
+  margin-left: 8px;
+  color: $darktext;
+}
