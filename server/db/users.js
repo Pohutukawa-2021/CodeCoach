@@ -25,7 +25,7 @@ function createUser(authId, db = connection) {
     bio: "",
     experience: "",
   };
-  console.log(newUser);
+  console.log(db);
   return db("users")
     .insert(newUser)
     .then(([id]) => {
@@ -38,7 +38,6 @@ function createUser(authId, db = connection) {
         );
     })
     .catch((err) => {
-      console.log(err.message, err.fileName, err.lineNumber, err.columnNumber);
       console.log(err.toString());
     });
 }
