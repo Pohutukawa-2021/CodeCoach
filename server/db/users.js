@@ -26,6 +26,8 @@ function createUser(authId, db = connection) {
     role: "",
     auth_id: authId,
     image_url: "",
+    bio: "",
+    experience: "",
   };
   return db("users")
     .insert(newUser)
