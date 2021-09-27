@@ -40,10 +40,12 @@ function AppHome() {
         <>
           <Header />
           <UsersOnline />
-          <MessageListComponent />
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
+            </Route>
+            <Route exact path={`${path}/messaging/`}>
+            <MessageListComponent />
             </Route>
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
