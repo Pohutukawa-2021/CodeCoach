@@ -1,22 +1,22 @@
 @charset "utf-8";
-// 0 - TOOLS 
+// 0 - TOOLS
 // *** CSS Resets, etc ***
-@use './styles/1-tools/_normalize';
+@use "./styles/1-tools/_normalize";
 
-// 1 - HELPERS 
+// 1 - HELPERS
 // *** All variables, mixins.scss and functions.scss ***
-@use './styles/3-base/_base';
+@use "./styles/3-base/_base";
 
-// 2 - Base 
+// 2 - Base
 // *** It includes basic styles to HTML tags like H1, H2, section, article, ul ***
-@use './styles/3-base/__base.scss';
+@use "./styles/3-base/__base.scss";
 
-// 3 - LAYOUT 
+// 3 - LAYOUT
 // *** Header, footer, reusable components classes ***
-@use './styles/4-layout/_layout.scss';
+@use "./styles/4-layout/_layout.scss";
 
-// 4 - MODULES 
+// 4 - MODULES
 // *** Similar to layout but for smaller groups of elements like buttons, cards, sliders ***
-@use './styles/5-modules/__modules.scss';
+@use "./styles/5-modules/__modules.scss";
 
 // NO DIRECT STYLES IN THIS FILE MAKE A NEW FILE AND IMPORT IT.
