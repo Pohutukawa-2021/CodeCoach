@@ -10,16 +10,18 @@ function GreetPage() {
     return <Redirect to="/app/" />;
   }
   return (
-    <div>
-      <img src="/logo.png" alt="codecoach-logo" className='logo-image' />
-      <div className="center">
-        <p className="greeting">A new way to connect with developers</p>
-        <img src="/connection.png" alt="connected" className='greetimage' />
-        <p className="words">Connect・Learn・Code</p>
+    <div className="max-width-container">
+      <div className="main-container">
+        <img src="/Logo.png" alt="codecoach-logo" className='logo-image' />
+        <div className="center">
+          <p className="greeting">A new way to connect with developers</p>
+          <img src="/Connection.png" alt="connected" className='greetimage' />
+          <p className="words">Connect・Learn・Code</p>
         </div>
         <div className="center">
-      <LoginButton />
+          <LoginButton />
         </div>
+      </div>
     </div>
   )
 }

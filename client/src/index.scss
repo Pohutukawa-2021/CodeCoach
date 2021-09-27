@@ -105,6 +105,10 @@ $offsetGreen: #77B69E;
       transition: background-color 0.15s ease;
       -webkit-transition: background-color 0.15s ease;
     }
+
+    &:focus {
+      outline: none;
+    }
 }
 
 .nav-link-ask-question {
@@ -147,6 +151,10 @@ $offsetGreen: #77B69E;
       background-color: $secondary;
       transition: background-color 0.15s ease;
       -webkit-transition: background-color 0.15s ease;
+    }
+
+    &:focus {
+      outline: none;
     }
 }
 
@@ -521,9 +529,7 @@ $offsetGreen: #77B69E;
 
 /* landing page styling */ 
 .logo-image {
-    height: 100px; 
-    width: 300px; 
-      object-fit: contain;
+  width: 300px;
 }
 
 .center {
@@ -531,7 +537,7 @@ $offsetGreen: #77B69E;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  }
+}
 
 .greet-container {
   margin: 0 auto;
@@ -539,7 +545,8 @@ $offsetGreen: #77B69E;
 }
 
 .btn-container {
-margin-top: 50px;}
+margin-top: 50px;
+}
 
 .greetimage {
   height: 550px; 
@@ -560,32 +567,26 @@ margin-top: 50px;}
 }
 
 .login-btn {
-  justify-content: center;
-    margin: 0 auto;
-    display:flexbox;
+    justify-content: center;
+    display: flex;
     border: none;
     text-decoration: none;
-    background: #A5D2F3;
-    color: #092a44;
-    font-family: sans-serif;
+    background-color: #A5D2F3;
+    color: $darktext;
+    font-family: "Roboto";
     font-size: 20px;
     cursor: pointer;
     text-align: center;
-    transition: background 250ms ease-in-out, 
-                transform 150ms ease;
+    transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
     width: 220px;
     height: 50px;
     border-radius:10px;
+
+    &:hover {
+      background: $primary;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+      color: $lighttext
+    }
 }
 
- button:hover,
-  button:focus {
-    background: #0e426d;
-    box-shadow: 0 0 20px rgba(19, 19, 19, 0.2);
-    color: white
-}
-
-button:focus {
-    outline: 2px solid #fff;
-    outline-offset: -4px;
-}
