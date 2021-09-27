@@ -16,14 +16,27 @@ function MessageListComponent() {
 
   function getUsersInConversationWith() {
     const peopleInConversationWithId = Object.keys(directMessages);
-    return peopleInConversationWithId.map((key) => {
+    const arrayOfLastMessage = peopleInConversationWithId.map((key) => {
       const userDetails = getUserDetailsById(key);
       const lastMessage = getLatestMessageForUser(key);
+      return {
+        userDetailsId: userDetails.id,
+        userDetailsImage: userDetails.image_url,
+        userDetailsUsername: userDetails.username,
+        userLastMessage: lastMessage.message,
+        messageDateSent: lastMessage.date,
+      };
+    });
+    const sortedArray = arrayOfLastMessage.sort(
+      (a, b) => b.messageDateSent - a.messageDateSent
+    );
+    console.log(sortedArray);
+    return sortedArray.map((msg) => {
       return (
         <li>
-          <Link to={`/app/messaging/${userDetails.id}`}>
-            <img src={userDetails.image_url} alt={userDetails.username} />
-            <p>{lastMessage.message}</p>
+          <Link to={`/app/messaging/${msg.userDetailsId}`}>
+            <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} />
+            <p>{msg.userLastMessage}</p>
           </Link>
         </li>
       );
