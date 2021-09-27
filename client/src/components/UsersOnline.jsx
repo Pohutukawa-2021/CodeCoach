@@ -9,8 +9,9 @@ function UsersOnline() {
     Object.entries(usersOnline).forEach(([key, value]) => {
       test.push(
         <li key={key} id={value.auth_id}>
-          <Link to={`/app/messaging/${value.id}`}>
-            <img src={value.image_url} alt={value.username} />
+          <Link to={`/app/messaging/${value.id}`} className="online-user-link">
+            <img className="online-user-avatar" src={value.image_url} alt={value.username} />
+            <p className="onlineusers-name">{value.username}</p>
           </Link>
         </li>
       );
@@ -19,9 +20,11 @@ function UsersOnline() {
   }
   const onlineList = setUsersOnlineList();
   return (
-    <div>
-      <h3>Online Users</h3>
-      <ul>{onlineList}</ul>
+    <div className="layout-right-col">
+      <h2 className="right-col-title">Online Users</h2>
+      <ul className="online-user-list">
+        {onlineList}
+      </ul>
     </div>
   );
 }

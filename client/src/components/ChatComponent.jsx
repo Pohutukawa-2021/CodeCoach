@@ -66,27 +66,32 @@ function ChatComponent() {
 
   const messages = setMessages();
   return (
-    <div className="chat">
-      <ChatFeed
-        messages={messages}
-        showSenderName
-        bubblesCentered={false}
-        bubbleStyles={{
-          text: {
-            fontSize: 30,
-          },
-          chatbubble: {
-            borderRadius: 70,
-            padding: 40,
-          },
-        }}
-      />
-      <input
-        onKeyDown={(e) => onEnter(e)}
-        value={userText}
-        onChange={(e) => setUserText(e.target.value)}
-      />
-      <button onClick={() => sendMessage()}>Send</button>
+    <div className="layout-center-col">
+      <div className="chat-container">
+        <ChatFeed
+          messages={messages}
+          showSenderName
+          bubblesCentered={false}
+          bubbleStyles={{
+            text: {
+              fontSize: 30,
+            },
+            chatbubble: {
+              borderRadius: 70,
+              padding: 40,
+            },
+          }}
+        />
+        <div className="chat-input-container">
+          <input
+            className="chat-input"
+            onKeyDown={(e) => onEnter(e)}
+            value={userText}
+            onChange={(e) => setUserText(e.target.value)}
+          />
+          <button onClick={() => sendMessage()}>Send</button>
+        </div>
+      </div>
     </div>
   );
 }
