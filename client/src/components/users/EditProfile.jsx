@@ -28,36 +28,38 @@ function EditProfile() {
     history.push('/app/myprofile')
   }
   return (
-    <div>
-      <section className="flex-container">
-        <form className="column-6">
-          <div className="field">
+    <>
+      <section className="center-col-container">
+        <h2 className="center-col-title form-title">Edit profile</h2>
+        <form className="form-container">
+          <div className="form-field">
             <label htmlFor="name" className="form-label">
               Name
             </label>
             <input
+              className="input-field-standard"
               name="name"
               value={form.name}
               placeholder={user.username}
               onChange={handleChange}
             ></input>
           </div>
-          <div>
+          <div className="form-field">
           <label htmlFor='role' className='form-label'>Role</label>
           <select
             onChange={handleChange}
-            className='select'
+            className='input-field-standard'
             name='role'>
             <option hidden>Select from this list</option>
             <option value="Junior">Junior</option>
             <option value="Senior">Senior</option>
           </select>
           </div>
-          <div>
+          <div className="form-field">
           <label htmlFor='experience' className='form-label'>Experience</label>
           <select
             onChange={handleChange}
-            className='select'
+            className='input-field-standard'
             name='experience'>
             <option hidden>Select from this list</option>
             <option value="0-1 year experience">0-1 year experience</option>
@@ -67,11 +69,12 @@ function EditProfile() {
             <option value="5+ year experience">5+ year experience</option>
           </select>
           </div>
-          <div className="field">
+          <div className="form-field">
             <label htmlFor="bio" className="form-label">
               Bio
             </label>
             <input
+              className="input-field-standard"
               name="bio"
               type="text"
               value={form.bio}
@@ -81,14 +84,14 @@ function EditProfile() {
           </div>
           <button
             type="submit"
-            className="button-primary"
+            className="small-button small-button-styling"
             onClick={handleClick}
             data-testid="submitButton">
             Save
           </button>
         </form>
       </section>
-    </div>
+    </>
   )
 }
 

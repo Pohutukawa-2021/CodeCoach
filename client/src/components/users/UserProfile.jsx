@@ -20,7 +20,7 @@ function UserProfile() {
           <p className="profile-content">Role: {user.role}</p>
           <p className="profile-content">Experience: {user.experience}</p>
           <p className="profile-content">Bio: {user.bio}</p>
-          <button className="small-button edit-profile-button">
+          <button className="small-button small-button-styling">
             <NavLink className="edit-profile-button-link" to="/app/editprofile">Edit details</NavLink>
           </button>
       </div>

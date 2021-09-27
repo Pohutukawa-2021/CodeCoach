@@ -312,7 +312,7 @@ $offsetGreen: #77B69E;
 /* styling forms */
 .form-container {
   width: 92%;
-  margin: 0 auto;
+  margin: 28px auto 0 auto;
 }
 
 .form-title {
@@ -331,7 +331,7 @@ $offsetGreen: #77B69E;
 
 .input-field-standard {
   height: 51px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border: none;
   border: 1px solid $darktext;
   border-radius: 8px;
@@ -355,7 +355,7 @@ $offsetGreen: #77B69E;
 .small-button {
   height: 36px;
   padding: 0 22px;
-  margin: 22px 0 64px 14px;
+  margin: 22px 0 64px 0;
   color: $lighttext;
   border: none;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
@@ -364,12 +364,18 @@ $offsetGreen: #77B69E;
   font-size: 1rem;
 }
 
+.small-button-styling {
+  background-color: $secondary;
+  width: 100%;
+}
+
 .discard-button {
   background-color: $offsetOrange;
 }
 
 .post-button {
   background-color: $offsetGreen;
+  margin-left: 14px;
 }
 
 /* remove once sorted out question and questions list form */
@@ -380,7 +386,7 @@ $offsetGreen: #77B69E;
 
 /* styling profiles */
 .profile-container {
-  margin: 54px auto;
+  margin: 54px auto 0 auto;
   width: 90%;
 }
 
@@ -414,12 +420,6 @@ $offsetGreen: #77B69E;
 .profile-content {
   font-size: 1.2rem;
   margin: 32px 0;
-}
-
-.edit-profile-button {
-  background-color: $secondary;
-  width: 100%;
-  margin: 22px 0 0 0;
 }
 
 .edit-profile-button-link {
