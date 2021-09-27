@@ -29,7 +29,9 @@ function createUser(authId, db = connection) {
     .insert(newUser)
     .returning("id")
     .then((id) => {
-      return getUserDataById(id).catch((err) => console.log(err.toString()));
+      return getUserDataById(parseInt(id)).catch((err) =>
+        console.log(err.toString())
+      );
     })
     .catch((err) => {
       console.log(err.toString());
