@@ -25,17 +25,12 @@ function createUser(authId, db = connection) {
     bio: "",
     experience: "",
   };
-  console.log(db);
   return db("users")
     .insert(newUser)
     .then(([id]) => {
-      return getUserDataById(id)
-        .then((data) => {
-          return data;
-        })
-        .catch((err) =>
-          console.log("happens on second level catch", err.message)
-        );
+      return getUserDataById(id).catch((err) =>
+        console.log("happens on second level catch", err.message)
+      );
     })
     .catch((err) => {
       console.log(err.toString());
