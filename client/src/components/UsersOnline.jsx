@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 
 function UsersOnline() {
   const usersOnline = useSelector((state) => state.usersOnline);
-<<<<<<< HEAD
 
-=======
->>>>>>> 9b64707033615a42d675a295d21274efb8c3fd1a
   function setUsersOnlineList() {
     let test = [];
     Object.entries(usersOnline).forEach(([key, value]) => {
