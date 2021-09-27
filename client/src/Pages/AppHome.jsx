@@ -39,46 +39,33 @@ function AppHome() {
       ) : (
         <>
           <Header />
-          <div className="max-width-container">
-            <div className="main-container">
-            <Switch>
-              <Route exact path={path}>
-                <div className="layout-left-col">
-                  <h1>Home</h1>
-                </div>
-              </Route>
-              <Route exact path={`${path}/messaging/`}>
-                <MessageListComponent />
-                <ChatComponent />
-                <UsersOnline />                    
-              </Route>
-              <Route path={`${path}/messaging/:id`}>
-                <MessageListComponent />
-                <ChatComponent />
-                <UsersOnline />
-              </Route>
-              <Route path={`${path}/createpost`}>
-                <QuestionForm />
-              </Route>
-              <Route exact path={`${path}/post/:postId`}>
-                <PostComponent />
-              </Route>
-              <Route path={`${path}/users`}>
-                <ProfilePage />
-                <UsersOnline />
-              </Route>
-              <Route exact path={`${path}/myprofile`}>
-                <UserProfile />
-              </Route>
-              <Route path={`${path}/editprofile`}>
-                <EditProfile />
-              </Route>
-                </Switch>
-              <Route exact path={path}>
-                <UsersOnline />
-              </Route>
-            </div>
-          </div>
+          <UsersOnline />
+          <Switch>
+            <Route exact path={path}>
+              <h1>Home</h1>
+            </Route>
+            <Route exact path={`${path}/messaging/`}>
+              <MessageListComponent />
+            </Route>
+            <Route exact path={`${path}/messaging/:id`}>
+              <ChatComponent />
+            </Route>
+            <Route path={`${path}/createpost`}>
+              <QuestionForm />
+            </Route>
+            <Route path={`${path}/post/:postId`}>
+              <PostComponent />
+            </Route>
+            <Route path={`${path}/users`}>
+              <ProfilePage />
+            </Route>
+            <Route path={`${path}/myprofile`}>
+              <UserProfile />
+            </Route>
+            <Route path={`${path}/editprofile`}>
+              <EditProfile />
+            </Route>
+          </Switch>
         </>
       )}
     </div>

@@ -5,28 +5,21 @@ import ProfilePopUp from './ProfilePopUp'
 function UsersList() {
   const [popUp, setPopUp] = useState(false)
   const users = useSelector((state) => state.users)
-  const [userPopUp, setUserPopUp] = useState({ users })
-  
+  const [userPopUp, setUserPopUp] =useState({users})
   return (
-      <div>
-        <main className='users-container'>
-        {users.map((user) =>
-          <div key={user.id} className="user-container">
-            <div className="users-header-container">
-              <div className="users-avatar-container">
-                <img className='users-avatar' src={user.image_url} alt={user.username} onClick={() => {
-                  setUserPopUp(user)
-                    setPopUp(true)
-                  }} />
-              </div>
-              <span className="users-username">{user.username}</span>
-            </div>
-            <p>{user.email}</p>
-            <p>{user.role}</p>
-            <p>{user.experience}</p>
-          </div>
-          )}     
-        </main>
+      <div className='user-container'>
+        {users.map((user) => 
+          <div key={user.id}>
+          <img className='avatar' src={user.image_url} alt={user.username} onClick={() => {
+            setUserPopUp(user)
+            setPopUp(true)}}/>
+          <span>Username: {user.username}</span>
+          <span>{user.email}</span>
+          <span>Role: {user.role}</span>
+          <span>Experience: {user.experience}</span>
+          <span>Bio: {user.bio}</span>
+        </div>
+        )}     
       <ProfilePopUp trigger={popUp} setTrigger={setPopUp}>
         <img className='avatar' src={userPopUp.image_url} alt={userPopUp.username} />
         <span>Username: {userPopUp.username}</span>
