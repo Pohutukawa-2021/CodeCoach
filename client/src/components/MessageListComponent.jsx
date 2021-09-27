@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 function MessageListComponent() {
   const allUsers = useSelector((state) => state.users);
@@ -30,10 +31,10 @@ function MessageListComponent() {
     const sortedArray = arrayOfLastMessage.sort(
       (a, b) => b.messageDateSent - a.messageDateSent
     );
-    console.log(sortedArray);
+
     return sortedArray.map((msg) => {
       return (
-        <li>
+        <li key={uuidv4()}>
           <Link to={`/app/messaging/${msg.userDetailsId}`}>
             <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} />
             <p>{msg.userLastMessage}</p>

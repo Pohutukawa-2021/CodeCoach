@@ -45,7 +45,7 @@ function AppHome() {
               <h1>Home</h1>
             </Route>
             <Route exact path={`${path}/messaging/`}>
-            <MessageListComponent />
+              <MessageListComponent />
             </Route>
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />

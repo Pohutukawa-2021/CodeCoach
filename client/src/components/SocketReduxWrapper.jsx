@@ -8,7 +8,7 @@ import allReducers from "../redux";
 
 export function SocketReduxWrapper({ children }) {
   const [jwt, setJwt] = useState("");
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const { getAccessTokenSilently } = useAuth0();
 
   async function getToken() {
     const accessToken = await getAccessTokenSilently({

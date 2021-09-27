@@ -3,9 +3,9 @@ const { getDMTo, getDMFrom } = require("../../db/messages");
 
 module.exports = getDirectMessages;
 
-function getDirectMessages(socket) {
-  getUserData(socket.decoded_token.sub)
-    .then((data) => {
+async function getDirectMessages(socket) {
+  return new Promise((resolve, reject) => {
+    getUserData(socket.decoded_token.sub).then((data) => {
       userId = data[0].id;
       let directMessagesTo = {};
       let directMessagesFrom = {};
@@ -51,11 +51,12 @@ function getDirectMessages(socket) {
               });
             }
             socket.emit("action", { type: "setMessages", data: convos });
+            resolve();
           });
         })
         .catch((err) => console.log(err.message));
-    })
-    .catch((err) => {
-      console.log(err);
     });
+  }).catch((err) => {
+    console.log(err);
+  });
 }
