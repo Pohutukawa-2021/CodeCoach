@@ -7,12 +7,13 @@ import Header from "../layouts/header/Header";
 import { QuestionForm } from "../components/posts/QuestionForm";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
-import { PostComponent } from "../components/posts/PostComponent";
+import { QuestionPost } from "../components/posts/QuestionPost";
 import UserProfile from "../components/users/UserProfile";
 import MessageListComponent from "../components/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
-
+import QuestionList from "../components/posts/QuestionList";
+import { QuestionEdit } from "../components/posts/QuestionEdit";
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -43,16 +44,16 @@ function AppHome() {
           <MessageListComponent />
           <Switch>
             <Route exact path={path}>
-              <h1>Home</h1>
+              <QuestionList />
             </Route>
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
             <Route path={`${path}/createpost`}>
-            <QuestionForm />
+              <QuestionForm />
             </Route>
             <Route path={`${path}/post/:postId`}>
-              <PostComponent />
+              <QuestionPost />
             </Route>
             <Route path={`${path}/users`}>
               <ProfilePage />
@@ -60,9 +61,12 @@ function AppHome() {
             <Route path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
-             <Route path={`${path}/editprofile`}>
+            <Route path={`${path}/editprofile`}>
               <EditProfile />
-             </Route>
+            </Route>
+            <Route path={`${path}/editquestion/:postId`}>
+              <QuestionEdit />
+            </Route>
           </Switch>
         </>
       )}

@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../redux/actions/posts";
-import { Link } from "react-router-dom";
 
 export function QuestionForm() {
   const dispatch = useDispatch();
-  const allPosts = useSelector((state) => state.posts);
-  const users = useSelector((state) => state.users);
   const [form, setForm] = useState({
     title: "",
     body: "",
+    tags: "",
   });
-  
+
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({
@@ -27,65 +24,58 @@ export function QuestionForm() {
     setForm({
       title: "",
       body: "",
+      tags: "",
     });
   }
   //console.log("allposts: ", allPosts);
   return (
-    <>
-      <ul>
-        {allPosts.map((post) => {
-          return (
-            <li>
-              <Link to={`/app/post/${post.postId}`}>
-                {post.question} === {post.user.name}
-                <ul>
-                  {post.comments.map((commentObj) => (
-                    <li>
-                      {" "}
-                      {commentObj.comment} --- {commentObj.username}
-                    </li>
-                  ))}
-                </ul>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-
-      <section className="flex-container">
-        <form className="column-6">
-          <div className="field">
-            <label htmlFor="firstName" className="form-label">
-              Title
-            </label>
-            <input
-              name="title"
-              value={form.title}
-              placeholder="summary"
-              onChange={handleChange}
-            ></input>
-          </div>
-          <div className="field">
-            <label htmlFor="lastName" className="form-label">
-              Body
-            </label>
-            <input
-              name="body"
-              value={form.body}
-              placeholder="details"
-              onChange={handleChange}
-            ></input>
-          </div>
-          <button
-            type="submit"
-            className="button-primary"
-            onClick={handleClick}
-            data-testid="submitButton"
-          >
-            Ask!
-          </button>
-        </form>
-      </section>
-    </>
+    <section className="flex-container">
+      <form className="column-6">
+        <div className="field">
+          <label htmlFor="firstName" className="form-label">
+            Title
+          </label>
+          <input
+            name="title"
+            value={form.title}
+            placeholder="summary"
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div className="field">
+          <label htmlFor="lastName" className="form-label">
+            Body
+          </label>
+          <input
+            name="body"
+            value={form.body}
+            placeholder="details"
+            onChange={handleChange}
+          ></input>
+        </div>
+        <label for="myBrowser">Tags:</label>
+        <input
+          list="tags"
+          name="tags"
+          placeholder='Tags...seperate by " , "'
+          onChange={handleChange}
+        />
+        <datalist id="tags">
+          <option value="Java," />
+          <option value="Javascript," />
+          <option value="Python," />
+          <option value="C#," />
+          <option value="ArnoldC," />
+        </datalist>
+        <button
+          type="submit"
+          className="button-primary"
+          onClick={handleClick}
+          data-testid="submitButton"
+        >
+          Ask!
+        </button>
+      </form>
+    </section>
   );
 }
