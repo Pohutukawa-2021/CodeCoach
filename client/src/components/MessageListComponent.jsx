@@ -32,37 +32,23 @@ function MessageListComponent() {
       (a, b) => b.messageDateSent - a.messageDateSent
     );
 
-    // return sortedArray.map((msg) => {
-    //   return (
-    //     <li key={uuidv4()}>
-    //       <Link to={/app/messaging/${msg.userDetailsId}}>
-    //         <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} />
-    //         <p>{msg.userLastMessage}</p>
-    //       </Link>
-    //     </li>
-    //   );
-    // });
-
     return sortedArray.map((msg) => {
       return (
-        <div key={uuidv4()} className="chats-list-item">
+        <li key={uuidv4()}>
           <Link to={`/app/messaging/${msg.userDetailsId}`}>
-            <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} className="chats-list-avatar"/>
-            <div className="chats-list-details">
-              <p className="chats-list-username">{msg.userDetailsUsername}</p>
-              <p className="chats-list-message">{msg.userLastMessage}</p>
-            </div>
+            <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} />
+            <p>{msg.userLastMessage}</p>
           </Link>
-        </div>
+        </li>
       );
     });
   }
 
   const messageList = getUsersInConversationWith();
   return (
-    <div className="layout-left-col">
-      <h1 classname="left-col-title">Chats</h1>
-      <div className="chats-list">{messageList}</div>
+    <div>
+      <h1>Chat</h1>
+      <ul>{messageList}</ul>
     </div>
   );
 }
