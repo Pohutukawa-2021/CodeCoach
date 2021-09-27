@@ -34,7 +34,7 @@ User authentication is handled by [Auth0](https://auth0.com/)
 
 ### Roadmap
 See the open issues #addlink to roadmap for a list of proposed features (and known issues)
-Jira??
+Jira?? [Roadmap](https://codecoach.atlassian.net/jira/software/projects/COD/boards/1/roadmap)
 
 ### Design
 Wireframe made in [Figma](https://www.figma.com/file/SxGE4mFQvjWyawG9Jbwmh4/dev-academy?node-id=341%3A39)
