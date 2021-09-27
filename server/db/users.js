@@ -15,10 +15,6 @@ function getAllUsers(db = connection) {
   return db("users").select();
 }
 
-function getUserDataById(userId, db = connection) {
-  return db("users").where({ id: userId }).first();
-}
-
 function createUser(authId, db = connection) {
   const newUser = {
     email: "",
@@ -32,7 +28,6 @@ function createUser(authId, db = connection) {
   return db("users")
     .insert(newUser)
     .then(([id]) => {
-      console.log(id);
       return getUserDataById(id)
         .then((data) => {
           return data;
@@ -42,6 +37,10 @@ function createUser(authId, db = connection) {
         );
     })
     .catch((err) => console.log("happens on first level catch", err.message));
+}
+
+function getUserDataById(userId, db = connection) {
+  return db("users").where({ id: userId }).first();
 }
 
 function updateUserDetails(user, authToken, db = connection) {
