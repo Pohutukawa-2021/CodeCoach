@@ -25,16 +25,16 @@ function createUser(authId, db = connection) {
     bio: "",
     experience: "",
   };
-  return db("users")
-    .insert(newUser)
-    .then(([id]) => {
-      return getUserDataById(id).catch((err) =>
-        console.log("happens on second level catch", err.message)
-      );
-    })
-    .catch((err) => {
-      console.log(err.toString());
-    });
+  return (
+    db("users")
+      .insert(newUser)
+      // .then(([id]) => {
+      //   return getUserDataById(id).catch((err) => console.log(err.toString()));
+      // })
+      .catch((err) => {
+        console.log(err.toString());
+      })
+  );
 }
 
 function getUserDataById(userId, db = connection) {
