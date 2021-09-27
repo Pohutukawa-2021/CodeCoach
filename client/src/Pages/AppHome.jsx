@@ -43,19 +43,18 @@ function AppHome() {
             <div className="max-width-container">
               <div className="main-container">
                 <div className="layout-left-col">
-                <Route exact path={path}>
-                    <h1 className="left-col-title">Home</h1>
+                  <Route exact path={path}>
+                      <h1 className="left-col-title">Home</h1>
                   </Route>
-                </div>
-                <div className="layout-center-col">
-                  <Switch>
-                  <Route>
+                  <Route path={`${path}/messages`}>
                     <MessageListComponent />
                   </Route>
+                </div>
+                <div className="layout-center-col">                                  
                   <Route exact path={`${path}/messaging/:id`}>
                     <ChatComponent />
                   </Route>
-                  <Route path={`${path}/createpost`}>
+                  <Route exact path={`${path}/createpost`}>
                     <QuestionForm />
                   </Route>
                   <Route path={`${path}/post/:postId`}>
@@ -69,14 +68,13 @@ function AppHome() {
                   </Route>
                   <Route path={`${path}/editprofile`}>
                     <EditProfile />
-                  </Route>
-                  </Switch>
+                  </Route>                
                 </div>
                 <div className="layout-right-col">
                 <Route path={path}>
                   <UsersOnline />
-                  </Route>
-                  </div>
+                </Route>
+                </div>
               </div>
             </div>
         </>

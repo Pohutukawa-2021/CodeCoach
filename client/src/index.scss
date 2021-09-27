@@ -255,7 +255,13 @@ $offsetGreen: #77B69E;
 .layout-center-col {
   width: 780px;
   background-color: $background;
-  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.center-col-container {
+  width: 94%;
 }
 
 .layout-right-col {
@@ -302,3 +308,72 @@ $offsetGreen: #77B69E;
   margin-left: 8px;
   color: $darktext;
 }
+
+/* styling forms */
+.form-container {
+  width: 92%;
+  margin: 0 auto;
+}
+
+.form-title {
+  margin-top: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 22px 0;
+}
+
+.form-label {
+  margin: 6px 0;
+}
+
+.input-field-standard {
+  height: 51px;
+  font-size: 1.2rem;
+  border: none;
+  border: 1px solid $darktext;
+  border-radius: 8px;
+  padding: 6px;
+  font-family: "Roboto";
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input-field-textarea {
+  height: 204px;
+}
+
+.post-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.small-button {
+  height: 36px;
+  padding: 0 22px;
+  margin: 22px 0 64px 14px;
+  color: $lighttext;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.discard-button {
+  background-color: $offsetOrange;
+}
+
+.post-button {
+  background-color: $offsetGreen;
+}
+
+/* remove once sorted out question and questions list form */
+.thing {
+  display: none;
+}
+/* remove remove remove remove remove */
