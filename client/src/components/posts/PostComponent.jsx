@@ -63,7 +63,7 @@ export function PostComponent() {
 
       <div className="comments">
       <h2> {post.comments.length} Answers</h2>
-  }
+  
       {post.comments.map((comment) => {
         return (
           <div className="each-comment">
