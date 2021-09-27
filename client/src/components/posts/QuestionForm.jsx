@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addPost } from "../../redux/actions/posts";
 import { Link } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 export function QuestionForm() {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ export function QuestionForm() {
     title: "",
     body: "",
   });
-  
+
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({
@@ -35,12 +36,12 @@ export function QuestionForm() {
       <ul>
         {allPosts.map((post) => {
           return (
-            <li>
+            <li key={uuidv4()}>
               <Link to={`/app/post/${post.postId}`}>
                 {post.question} === {post.user.name}
                 <ul>
                   {post.comments.map((commentObj) => (
-                    <li>
+                    <li key={uuidv4()}>
                       {" "}
                       {commentObj.comment} --- {commentObj.username}
                     </li>
