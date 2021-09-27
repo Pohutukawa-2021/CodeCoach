@@ -35,7 +35,12 @@ function addMessage(msgObj, db = connection) {
   };
   return db("messages")
     .insert(newMessage)
-    .then(([id]) => {
-      return addUserMessageRelationship(id, msgObj.data.to, msgObj.data.from);
+    .returning("id")
+    .then((id) => {
+      return addUserMessageRelationship(
+        parseInt(id),
+        msgObj.data.to,
+        msgObj.data.from
+      );
     });
 }
