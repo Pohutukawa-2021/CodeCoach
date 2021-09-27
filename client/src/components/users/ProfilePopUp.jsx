@@ -4,9 +4,9 @@ function ProfilePopUp(props) {
   return (props.trigger) ? (
     <div className="popup">
       <div className="popup-inner">
-        <button className="close-btn" onClick={() => props.setTrigger(false)}>&#10005;</button>
        {props.children}
       </div>
+        <button className="close-btn" onClick={() => props.setTrigger(false)}>&#10005;</button>
     </div>
   ) : "";
 }
