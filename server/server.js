@@ -53,6 +53,7 @@ io.use(
 let users = {};
 
 io.on("connection", (socket) => {
+<<<<<<< HEAD
   getAllPosts()
     .then((allPosts) => {
       io.emit("action", { type: "setPosts", data: allPosts });
@@ -94,6 +95,37 @@ io.on("connection", (socket) => {
       }
     })
     .catch((err) => console.log("getUserData function", err.message));
+=======
+  getUserData(socket.decoded_token.sub).then((rows) => {
+    if (rows.length == 0) {
+      createUser(socket.decoded_token.sub).then((newData) => {
+        socket.emit("action", { type: "setUser", data: newData });
+        getAllUsers().then((allUsers) => {
+          socket.emit("action", { type: "setAllUsers", data: allUsers });
+        });
+        socket.emit("action", { type: "finishWaiting" });
+      });
+    } else {
+      socket.emit("action", { type: "setUser", data: rows[0] });
+
+      //This will get rid of previous logins of users and update to new socket
+      ridOfDuplicateUsersOnline(users, socket.decoded_token.sub);
+      users[socket.id] = rows[0];
+
+      io.emit("action", { type: "setOnlineUsers", data: users });
+
+      //This will send the user his/her text messages;
+      getDirectMessages(socket);
+      getAllUsers().then((allUsers) => {
+        socket.emit("action", { type: "setAllUsers", data: allUsers });
+      });
+      getAllPosts().then((allPosts) => {
+        io.emit("action", { type: "setPosts", data: allPosts });
+      });
+      socket.emit("action", { type: "finishWaiting" });
+    }
+  });
+>>>>>>> 9b64707033615a42d675a295d21274efb8c3fd1a
 
   socket.on("disconnect", () => {
     delete users[socket.id];
@@ -110,6 +142,9 @@ io.on("connection", (socket) => {
             socket.emit("action", { type: "setUser", data });
             getAllUsers().then((allUsers) => {
               socket.emit("action", { type: "setAllUsers", data: allUsers });
+            });
+            getAllPosts().then((allPosts) => {
+              io.emit("action", { type: "setPosts", data: allPosts });
             });
           }
         );
