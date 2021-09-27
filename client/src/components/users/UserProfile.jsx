@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 function UserProfile() {
   const user = useSelector((state) => state.userAccount)
-  console.log(user)
   return (
     <div className="center-col-container">
       <div className="profile-container">
@@ -30,3 +29,6 @@ function UserProfile() {
 }
 
 export default UserProfile
+
+// if userAccount is === to currentUser use userAccount
+// if not use Users

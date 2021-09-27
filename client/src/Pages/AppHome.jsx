@@ -9,7 +9,6 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
-import UsersList from "../components/users/UsersList";
 import MessageListComponent from "../components/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
@@ -39,44 +38,34 @@ function AppHome() {
         <div className="spinner"></div>
       ) : (
         <>
-            <Header />
-            <div className="max-width-container">
-              <div className="main-container">
-                <div className="layout-left-col">
-                  <Route exact path={path}>
-                      <h1 className="left-col-title">Home</h1>
-                  </Route>
-                  <Route path={`${path}/messages`}>
-                    <MessageListComponent />
-                  </Route>
-                </div>
-                <div className="layout-center-col">                                  
-                  <Route exact path={`${path}/messaging/:id`}>
-                    <ChatComponent />
-                  </Route>
-                  <Route exact path={`${path}/createpost`}>
-                    <QuestionForm />
-                  </Route>
-                  <Route path={`${path}/post/:postId`}>
-                    <PostComponent />
-                  </Route>
-                  <Route path={`${path}/users`}>
-                    <ProfilePage />
-                  </Route>
-                  <Route path={`${path}/myprofile`}>
-                    <UserProfile />
-                  </Route>
-                  <Route path={`${path}/editprofile`}>
-                    <EditProfile />
-                  </Route>                
-                </div>
-                <div className="layout-right-col">
-                <Route path={path}>
-                  <UsersOnline />
-                </Route>
-                </div>
-              </div>
-            </div>
+          <Header />
+          <UsersOnline />
+          <Switch>
+            <Route exact path={path}>
+              <h1>Home</h1>
+            </Route>
+            <Route exact path={`${path}/messaging/`}>
+            <MessageListComponent />
+            </Route>
+            <Route exact path={`${path}/messaging/:id`}>
+              <ChatComponent />
+            </Route>
+            <Route path={`${path}/createpost`}>
+            <QuestionForm />
+            </Route>
+            <Route path={`${path}/post/:postId`}>
+              <PostComponent />
+            </Route>
+            <Route path={`${path}/users`}>
+              <ProfilePage />
+            </Route>
+            <Route path={`${path}/myprofile`}>
+              <UserProfile />
+            </Route>
+             <Route path={`${path}/editprofile`}>
+              <EditProfile />
+             </Route>
+          </Switch>
         </>
       )}
     </div>

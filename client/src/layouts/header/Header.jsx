@@ -1,10 +1,15 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import Nav from '../../components/navigation/Nav'
 
 function Header() {
   return (
     <div className='header-container'>
-      <span className='mobile-logo-container'></span>
+      <Link to="/app">
+          <div className="mobile-logo-container">
+            <img src="/logo.jpg" alt="codecoach logo" className='logo-image' />
+          </div>
+        </Link>
       <Nav />
     </div>
   )

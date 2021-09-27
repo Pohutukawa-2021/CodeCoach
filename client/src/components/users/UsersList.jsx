@@ -1,31 +1,36 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import Modal from "react-modal";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import ProfilePopUp from './ProfilePopUp'
 
 function UsersList() {
-  const users = useSelector((state) => state.users);
-
+  const [popUp, setPopUp] = useState(false)
+  const users = useSelector((state) => state.users)
+  const [userPopUp, setUserPopUp] =useState({users})
   return (
-    <>      
-      <div className="users-container">
-        {users.map((user) => (
-          <Link to="" className="user-container">
+      <div>
+        <main className='users-container'>
+          {users.map((user) => 
             <div key={user.id}>
-              <div className="users-header-container">
-                <div className="users-avatar-container">
-                  <img className="users-avatar" src={user.image_url} alt={user.username} />
-                </div>
-                <p className="users-username">{user.username}</p>
-              </div>
-              <p>{user.role}</p>
-              <p>{user.experience}</p>
-              <p>{user.email}</p>
-            </div>
-          </Link>
-        ))}
+            <img className='avatar' src={user.image_url} alt={user.username} onClick={() => {
+              setUserPopUp(user)
+              setPopUp(true)}}/>
+            <span>username: {user.username}</span>
+            <span>{user.email}</span>
+            <span>Role: {user.role}</span>
+            <span>Experience: {user.experience}</span>
+            <span>Bio: {user.bio}</span>
+          </div>
+          )}     
+        </main>
+      <ProfilePopUp trigger={popUp} setTrigger={setPopUp}>
+        <img className='avatar' src={userPopUp.image_url} alt={userPopUp.username} />
+        <span>username: {userPopUp.username}</span>
+          <span>{userPopUp.email}</span>
+          <span>Role: {userPopUp.role}</span>
+          <span>Experience: {userPopUp.experience}</span>
+          <span>Bio: {userPopUp.bio}</span>
+      </ProfilePopUp> 
       </div>
-    </>
   );
 }
 
