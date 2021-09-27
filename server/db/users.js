@@ -25,6 +25,7 @@ function createUser(authId, db = connection) {
     bio: "",
     experience: "",
   };
+  console.log(newUser);
   return db("users")
     .insert(newUser)
     .then(([id]) => {
@@ -36,7 +37,10 @@ function createUser(authId, db = connection) {
           console.log("happens on second level catch", err.message)
         );
     })
-    .catch((err) => console.log("happens on first level catch", err.message));
+    .catch((err) => {
+      console.log(err.message, err.fileName, err.lineNumber, err.columnNumber);
+      console.log(err.toString());
+    });
 }
 
 function getUserDataById(userId, db = connection) {

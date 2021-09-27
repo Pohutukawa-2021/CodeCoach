@@ -12,7 +12,8 @@
     "migrate": "cd ./server && npx knex migrate:latest && npx knex seed:run",
     "seed": "cd ./server && npx knex seed:run",
     "installServer": "cd ./server && npm install && npm run build",
-    "installClient": "cd ./client && npm install && npm run build"
+    "installClient": "cd ./client && npm install && npm run build",
+    "deploy": "git add . && git commit -m 'deploy' && git push heroku deploy-trial:main"
   },
   "repository": {
     "type": "git",
