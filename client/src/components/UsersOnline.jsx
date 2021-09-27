@@ -20,7 +20,7 @@ function UsersOnline() {
   }
   const onlineList = setUsersOnlineList();
   return (
-    <div>
+    <div className="layout-right-col">
       <h2 className="right-col-title">Online Users</h2>
       <ul className="online-user-list">
         {onlineList}

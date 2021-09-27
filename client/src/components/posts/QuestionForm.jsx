@@ -52,67 +52,70 @@ export function QuestionForm() {
           );
         })}
       </ul>
-
-      <section className="center-col-container">
-        <h2 className="center-col-title form-title">Ask a question</h2>
-        <form className="form-container">          
-          <div className="form-field">
-            <label htmlFor="firstName" className="form-label">
-              Title
-            </label>
-            <input
-              className="input-field-standard"
-              type="text"
-              name="title"
-              value={form.title}
-              placeholder="Title"
-              onChange={handleChange}
-            ></input>
-          </div>
-          <div className="form-field">
-            <label htmlFor="lastName" className="form-label">
-              Body
-            </label>
-            <textarea
-              className="input-field-standard input-field-textarea"
-              type="text"
-              name="body"
-              value={form.body}
-              onChange={handleChange}
-            ></textarea>
-          </div>
-          <div className="form-field">
-            <label htmlFor="lastName" className="form-label">
-              Tags
-            </label>
-            <select className="input-field-standard" name="tags" type="text" value={form.tags} onChange={handleChange}>
-              <option value=""></option>
-              <option value="Java">Java</option>
-              <option value="Javascript">Javascript</option>
-            </select>
-          </div>
-          <div className="post-buttons-container">
-            <Link to="/app">
+      <div className="layout-left-col"></div>
+      <div className="layout-center-col">
+        <section className="center-col-container">
+          <h2 className="center-col-title form-title">Ask a question</h2>
+          <form className="form-container">          
+            <div className="form-field">
+              <label htmlFor="firstName" className="form-label">
+                Title
+              </label>
+              <input
+                className="input-field-standard"
+                type="text"
+                name="title"
+                value={form.title}
+                placeholder="Title"
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="form-field">
+              <label htmlFor="lastName" className="form-label">
+                Body
+              </label>
+              <textarea
+                className="input-field-standard input-field-textarea"
+                type="text"
+                name="body"
+                value={form.body}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="form-field">
+              <label htmlFor="lastName" className="form-label">
+                Tags
+              </label>
+              <select className="input-field-standard" name="tags" type="text" value={form.tags} onChange={handleChange}>
+                <option value=""></option>
+                <option value="Java">Java</option>
+                <option value="Javascript">Javascript</option>
+              </select>
+            </div>
+            <div className="post-buttons-container">
+              <Link to="/app">
+                <button
+                  type="submit"
+                  className="small-button discard-button"
+                  onClick={handleClick}
+                  data-testid="submitButton"
+                >
+                  Discard
+                </button>
+              </Link>
               <button
                 type="submit"
-                className="small-button discard-button"
+                className="small-button post-button"
                 onClick={handleClick}
                 data-testid="submitButton"
               >
-                Discard
+                Post
               </button>
-            </Link>
-            <button
-              type="submit"
-              className="small-button post-button"
-              onClick={handleClick}
-              data-testid="submitButton"
-            >
-              Post
-            </button>
-          </div>
-          </form>
-        </section>
+            </div>
+            </form>
+          </section>
+        </div>
+        <div className="layout-right-col"></div>
     </>
   );
 }

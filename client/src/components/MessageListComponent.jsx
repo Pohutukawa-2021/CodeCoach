@@ -20,21 +20,24 @@ function MessageListComponent() {
       const userDetails = getUserDetailsById(key);
       const lastMessage = getLatestMessageForUser(key);
       return (
-        <li>
+        <div className="chats-list-item">
           <Link to={`/app/messaging/${userDetails.id}`}>
-            <img src={userDetails.image_url} alt={userDetails.username} />
-            <p>{lastMessage.message}</p>
+            <img src={userDetails.image_url} alt={userDetails.username} className="chats-list-avatar"/>
+            <div className="chats-list-details">
+              <p className="chats-list-username">{userDetails.username}</p>
+              <p className="chats-list-message">{lastMessage.message}</p>
+            </div>
           </Link>
-        </li>
+        </div>
       );
     });
   }
 
   const messageList = getUsersInConversationWith();
   return (
-    <div>
-      <h1>Chat</h1>
-      <ul>{messageList}</ul>
+    <div className="layout-left-col">
+      <h1 classname="left-col-title">Chats</h1>
+      <div className="chats-list">{messageList}</div>
     </div>
   );
 }

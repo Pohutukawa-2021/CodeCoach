@@ -34,7 +34,7 @@ function Nav() {
               width="30px"
             />
           </Link>
-          <Link to="/app/messages" className="nav-link nav-link-active">
+          <Link to="/app/messaging" className="nav-link nav-link-active">
             <ChatboxEllipsesOutline
               color={'#ffffff'}
               height="30px"

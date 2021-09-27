@@ -6,10 +6,10 @@ function Header() {
   return (
     <div className='header-container'>
       <Link to="/app">
-          <div className="mobile-logo-container">
-            <img src="/logo.jpg" alt="codecoach logo" className='logo-image' />
-          </div>
-        </Link>
+        <div className="mobile-logo-container">
+          <img src="/logo.jpg" alt="codecoach logo" className='logo-image' />
+        </div>
+      </Link>
       <Nav />
     </div>
   )
