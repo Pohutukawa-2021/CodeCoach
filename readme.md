@@ -3,8 +3,9 @@
 Code Coach is a react-app hoping to create a new way to connect developers. We hoped to create a platform where one can build a mentee and mentor relationship between a junior and senior developer. This is created by students at [EDA](https://devacademy.co.nz/) as a final project to showcase within 1 week.
 
 <p align="center">
-<img src="/Users/dianneplaza/Dev-Academy/CodeCoach/client/public/Logo.png" width="400" height="80" alt="code coach"/>
+<img src="./client/public/Logo.png" width="400" height="80" alt="code coach"/>
 </p>
+
 ### Installation
 
 1. Clone the repo
