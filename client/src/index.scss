@@ -248,7 +248,6 @@ $offsetGreen: #77B69E;
 
 .layout-left-col {
   width: 300px;
-  background-color: $secondary;
   margin-left: 20px;
 }
 
@@ -425,4 +424,50 @@ $offsetGreen: #77B69E;
 .edit-profile-button-link {
   text-decoration: none;
   color: $lighttext;
+}
+
+/* styling users page */
+.users-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 54px;
+}
+
+.user-container {
+  background-color: $secondary;
+  margin: 6px;
+  padding: 18px;
+  border-radius: 8px;
+  width: 32%;
+  text-decoration: none;
+  color: $darktext;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+
+  &:hover {
+    background-color: #b1ddff;
+    transition: background-color 0.15s ease;
+    -webkit-transition: background-color 0.15s ease;
+  }
+}
+
+.users-header-container {
+  display: flex;
+  align-items: center;
+}
+
+.users-avatar-container {
+  width: 84px;
+  height: 84px;  
+}
+
+.users-avatar {
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+
+.users-username {
+  margin-left: 8px;
 }

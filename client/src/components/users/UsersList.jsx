@@ -1,29 +1,29 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Modal from "react-modal";
+import { Link } from "react-router-dom";
 
 function UsersList() {
   const users = useSelector((state) => state.users);
 
   return (
-    <>
-      <div className="user-container">
-        <ul>
-          {users.map((user) => (
+    <>      
+      <div className="users-container">
+        {users.map((user) => (
+          <Link to="" className="user-container">
             <div key={user.id}>
-              <img
-                className="avatar"
-                src={user.image_url}
-                alt={user.username}
-              />
-              <li>username: {user.username}</li>
-              <li>{user.email}</li>
-              <li>Role: {user.role}</li>
-              <li>Experience: {user.experience}</li>
-              <li>Bio: {user.bio}</li>
+              <div className="users-header-container">
+                <div className="users-avatar-container">
+                  <img className="users-avatar" src={user.image_url} alt={user.username} />
+                </div>
+                <p className="users-username">{user.username}</p>
+              </div>
+              <p>{user.role}</p>
+              <p>{user.experience}</p>
+              <p>{user.email}</p>
             </div>
-          ))}
-        </ul>
+          </Link>
+        ))}
       </div>
     </>
   );
