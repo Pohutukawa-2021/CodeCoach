@@ -377,3 +377,52 @@ $offsetGreen: #77B69E;
   display: none;
 }
 /* remove remove remove remove remove */
+
+/* styling profiles */
+.profile-container {
+  margin: 54px auto;
+  width: 90%;
+}
+
+.profile-header-container {
+  display: flex;
+}
+
+.profile-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 22px;
+}
+
+.profile-content-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.profile-avatar {
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+}
+
+.profile-username {
+  font-size: 3.4rem;
+  margin-bottom: 0;
+}
+
+.profile-content {
+  font-size: 1.2rem;
+  margin: 32px 0;
+}
+
+.edit-profile-button {
+  background-color: $secondary;
+  width: 100%;
+  margin: 22px 0 0 0;
+}
+
+.edit-profile-button-link {
+  text-decoration: none;
+  color: $lighttext;
+}
