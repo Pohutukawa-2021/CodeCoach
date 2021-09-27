@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import commentsByPost from "../../redux/actions/commentsByPost";
+import { v4 as uuidv4 } from "uuid";
 
 export function PostComponent() {
   const allPosts = useSelector((state) => state.posts);
@@ -10,7 +11,7 @@ export function PostComponent() {
   const post = allPosts.find((post) => post.postId === id);
   const dispatch = useDispatch();
 
-  const [commentNumber, setCommentNumber] = useState(5)
+  const [commentNumber, setCommentNumber] = useState(5);
 
   const [form, setForm] = useState({
     postId: id,
@@ -38,13 +39,13 @@ export function PostComponent() {
   // if commentNumber is more than 5, set to display 5 comments only
   // else display all.
 
-  let commentShown = []
-  if (post.comments.length > commentNumber){
-    for (let i = 0; i<commentNumber; i++){
-      commentShown.push(post.comments[i])
+  let commentShown = [];
+  if (post.comments.length > commentNumber) {
+    for (let i = 0; i < commentNumber; i++) {
+      commentShown.push(post.comments[i]);
     }
   } else {
-    commentShown = post.comments
+    commentShown = post.comments;
   }
 
   return (
@@ -57,29 +58,28 @@ export function PostComponent() {
       <div className="footer-note">
         <small>
           {" "}
-          Post created:  {post.post_time}   ({post.post_date}) {console.log(post)}
+          Post created: {post.post_time} ({post.post_date})
         </small>
       </div>
 
       <div className="comments">
-      <h2> {post.comments.length} Answers</h2>
-  
-      {post.comments.map((comment) => {
-        return (
-          <div className="each-comment">
-            <p>{post.question}</p>
-            <img src={comment.image_url} alt={comment.username}></img>
-            <p>{comment.username}</p>
-            <p>{comment.comment}</p>
-            <small>
-              {" "}
-              {comment.comment_date} - {comment.comment_time}
-            </small>
-          </div>
-        );
-      })}
+        <h2> {post.comments.length} Answers</h2>
 
-    </div>
+        {post.comments.map((comment) => {
+          return (
+            <div key={uuidv4()} className="each-comment">
+              <p>{post.question}</p>
+              <img src={comment.image_url} alt={comment.username}></img>
+              <p>{comment.username}</p>
+              <p>{comment.comment}</p>
+              <small>
+                {" "}
+                {comment.comment_date} - {comment.comment_time}
+              </small>
+            </div>
+          );
+        })}
+      </div>
 
       <form className="column-6">
         <div className="field">
