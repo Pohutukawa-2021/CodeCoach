@@ -13,6 +13,7 @@ const {
   addCommentById,
   getCommentsByPost,
   updatePost,
+  updateVote
 } = require("./db/post");
 
 //message functions
@@ -130,11 +131,21 @@ io.on("connection", (socket) => {
         });
         break;
       case "server/updatePost":
+        console.log(action.data);
         updatePost(action.data).then(() => {
           getAllPosts().then((allPosts) => {
             io.emit("action", { type: "setPosts", data: allPosts });
           });
         });
+        break;
+      case "server/counter":
+        console.log('action', action.data);
+          updateVote(action.data).then(() =>{
+            getAllPosts().then((allPosts) => {
+              io.emit("action", { type: "setPosts", data: allPosts });
+            });
+          })
+        break;
     }
   });
 });
