@@ -23,6 +23,7 @@ $grey: #DDDDDD;
 $offsetYellow: #FCD35B;
 $offsetOrange: #FF760C;
 $offsetGreen: #77B69E;
+$background-hover: #b1ddff;
 
 
 /* header */
@@ -455,7 +456,7 @@ $offsetGreen: #77B69E;
   cursor: pointer;
 
   &:hover {
-    background-color: #b1ddff;
+    background-color: $background-hover;
     transition: background-color 0.15s ease;
     -webkit-transition: background-color 0.15s ease;
   }
@@ -528,65 +529,65 @@ $offsetGreen: #77B69E;
 }
 
 /* landing page styling */ 
-.logo-image {
-  width: 300px;
-}
-
-.center {
+.greetpage-container {
+  width: 100vw;  
+  height: 100vh;
+  background-color: $primary;
   display: flex;
   justify-content: center;
+}
+
+.logo-image {
+  width: 210px;
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.greetpage-content-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 32px;
 }
 
-.greet-container {
-  margin: 0 auto;
-  align-items: center;
+.greetpage-title {
+  color: $lighttext;
+  font-weight: bold;
+  font-size: 36px;
+  letter-spacing: .1rem;
+  text-align: center;
 }
 
-.btn-container {
-margin-top: 50px;
-}
-
-.greetimage {
-  height: 550px; 
-  width: 550px; 
+.greetpage-image { 
+  width: 480px; 
     object-fit: contain;
 }
 
-.greeting {
-  color: white;
-  font-weight: bold;
-  font-size: 35px;
+.greetpage-subtext {
+  color: $lighttext;
+  font-size: 24px;
 }
 
-.words {
-  color: white; 
-  font-weight:500;
-  font-size: 25px;
-}
-
-.login-btn {
-    justify-content: center;
+/* login button styling */
+.large-button {
     display: flex;
+    justify-content: center;
     border: none;
-    text-decoration: none;
-    background-color: #A5D2F3;
+    padding: 10px 82px;
+    background-color: $secondary;
     color: $darktext;
     font-family: "Roboto";
     font-size: 20px;
     cursor: pointer;
-    text-align: center;
-    transition: background-color 0.2s ease;
-    -webkit-transition: background-color 0.2s ease;
-    width: 220px;
-    height: 50px;
-    border-radius:10px;
+    text-align: center;    
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
 
     &:hover {
-      background: $primary;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
-      color: $lighttext
+      background: $background-hover;
+      transition: background-color 0.2s ease;
+      -webkit-transition: background-color 0.2s ease;
     }
 }
 

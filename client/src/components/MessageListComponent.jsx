@@ -32,17 +32,6 @@ function MessageListComponent() {
       (a, b) => b.messageDateSent - a.messageDateSent
     );
 
-    // return sortedArray.map((msg) => {
-    //   return (
-    //     <li key={uuidv4()}>
-    //       <Link to={/app/messaging/${msg.userDetailsId}}>
-    //         <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} />
-    //         <p>{msg.userLastMessage}</p>
-    //       </Link>
-    //     </li>
-    //   );
-    // });
-
     return sortedArray.map((msg) => {
       return (
         <div key={uuidv4()} className="chats-list-item">
