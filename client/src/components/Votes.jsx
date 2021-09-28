@@ -8,18 +8,18 @@ function Votes() {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className="vote-container">
       <button disabled={disable} onClick={() => {
         dispatch(increment())
         setDisable(true)
-        }}>
+        }} className="upvote">
           Up Vote
       </button>
-      <p>{counter}</p>
+      <p className="counter">{counter}</p>
       <button disabled={disable} onClick={() => {
         dispatch(decrement())
         setDisable(true)
-        }}>
+        }} className="downvote">
           Down Vote
       </button>
     </div>
