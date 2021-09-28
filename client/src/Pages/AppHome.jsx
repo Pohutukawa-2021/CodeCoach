@@ -1,24 +1,24 @@
 import React from "react";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
 import { QuestionForm } from "../components/posts/QuestionForm";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { QuestionPost } from "../components/posts/QuestionPost";
 import UserProfile from "../components/users/UserProfile";
 import MessageListComponent from "../components/MessageListComponent/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
-import Votes from "../components/Votes";
-
 import QuestionList from "../components/posts/QuestionList";
 import { QuestionEdit } from "../components/posts/QuestionEdit";
 import SearchBar from "../components/SearchBar";
 import SearchQuestions from "../components/posts/SearchedQuestions";
 import Tags from "../components/Tags";
+
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -45,12 +45,10 @@ function AppHome() {
       ) : (
         <>
           <Header />
-          <SearchBar />
           <UsersOnline />
+              <SearchBar />
           <Switch>
             <Route exact path={path}>
-              <h1>Home</h1>
-              <Votes />
               <Tags />
               <QuestionList />
             </Route>
