@@ -34,7 +34,7 @@ export function QuestionForm() {
   //console.log("allposts: ", allPosts);
   return (
     <>
-      <ul className="thing">
+      <ul>
         {allPosts.map((post) => {
           return (
             <li key={uuidv4()}>

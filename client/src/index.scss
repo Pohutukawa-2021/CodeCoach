@@ -34,6 +34,7 @@ $background-hover: #b1ddff;
     align-items: center;
     position: fixed;
     top: 0;
+    z-index: 9999;
 }
 
 .mobile-logo-container {
@@ -235,11 +236,6 @@ $background-hover: #b1ddff;
   }
 }
 
-/* This is how you edit the chat panel */
-#chat-panel {
-  width: 50%;
-}
-
 /* layout columns styling */
 .max-width-container {
   width: 100vw;
@@ -275,6 +271,7 @@ $background-hover: #b1ddff;
 
 .center-col-container {
   width: 94%;
+  position: relative;
 }
 
 .left-col-title {
@@ -387,12 +384,6 @@ $background-hover: #b1ddff;
   margin-left: 14px;
 }
 
-/* remove once sorted out question and questions list form */
-.thing {
-  display: none;
-}
-/* remove remove remove remove remove */
-
 /* styling profiles */
 .profile-container {
   margin: 54px auto 0 auto;
@@ -428,7 +419,13 @@ $background-hover: #b1ddff;
 
 .profile-content {
   font-size: 1.2rem;
-  margin: 32px 0;
+  margin: 16px 0;
+}
+
+.profile-content-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 32px 0 0 0;
 }
 
 .edit-profile-button-link {
@@ -438,18 +435,18 @@ $background-hover: #b1ddff;
 
 /* styling users page */
 .users-container {
+  display: grid;
+  grid-template-columns: repeat(3, 32%);
+  justify-content: space-between;
   width: 100%;
-  display: flex;
-  justify-content: flex-start;
   margin-bottom: 54px;
 }
 
 .user-container {
   background-color: $secondary;
-  margin: 6px;
+  margin: 7px 0;
   padding: 18px;
   border-radius: 8px;
-  width: 32%;
   text-decoration: none;
   color: $darktext;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
@@ -460,6 +457,11 @@ $background-hover: #b1ddff;
     transition: background-color 0.15s ease;
     -webkit-transition: background-color 0.15s ease;
   }
+}
+
+.user-container:first-child {
+  max-width: 100%;
+  height: auto;
 }
 
 .users-header-container {
@@ -511,22 +513,58 @@ $background-hover: #b1ddff;
   margin: 0;
 }
 
-.chat-container {
+.chat-layout-container {
   display: flex;
-  width: 100%;
-  height: 86vh;
-  background-color: $offsetOrange;
-}
-
-.chat-input-container {
-  display: flex;
+  flex-direction: column;
   align-items: flex-end;
   width: 100%;
 }
 
-.chat-input {
+.chat-container {
+  display: flex;
   width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 89vh;
+  border: 1px solid $secondary;
+  border-radius: 8px;
+  background-color: $background;
 }
+
+.chat-input-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 12px 12px;
+  border-top: 1px solid $secondary;
+  background-color: $background;
+}
+
+.chat-input {
+  width: 90%;
+  background-color: $grey;
+  border: none;
+  height: 46px;
+  font-size: 1.2rem;
+  border-radius: 26px;
+  padding: 0 12px;
+
+  &:focus {
+    box-shadow: 0px 0px 3px $secondary;
+    outline: none;
+  }
+}
+
+.chat-button {
+  border-radius: 50%;
+  transform: rotate(45deg);
+  cursor: pointer;
+  position: relative;
+  background-color: $background;
+  border: none;
+}
+
+
 
 /* landing page styling */ 
 .greetpage-container {
@@ -591,3 +629,36 @@ $background-hover: #b1ddff;
     }
 }
 
+/* styling user popup */
+.user-popup-container {
+  background-color: $background;
+  position: absolute;
+  top: 0;
+  left: -22px;
+  width: 106%;
+  border-radius: 8px;
+}
+
+.user-popup {
+  width: 90%;
+  margin: 54px auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  font-size: 24px;
+  background-color: $background;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-hover;
+    transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
+  }
+}

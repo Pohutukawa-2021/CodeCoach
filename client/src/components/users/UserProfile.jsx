@@ -19,9 +19,12 @@ function UserProfile() {
               </div>
             </div>
             <div className="profile-content-container">
-              <p className="profile-content">Role: {user.role}</p>
-              <p className="profile-content">Experience: {user.experience}</p>
-              <p className="profile-content">Bio: {user.bio}</p>
+              <p className="profile-content-label">Role</p>
+              <p className="profile-content">{user.role}</p>
+              <p className="profile-content-label">Experience</p>
+              <p className="profile-content">{user.experience}</p>
+              <p className="profile-content-label">Bio</p>
+              <p className="profile-content">{user.bio}</p>
               <button className="small-button small-button-styling">
                 <NavLink className="edit-profile-button-link" to="/app/editprofile">Edit details</NavLink>
               </button>

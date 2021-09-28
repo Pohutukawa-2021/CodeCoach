@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import { ChatboxEllipsesOutline } from 'react-ionicons'
+import { ChatbubbleEllipsesOutline } from 'react-ionicons'
 import { PeopleOutline } from 'react-ionicons'
 import { HomeOutline } from 'react-ionicons'
 import { useDetectOutsideClick } from "../../useDetectOutsideClick"
@@ -35,7 +35,7 @@ function Nav() {
             />
           </Link>
           <Link to="/app/messaging" className="nav-link nav-link-active">
-            <ChatboxEllipsesOutline
+            <ChatbubbleEllipsesOutline
               color={'#ffffff'}
               height="30px"
               width="30px"

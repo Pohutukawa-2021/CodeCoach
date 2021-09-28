@@ -8,16 +8,16 @@ function UsersList() {
   const [userPopUp, setUserPopUp] = useState({ users })
   
   return (
-      <div>
-        <main className='users-container'>
+    <>
+      <main className='users-container'>
         {users.map((user) =>
-          <div key={user.id} className="user-container">
+          <div key={user.id} onClick={() => {
+            setUserPopUp(user)
+            setPopUp(true)
+          }} className="user-container">
             <div className="users-header-container">
               <div className="users-avatar-container">
-                <img className='users-avatar' src={user.image_url} alt={user.username} onClick={() => {
-                  setUserPopUp(user)
-                    setPopUp(true)
-                  }} />
+                <img className='users-avatar' src={user.image_url} alt={user.username} />
               </div>
               <span className="users-username">{user.username}</span>
             </div>
@@ -26,16 +26,29 @@ function UsersList() {
             <p>{user.experience}</p>
           </div>
           )}     
-        </main>
-      <ProfilePopUp trigger={popUp} setTrigger={setPopUp}>
-        <img className='avatar' src={userPopUp.image_url} alt={userPopUp.username} />
-        <span>Username: {userPopUp.username}</span>
-          <span>{userPopUp.email}</span>
-          <span>Role: {userPopUp.role}</span>
-          <span>Experience: {userPopUp.experience}</span>
-          <span>Bio: {userPopUp.bio}</span>
-      </ProfilePopUp> 
+      </main>
+      <div className="user-popup-container">
+        <ProfilePopUp trigger={popUp} setTrigger={setPopUp}>
+          <div className="user-popup">
+            <div className="profile-header-container">
+              <img className='profile-avatar' src={userPopUp.image_url} alt={userPopUp.username} />
+              <div className="profile-title-container">
+                <p className="profile-username">{userPopUp.username}</p>
+                <p>{userPopUp.email}</p>
+              </div>
+            </div>
+            <div>
+              <p className="profile-content profile-content-label">Role</p>
+              <p className="profile-content">{userPopUp.role}</p>
+              <p className="profile-content profile-content-label">Experience</p>
+              <p className="profile-content">{userPopUp.experience}</p>
+              <p className="profile-content profile-content-label">Bio</p>
+              <p className="profile-content">{userPopUp.bio}</p>
+            </div>
+          </div>
+        </ProfilePopUp>
       </div>
+    </>
   );
 }
 
