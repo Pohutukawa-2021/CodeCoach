@@ -54,7 +54,7 @@ function updateUserDetails(user, authToken, db = connection) {
       });
     })
     .catch((err) => {
-      console.log(err.message);
+      err.message;
     });
 }
 

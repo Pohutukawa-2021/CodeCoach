@@ -27,10 +27,10 @@ export function QuestionPost() {
 
   if (allPosts.length !== 0) {
     post = allPosts.find((post) => post.postId === id);
-    // console.log(allPosts);
+    // (allPosts);
   }
   const currentUser = useSelector((state) => state.userAccount);
-  // console.log(allPosts);
+  // (allPosts);
   const [commentNumber, setCommentNumber] = useState(5);
 
   const [form, setForm] = useState({

@@ -6,10 +6,10 @@ module.exports = sendMessage;
 function sendMessage(io, socket, action, users) {
   addMessage(action)
     .then(() => {
-      console.log("message added");
+      ("message added");
     })
     .catch((err) => {
-      console.log(err.message);
+      err.message;
     });
   const conversationId = action.data.from;
   const toUserId = action.data.to;

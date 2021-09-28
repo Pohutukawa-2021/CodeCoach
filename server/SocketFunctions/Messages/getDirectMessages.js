@@ -54,9 +54,9 @@ async function getDirectMessages(socket) {
             resolve();
           });
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => err.message);
     });
   }).catch((err) => {
-    console.log(err);
+    err;
   });
 }

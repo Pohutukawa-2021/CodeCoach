@@ -18,14 +18,14 @@ function getAllPosts(db = connection) {
       return await Promise.all(
         allPosts.map(async (post) => {
           return await changeShape(post).then((newObj) => {
-            // console.log(newObj);
+            // (newObj);
             return newObj;
           });
         })
       );
     })
     .catch((err) => {
-      console.log(err);
+      err;
     });
 }
 
@@ -59,7 +59,7 @@ function addPost(post, authToken, db = connection) {
     today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   var time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  console.log(post);
+  post;
   const newPost = {
     title: post.title,
     text: post.body,
@@ -68,16 +68,16 @@ function addPost(post, authToken, db = connection) {
     tags: post.tags,
   };
   return getUserData(authToken).then((rows) => {
-    //console.log(rows);
+    //(rows);
     newPost["user_id"] = rows[0].id;
     return db("posts")
       .insert(newPost)
       .then(() => {
-        // console.log("data:",data);
+        // ("data:",data);
         return getAllPosts().then((data) => data);
       })
       .catch((err) => {
-        console.log(err.message);
+        err.message;
       });
   });
 }
@@ -96,7 +96,7 @@ function addCommentById(postId, comment, authToken, db = connection) {
     comment_date: date,
     comment_time: time,
   };
-  //console.log(commentObj);
+  //(commentObj);
   return getUserData(authToken).then((rows) => {
     commentObj["user_id"] = rows[0].id;
     return db("comments").insert(commentObj);
