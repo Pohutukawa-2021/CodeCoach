@@ -8,7 +8,7 @@
     "dev": "npm-run-all --parallel startServer startClient",
     "startClient": "cd ./client && npm run start",
     "startServer": "cd ./server && npm run dev",
-    "install": "npm-run-all --parallel installServer installClient",
+    "install --legacy-peer-deps": "npm-run-all --parallel installServer installClient",
     "migrate": "cd ./server && npx knex migrate:latest && npx knex seed:run",
     "seed": "cd ./server && npx knex seed:run",
     "installServer": "cd ./server && npm install",
