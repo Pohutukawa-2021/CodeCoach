@@ -52,14 +52,16 @@ export function QuestionPost() {
     });
   }
   let commentShown = [];
-  //console.log(post);
   if (post.comments.length > commentNumber) {
     for (let i = 0; i < commentNumber; i++) {
       const lastAddedComment = post.comments[post.comments.length - i - 1];
       commentShown.push(lastAddedComment);
     }
   } else {
-    commentShown = post.comments;
+    for (let i = 0; i < post.comments.length; i++) {
+      const lastAddedComment = post.comments[post.comments.length - i - 1];
+      commentShown.push(lastAddedComment);
+    }
   }
   function handleEdit(e) {
     history.push(`/app/editquestion/${post.postId}`);
