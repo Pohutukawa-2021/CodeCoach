@@ -1,11 +1,6 @@
-export const increment = () => {
+export const counter = (form) => {
   return {
-    type: "increment",
-  };
-};
-
-export const decrement = () => {
-  return {
-    type: "decrement",
+    type: "server/counter",
+    data: form
   };
 };
