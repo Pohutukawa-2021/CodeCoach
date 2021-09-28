@@ -1,4 +1,5 @@
 function tagsFilter(state = [], action) {
+  console.log(action.data);
   switch (action.type) {
     case "setTagFilter":
       return [...action.data];

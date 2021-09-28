@@ -5,7 +5,6 @@ import { addPost } from "../../redux/actions/posts";
 
 export function QuestionForm() {
   const dispatch = useDispatch();
-  const allTags = useSelector((state) => state.tags);
   const history = useHistory();
   const [form, setForm] = useState({
     title: "",
@@ -20,28 +19,19 @@ export function QuestionForm() {
       [name]: value,
     });
   }
-
-  function addNewTags(listOfTags) {
-    let newTags = listOfTags.filter((tag) => {
-      if (!allTags.includes(tag)) {
-        return tag;
-      }
-    });
-    dispatch({ type: "addNewTags", data: newTags });
-  }
-
   function handleClick(e) {
     e.preventDefault();
-    addNewTags(form.tags.split(","));
     dispatch(addPost(form));
     history.push("/app");
   }
-
+  //console.log("allposts: ", allPosts);
   return (
     <section className="flex-container">
       <form className="column-6">
         <div className="field">
-          <label className="form-label">Title</label>
+          <label htmlFor="firstName" className="form-label">
+            Title
+          </label>
           <input
             name="title"
             value={form.title}
@@ -50,7 +40,9 @@ export function QuestionForm() {
           ></input>
         </div>
         <div className="field">
-          <label className="form-label">Body</label>
+          <label htmlFor="lastName" className="form-label">
+            Body
+          </label>
           <input
             name="body"
             value={form.body}
@@ -58,7 +50,7 @@ export function QuestionForm() {
             onChange={handleChange}
           ></input>
         </div>
-        <label>Tags:</label>
+        <label for="myBrowser">Tags:</label>
         <input
           list="tags"
           name="tags"
