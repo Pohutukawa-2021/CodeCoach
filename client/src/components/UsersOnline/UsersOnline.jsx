@@ -17,6 +17,7 @@ function UsersOnline() {
     });
     return test;
   }
+
   const onlineList = setUsersOnlineList();
   return (
     <div>
