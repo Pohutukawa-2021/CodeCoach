@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import UsersOnline from "../components/UsersOnline";
+import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
@@ -9,7 +9,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { QuestionPost } from "../components/posts/QuestionPost";
 import UserProfile from "../components/users/UserProfile";
-import MessageListComponent from "../components/MessageListComponent";
+import MessageListComponent from "../components/MessageListComponent/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
 import QuestionList from "../components/posts/QuestionList";
