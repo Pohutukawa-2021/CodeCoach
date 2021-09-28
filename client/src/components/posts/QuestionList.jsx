@@ -27,7 +27,7 @@ function QuestionList() {
 
   useEffect(() => {
     handleTags();
-  }, []);
+  }, [allPosts]);
 
   function tagPosts(tags) {
     let arr = [];

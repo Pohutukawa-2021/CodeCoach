@@ -28,7 +28,7 @@ function Tags() {
     // console.log(selectedTags);
     dispatch(tagsFilter([...arr]));
   }
-  console.log("tt:", tt);
+  console.log(allTags);
   return (
     <>
       {selectedTags.map((tag) => {
