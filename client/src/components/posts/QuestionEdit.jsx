@@ -45,7 +45,6 @@ export function QuestionEdit() {
   function handleClick(e) {
     e.preventDefault();
     dispatch(updatePost(form));
-    console.log(form);
     history.push("/app");
   }
 
