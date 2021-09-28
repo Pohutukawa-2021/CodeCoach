@@ -23,12 +23,11 @@ export function QuestionEdit() {
     },
   };
   if (allPosts.length !== 0) {
-    console.log("dfgdfgdfgd");
     post = allPosts.find((post) => post.postId === id);
   }
-  console.log(post);
+
   const [form, setForm] = useState({
-    id: post.id,
+    id: post.postId,
     title: post.question,
     text: post.body,
     tags: post.post_tags, // its changing the post but the form is stuck with that first render, the date rendering is right so idk wtf imma sleep now fuck
@@ -46,6 +45,7 @@ export function QuestionEdit() {
   function handleClick(e) {
     e.preventDefault();
     dispatch(updatePost(form));
+    console.log(form);
     history.push("/app");
   }
 
@@ -81,6 +81,8 @@ export function QuestionEdit() {
             list="tags"
             name="tags"
             placeholder='Tags...seperate by " , "'
+            value={form.tags}
+            onChange={handleChange}
           />
           <datalist id="tags">
             <option value="Java," />

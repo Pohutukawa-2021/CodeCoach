@@ -30,6 +30,7 @@ function getAllPosts(db = connection) {
 }
 
 function changeShape(post, db = connection) {
+  const tags = post.tags.split(",");
   return getUserDataById(post.user_id).then((user) => {
     return getCommentsByPost(post).then((commentsWithUsers) => {
       const fullPost = {
@@ -38,7 +39,7 @@ function changeShape(post, db = connection) {
         body: post.text,
         post_date: post.date,
         post_time: post.time,
-        post_tags: post.tags,
+        post_tags: tags,
         user: {
           name: user.username,
           role: user.role,

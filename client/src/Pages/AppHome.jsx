@@ -14,6 +14,9 @@ import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
 import QuestionList from "../components/posts/QuestionList";
 import { QuestionEdit } from "../components/posts/QuestionEdit";
+import SearchBar from "../components/SearchBar";
+import SearchQuestions from "../components/posts/SearchedQuestions";
+import Tags from "../components/Tags";
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -40,9 +43,11 @@ function AppHome() {
       ) : (
         <>
           <Header />
+          <SearchBar />
           <UsersOnline />
           <Switch>
             <Route exact path={path}>
+              <Tags />
               <QuestionList />
             </Route>
             <Route exact path={`${path}/messaging/`}>
@@ -55,6 +60,7 @@ function AppHome() {
               <QuestionForm />
             </Route>
             <Route path={`${path}/post/:postId`}>
+              <Tags />
               <QuestionPost />
             </Route>
             <Route path={`${path}/users`}>
@@ -68,6 +74,9 @@ function AppHome() {
             </Route>
             <Route path={`${path}/editquestion/:postId`}>
               <QuestionEdit />
+            </Route>
+            <Route path={`${path}/search`}>
+              <SearchQuestions />
             </Route>
           </Switch>
         </>

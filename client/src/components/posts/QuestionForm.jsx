@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import { addPost } from "../../redux/actions/posts";
 
 export function QuestionForm() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [form, setForm] = useState({
     title: "",
     body: "",
@@ -17,15 +19,10 @@ export function QuestionForm() {
       [name]: value,
     });
   }
-
   function handleClick(e) {
     e.preventDefault();
     dispatch(addPost(form));
-    setForm({
-      title: "",
-      body: "",
-      tags: "",
-    });
+    history.push("/app");
   }
   //console.log("allposts: ", allPosts);
   return (
