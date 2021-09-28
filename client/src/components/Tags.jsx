@@ -28,7 +28,6 @@ function Tags() {
     // (selectedTags);
     dispatch(tagsFilter([...arr]));
   }
-  allTags;
   return (
     <>
       {selectedTags.map((tag) => {
