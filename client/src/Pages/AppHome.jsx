@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import UsersOnline from "../components/UsersOnline";
+import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
