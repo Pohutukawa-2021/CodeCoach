@@ -12,6 +12,7 @@ import UserProfile from "../components/users/UserProfile";
 import MessageListComponent from "../components/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
+import Votes from "../components/Votes";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -43,6 +44,7 @@ function AppHome() {
           <Switch>
             <Route exact path={path}>
               <h1>Home</h1>
+              <Votes />
             </Route>
             <Route exact path={`${path}/messaging/`}>
               <MessageListComponent />
