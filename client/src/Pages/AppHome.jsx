@@ -9,7 +9,7 @@ import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { PostComponent } from "../components/posts/PostComponent";
 import UserProfile from "../components/users/UserProfile";
-import MessageListComponent from "../components/MessageListComponent";
+import MessageListComponent from "../components/MessageListComponent/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
 
