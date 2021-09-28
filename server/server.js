@@ -76,7 +76,7 @@ io.on("connection", (socket) => {
           });
         })
         .catch((err) => {
-          console.log(err.message);
+          err.message;
         });
     }
   });
@@ -107,24 +107,24 @@ io.on("connection", (socket) => {
         sendMessage(io, socket, action, users);
         break;
       case "server/addPost":
-        console.log(action.data);
+        action.data;
         if (action.data.title != null || action.data.body != null) {
           addPost(action.data, socket.decoded_token.sub).then((results) => {
             io.emit("action", { type: "setPosts", data: results });
           });
         } else {
-          console.log("emptyemptyempty");
+          ("emptyemptyempty");
         }
         break;
       case "server/addComment":
-        // console.log(action.data);
+        // (action.data);
         addCommentById(
           action.data.postId,
           action.data.comment,
           socket.decoded_token.sub
         ).then(() => {
           getAllPosts().then((allPosts) => {
-            //console.log(allPosts);
+            //(allPosts);
             io.emit("action", { type: "setPosts", data: allPosts });
           });
         });
@@ -141,4 +141,4 @@ io.on("connection", (socket) => {
 
 const port = 3001;
 io.listen(port);
-console.log("Server is listening on port ", port);
+"Server is listening on port ", port;
