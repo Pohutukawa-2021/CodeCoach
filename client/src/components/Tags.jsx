@@ -25,10 +25,10 @@ function Tags() {
       arr.splice(arr.indexOf(value), 1);
     }
     setTags([...arr]);
-    // (selectedTags);
+    // console.log(selectedTags);
     dispatch(tagsFilter([...arr]));
   }
-  allTags;
+  console.log("tt:", tt);
   return (
     <>
       {selectedTags.map((tag) => {

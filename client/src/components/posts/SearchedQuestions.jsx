@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 function SearchQuestions() {
   const allPosts = useSelector((state) => state.search);
-  allPosts;
+  console.log(allPosts);
   return (
     <>
       <div>

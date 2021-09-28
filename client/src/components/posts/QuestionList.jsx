@@ -8,7 +8,7 @@ function QuestionList() {
   const tagsFilter = useSelector((state) => state.tagsFilter);
 
   const dispatch = useDispatch();
-  // (allTags);
+  // console.log(allTags);
   function handleTags() {
     let tagsToDispatch = [];
     allPosts.map((post) => {
@@ -27,7 +27,7 @@ function QuestionList() {
 
   useEffect(() => {
     handleTags();
-  }, [allPosts]);
+  }, []);
 
   function tagPosts(tags) {
     let arr = [];

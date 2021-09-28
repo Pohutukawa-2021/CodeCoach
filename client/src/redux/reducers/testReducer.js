@@ -1,9 +1,9 @@
 function testReducer(state = "", action) {
   switch (action.type) {
-    case "hello":
-      "hello";
+    case 'hello':
+      console.log('hello');
       return state;
-    default:
+    default: 
       return state;
   }
 }

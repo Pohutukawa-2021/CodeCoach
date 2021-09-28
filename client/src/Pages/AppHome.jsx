@@ -35,7 +35,7 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
-  //(userAccount);
+  //console.log(userAccount);
   return (
     <div>
       {waiting ? (
