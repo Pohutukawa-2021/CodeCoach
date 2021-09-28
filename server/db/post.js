@@ -1,18 +1,15 @@
-const connection = require('../connection')
+const connection = require("../connection");
 
 module.exports = {
   getAllPosts,
   changeShape,
   addPost,
   addCommentById,
-  getCommentsByPost
-}
+  getCommentsByPost,
+  updatePost,
+};
 
-const { 
-  getUserData,
-  getUserDataById
-
- } = require('./users')
+const { getUserData, getUserDataById } = require("./users");
 
 function getAllPosts(db = connection) {
   return db("posts")
@@ -33,6 +30,7 @@ function getAllPosts(db = connection) {
 }
 
 function changeShape(post, db = connection) {
+  const tags = post.tags.split(",");
   return getUserDataById(post.user_id).then((user) => {
     return getCommentsByPost(post).then((commentsWithUsers) => {
       const fullPost = {
@@ -41,10 +39,12 @@ function changeShape(post, db = connection) {
         body: post.text,
         post_date: post.date,
         post_time: post.time,
+        post_tags: tags,
         user: {
           name: user.username,
           role: user.role,
           image: user.image_url,
+          id: user.id,
         },
         comments: commentsWithUsers,
       };
@@ -53,19 +53,19 @@ function changeShape(post, db = connection) {
   });
 }
 
-
 function addPost(post, authToken, db = connection) {
   var today = new Date();
   var date =
     today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   var time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-
+  console.log(post);
   const newPost = {
     title: post.title,
     text: post.body,
     date: date,
     time: time,
+    tags: post.tags,
   };
   return getUserData(authToken).then((rows) => {
     //console.log(rows);
@@ -118,4 +118,7 @@ function getCommentsByPost(post, db = connection) {
         })
       );
     });
+}
+function updatePost(post, db = connection) {
+  return db("posts").where("id", post.id).update(post);
 }
