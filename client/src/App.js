@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import GreetPage from "./Pages/GreetPage";
+import GreetPage from "./Pages/GreetPage/GreetPage";
 import AppHome from "./Pages/AppHome";
 import { SocketReduxWrapperMemoized } from "./components/SocketReduxWrapper";
 
