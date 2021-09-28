@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import tags from "../../redux/actions/tags";
@@ -24,10 +24,10 @@ function QuestionList() {
     });
     dispatch(tags(tagsToDispatch));
   }
-  if (allTags.length === 0) {
+  useEffect(() => {
     handleTags();
-    //console.log("tags:", tagsFilter.length);
-  }
+    }, [])
+  
   function tagPosts(tags) {
     let arr = [];
     tags.map((tag) => {
