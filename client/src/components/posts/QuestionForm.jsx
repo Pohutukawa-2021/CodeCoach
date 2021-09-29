@@ -27,25 +27,6 @@ export function QuestionForm() {
   }
   return (
     <>
-      {/* <ul>
-        {allPosts.map((post) => {
-          return (
-            <li key={uuidv4()}>
-              <Link to={`/app/post/${post.postId}`}>
-                {post.question} === {post.user.name}
-                <ul>
-                  {post.comments.map((commentObj) => (
-                    <li key={uuidv4()}>
-                      {" "}
-                      {commentObj.comment} --- {commentObj.username}
-                    </li>
-                  ))}
-                </ul>
-              </Link>
-            </li>
-          );
-        })}
-      </ul> */}
       <div className="layout-left-col"></div>
       <div className="layout-center-col">
         <section className="center-col-container">

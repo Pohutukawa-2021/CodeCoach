@@ -241,6 +241,7 @@ body {
   display: flex;
   justify-content: center;
   border-radius: 8px;
+  margin-bottom: 54px;
 }
 
 .layout-right-col {
@@ -961,8 +962,19 @@ body {
 
 .post-button-answer {
   margin-left: 8px;
+  margin-bottom: 54px;
+}
+
+.answered-click {
+  background-color: #FCD35B !important;
 }
 
 .edit {
   background-color: #FF760C !important;
+}
+
+.clicked {
+  background-color: #FCD35B !important;
+  border-radius: 4px;
+  padding: 4px 8px;
 }
