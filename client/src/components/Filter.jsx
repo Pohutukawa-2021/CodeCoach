@@ -10,7 +10,7 @@ function Filter() {
 
   function handleClickA(e) {
     if (link.answered.link === "/app/posts/answered") {
-      setLink({ ...link, answered: { link: "/app/posts/", style: "clicked" } });
+      setLink({ ...link, answered: { link: "/app", style: "clicked" } });
     } else {
       setLink({
         ...link,
@@ -23,7 +23,7 @@ function Filter() {
     if (link.unanswered.link === "/app/posts/unanswered") {
       setLink({
         ...link,
-        unanswered: { link: "/app/posts/", style: "clicked" },
+        unanswered: { link: "/app", style: "clicked" },
       });
     } else {
       setLink({
@@ -37,7 +37,7 @@ function Filter() {
     if (link.myquestions.link === "/app/posts/myquestions") {
       setLink({
         ...link,
-        myquestions: { link: "/app/posts/", style: "clicked" },
+        myquestions: { link: "/app", style: "clicked" },
       });
     } else {
       setLink({
@@ -53,11 +53,10 @@ function Filter() {
       <div className="filter-label">
         <Link
           to={link.answered.link}
-          className={link.answered.style}
           id="answered"
+          className={link.answered.style}
           onClick={handleClickA}
         >
-          <input className="filter-checkbox" type="checkbox" />
           Answered
         </Link>
       </div>
@@ -68,7 +67,6 @@ function Filter() {
           id="unanswered"
           onClick={handleClickB}
         >
-          <input className="filter-checkbox" type="checkbox" />
           Unanswered
         </Link>
       </div>
@@ -79,7 +77,6 @@ function Filter() {
           id="myquestions"
           onClick={handleClickC}
         >
-          <input className="filter-checkbox" type="checkbox" />
           My Questions
         </Link>
       </div>

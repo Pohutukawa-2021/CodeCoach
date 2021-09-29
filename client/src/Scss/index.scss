@@ -990,8 +990,19 @@ $background-hover: #b1ddff;
 
 .post-button-answer {
   margin-left: 8px;
+  margin-bottom: 54px;
+}
+
+.answered-click {
+  background-color: $offsetYellow !important;
 }
 
 .edit {
   background-color: $offsetOrange !important;
+}
+
+.clicked {
+  background-color: $offsetYellow !important;
+  border-radius: 4px;
+  padding: 4px 8px;
 }

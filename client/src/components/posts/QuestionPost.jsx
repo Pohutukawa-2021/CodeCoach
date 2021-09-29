@@ -14,6 +14,7 @@ export function QuestionPost() {
   const { postId } = useParams();
   const [disable, setDisable] = useState(false)
   const dispatch = useDispatch();
+  const [className, setClassName] = useState("answered-unclicked")
 
   const id = Number(postId);
   // const [waiting, setWaiting] = useState(true);
@@ -91,7 +92,13 @@ export function QuestionPost() {
   }
 
   function handleAnswerClick(e) {
-      const { value } = e.target
+    e.preventDefault()
+    const { value } = e.target
+    if (className === "answered-unclicked") {
+      setClassName("answered-click")
+    } else {
+      setClassName("answered-unclicked")
+    }
       if (Number(value) === 0) {
       dispatch(changeAnswered({
         id: id,
@@ -193,7 +200,7 @@ export function QuestionPost() {
             </label>
             <textarea
               className="answer-input"
-              name="Comment"
+              name="comment"
               value={form.comment}
               placeholder="Comment"
               onChange={handleChange}
@@ -207,7 +214,8 @@ export function QuestionPost() {
                 <div className="answered-button">
               <button 
               onClick={handleAnswerClick} 
-              value={post.post_answered}
+                    value={post.post_answered}
+                    className={className}
               >
                 Answered
               </button>
