@@ -48,35 +48,38 @@ function Filter() {
   }
 
   return (
-    <div>
-      <p>Filters</p>
-      <div>
+    <div className="layout-left-col home-filters">
+      <p className="search-filter-tags-label">Filters</p>
+      <div className="filter-label">
         <Link
           to={link.answered.link}
           className={link.answered.style}
           id="answered"
           onClick={handleClickA}
         >
+          <input className="filter-checkbox" type="checkbox" />
           Answered
         </Link>
       </div>
-      <div>
+      <div className="filter-label">
         <Link
           to={link.unanswered.link}
           className={link.unanswered.style}
           id="unanswered"
           onClick={handleClickB}
         >
+          <input className="filter-checkbox" type="checkbox" />
           Unanswered
         </Link>
       </div>
-      <div>
+      <div className="filter-label">
         <Link
           to={link.myquestions.link}
           className={link.myquestions.style}
           id="myquestions"
           onClick={handleClickC}
         >
+          <input className="filter-checkbox" type="checkbox" />
           My Questions
         </Link>
       </div>

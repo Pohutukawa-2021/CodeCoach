@@ -66,12 +66,10 @@ body {
   -webkit-transition: background-color 0.2s ease;
 }
 
-.large-screen-logo {
-  border-radius: none;
-  margin: 0;
-}
-.large-screen-logo:hover {
-  background-color: #FFFFFF;
+.large-screen-logo-container img {
+  width: 150px;
+  margin: 4px 0 0 4px;
+  padding: 0;
 }
 
 .nav-question-button {
@@ -308,6 +306,7 @@ body {
   display: flex;
   flex-direction: column;
   margin: 22px 0;
+  position: relative;
 }
 
 .form-label {
@@ -315,7 +314,7 @@ body {
 }
 
 .input-field-standard {
-  height: 44px;
+  height: 34px;
   font-size: 1rem;
   border: none;
   border: 1px solid #031B44;
@@ -350,7 +349,7 @@ body {
 
 .small-button-styling {
   background-color: #80BEEC;
-  width: 100%;
+  width: 94%;
 }
 
 .discard-button {
@@ -574,13 +573,6 @@ body {
   justify-content: center;
 }
 
-.logo-image {
-  width: 210px;
-  position: absolute;
-  top: 6px;
-  left: 0;
-}
-
 .greetpage-content-container {
   display: flex;
   flex-direction: column;
@@ -650,7 +642,7 @@ body {
   background-color: #F4F8FB;
   border: none;
   border-radius: 50%;
-  width: 46px;
+  width: 38px;
   height: 46px;
   cursor: pointer;
 }
@@ -658,4 +650,57 @@ body {
   background-color: #b1ddff;
   transition: background-color 0.2s ease;
   -webkit-transition: background-color 0.2s ease;
+}
+
+/* styling search filters */
+.search-container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.search-filter-tags-label {
+  font-size: 22px;
+}
+
+.search-field {
+  background-color: #F4F8FB;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.search-button {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  border-radius: 40%;
+  border: none;
+  background-color: #F4F8FB;
+  cursor: pointer;
+}
+
+#senior, #junior, #answered, #unanswered, #myquestions {
+  text-decoration: none;
+  font-size: 20px;
+  color: #031B44;
+  cursor: pointer;
+}
+
+.filter-label {
+  margin: 12px 0;
+  display: flex;
+}
+
+.filter-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.home-filters {
+  margin-left: 0;
 }
