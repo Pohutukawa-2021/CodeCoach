@@ -12,71 +12,70 @@ body {
 }
 /* vars */
 /* colors styles */
-$primary: #12558A;
-$secondary: #80BEEC;
-$darktext: #031B44;
-$lighttext: #F4F6F7;
-$background: #F4F8FB;
-$white: #FFFFFF;
-$grey: #DDDDDD;
-$offsetYellow: #FCD35B;
-$offsetOrange: #FF760C;
-$offsetGreen: #77B69E;
+$primary: #12558a;
+$secondary: #80beec;
+$darktext: #031b44;
+$lighttext: #f4f6f7;
+$background: #f4f8fb;
+$white: #ffffff;
+$grey: #dddddd;
+$offsetYellow: #fcd35b;
+$offsetOrange: #ff760c;
+$offsetGreen: #77b69e;
 $background-hover: #b1ddff;
-
 
 /* header */
 .header-container {
-    background-color: $primary;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    z-index: 9999;
+  background-color: $primary;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 9999;
 }
 
 .mobile-logo-container {
-    background-color: $white;
-    color: $darktext;
+  background-color: $white;
+  color: $darktext;
 }
 
 /* nav */
 .nav {
-    display: flex;
-    width: 100vw;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
+  display: flex;
+  width: 100vw;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
 }
 
 .nav-left-col {
-    display: flex;
+  display: flex;
 }
 
 .nav-center-col {
-    display: flex;
-    align-items: center;        
+  display: flex;
+  align-items: center;
 }
 
 .nav-right-col {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .nav-link {
-    text-decoration: none;
-    margin: 0 24px;
-    padding: 8px 10px 4px 10px;
-    border-radius: 50%;
+  text-decoration: none;
+  margin: 0 24px;
+  padding: 8px 10px 4px 10px;
+  border-radius: 50%;
 
-    &:hover {
-      background-color: $secondary;
-      color: $primary;
-      transition: background-color 0.2s ease;
-      -webkit-transition: background-color 0.2s ease;
-    }
+  &:hover {
+    background-color: $secondary;
+    color: $primary;
+    transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
+  }
 }
 
 .large-screen-logo-container img {
@@ -86,26 +85,26 @@ $background-hover: #b1ddff;
 }
 
 .nav-question-button {
-    background-color: $primary;
-    color: $lighttext;
-    border: 2px solid $lighttext;
-    border-radius: 8px;
-    font-size: 16px;
-    text-decoration: none;
-    cursor: pointer;
-    padding: 6px 12px;
-    display: flex;
-    font-family: "Roboto";
+  background-color: $primary;
+  color: $lighttext;
+  border: 2px solid $lighttext;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  display: flex;
+  font-family: "Roboto";
 
-    &:hover {
-      background-color: $secondary;
-      transition: background-color 0.15s ease;
-      -webkit-transition: background-color 0.15s ease;
-    }
+  &:hover {
+    background-color: $secondary;
+    transition: background-color 0.15s ease;
+    -webkit-transition: background-color 0.15s ease;
+  }
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 .nav-link-ask-question {
@@ -113,99 +112,100 @@ $background-hover: #b1ddff;
 }
 
 .nav-avatar-link {
-    width: 28px;
-    height: 34px;
-    background-color: $grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.25rem;
-    color: $darktext;
-    font-weight: bold;
-    margin-right: 6px;
+  width: 28px;
+  height: 34px;
+  background-color: $grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  color: $darktext;
+  font-weight: bold;
+  margin-right: 6px;
 
-    &:hover {
-      background-color: $grey;
-      color: $darktext;
-    }
+  &:hover {
+    background-color: $grey;
+    color: $darktext;
+  }
 }
 
 .nav-triangle-button {
-    display: flex;
-    align-items: center;
-    margin-right: 12px;
-    text-decoration: none;
-    width: 34px;
-    height: 44px;
-    border-radius: 50%;
-    justify-content: center;
-    border: none;
-    background-color: $primary;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  text-decoration: none;
+  width: 34px;
+  height: 44px;
+  border-radius: 50%;
+  justify-content: center;
+  border: none;
+  background-color: $primary;
+  cursor: pointer;
 
-    &:hover {
-      background-color: $secondary;
-      transition: background-color 0.15s ease;
-      -webkit-transition: background-color 0.15s ease;
-    }
+  &:hover {
+    background-color: $secondary;
+    transition: background-color 0.15s ease;
+    -webkit-transition: background-color 0.15s ease;
+  }
 
-    &:focus {
-      outline: none;
-    }
+  &:focus {
+    outline: none;
+  }
 }
 
 .nav-triangle {
-    display: flex;
-    position: relative;
-    background-color: $lighttext;
-    margin-left: 2px;
-    text-align: left;
+  display: flex;
+  position: relative;
+  background-color: $lighttext;
+  margin-left: 2px;
+  text-align: left;
 }
 .nav-triangle:before,
 .nav-triangle:after {
-    content: '';
-    position: absolute;
-    background-color: inherit;
+  content: "";
+  position: absolute;
+  background-color: inherit;
 }
 .nav-triangle,
 .nav-triangle:before,
 .nav-triangle:after {
-    width:  7px;
-    height: 7px;
-    border-top-right-radius: 40%;
+  width: 7px;
+  height: 7px;
+  border-top-right-radius: 40%;
 }
 
 .nav-triangle {
-	  transform: rotate(0deg) skewX(-30deg) scale(1,.866);
+  transform: rotate(0deg) skewX(-30deg) scale(1, 0.866);
 }
 .nav-triangle:before {
-	  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+    translate(0, -50%);
 }
 .nav-triangle:after {
-	  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
 }
 
 .menu {
-    background: $background;
-    border-radius: 8px;
-    position: absolute;
-    font-size: 1.2rem;
-    padding: 12px;
-    top: 54px;
-    right: 12px;
-    width: 150px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    -webkit-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  background: $background;
+  border-radius: 8px;
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 12px;
+  top: 54px;
+  right: 12px;
+  width: 150px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  -webkit-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
 
 .menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .signout-text {
@@ -271,7 +271,6 @@ $background-hover: #b1ddff;
 .left-col-title {
   font-size: 2.2rem;
   margin-top: 0;
-  
 }
 
 .right-col-title {
@@ -468,7 +467,7 @@ $background-hover: #b1ddff;
 
 .users-avatar-container {
   width: 84px;
-  height: 84px;  
+  height: 84px;
 }
 
 .users-avatar {
@@ -482,20 +481,20 @@ $background-hover: #b1ddff;
   margin-left: 8px;
 }
 
-/* styling chats */ 
+/* styling chats */
 .chats-list {
-  display: flex;  
+  display: flex;
+  flex-direction: column !important;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;  
+  text-overflow: ellipsis;
 }
 
 .chats-list-item {
   padding: 0;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   flex-direction: row;
-  align-items: center; 
+  align-items: center;
   text-decoration: none;
   text-overflow: ellipsis;
 }
@@ -515,7 +514,6 @@ $background-hover: #b1ddff;
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;  
 }
 
 .chats-list-username {
@@ -581,9 +579,9 @@ $background-hover: #b1ddff;
   border: none;
 }
 
-/* landing page styling */ 
+/* landing page styling */
 .greetpage-container {
-  width: 100vw;  
+  width: 100vw;
   height: 100vh;
   background-color: $primary;
   display: flex;
@@ -601,13 +599,13 @@ $background-hover: #b1ddff;
   color: $lighttext;
   font-weight: bold;
   font-size: 36px;
-  letter-spacing: .1rem;
+  letter-spacing: 0.1rem;
   text-align: center;
 }
 
-.greetpage-image { 
-  width: 480px; 
-    object-fit: contain;
+.greetpage-image {
+  width: 480px;
+  object-fit: contain;
 }
 
 .greetpage-subtext {
@@ -617,24 +615,24 @@ $background-hover: #b1ddff;
 
 /* login button styling */
 .large-button {
-    display: flex;
-    justify-content: center;
-    border: none;
-    padding: 10px 82px;
-    background-color: $secondary;
-    color: $darktext;
-    font-family: "Roboto";
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;    
-    border-radius: 8px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+  display: flex;
+  justify-content: center;
+  border: none;
+  padding: 10px 82px;
+  background-color: $secondary;
+  color: $darktext;
+  font-family: "Roboto";
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
 
-    &:hover {
-      background: $background-hover;
-      transition: background-color 0.2s ease;
-      -webkit-transition: background-color 0.2s ease;
-    }
+  &:hover {
+    background: $background-hover;
+    transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
+  }
 }
 
 /* styling user popup */
@@ -702,7 +700,11 @@ $background-hover: #b1ddff;
   cursor: pointer;
 }
 
-#senior, #junior, #answered, #unanswered, #myquestions {
+#senior,
+#junior,
+#answered,
+#unanswered,
+#myquestions {
   text-decoration: none;
   font-size: 20px;
   color: $darktext;
@@ -767,7 +769,7 @@ $background-hover: #b1ddff;
   }
 }
 
-/* question list styling */ 
+/* question list styling */
 .question-list-container {
   display: flex;
   flex-direction: column;
@@ -854,7 +856,7 @@ $background-hover: #b1ddff;
   border-radius: 4px;
 }
 
-/* post details */ 
+/* post details */
 .question-body {
   display: flex;
   color: $darktext;
@@ -956,7 +958,6 @@ $background-hover: #b1ddff;
   justify-content: flex-end;
   margin-right: 12px;
   margin-top: 22px;
-  
 
   & button {
     border: none;
@@ -973,8 +974,8 @@ $background-hover: #b1ddff;
 }
 
 .post-buttons {
- display: flex;
- width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .answered-button {

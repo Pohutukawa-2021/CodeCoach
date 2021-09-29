@@ -8,6 +8,7 @@ function MessageListComponent() {
   const directMessages = useSelector((state) => state.messages);
 
   function getUserDetailsById(userId) {
+    console.log("userId:", userId);
     return allUsers.find((user) => user.id === parseInt(userId));
   }
 
