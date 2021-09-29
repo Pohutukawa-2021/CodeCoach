@@ -81,6 +81,7 @@ function ChatComponent() {
                 textAlign: "center",
               },
               chatbubble: {
+                backgroundColor: "#12558A",
                 borderRadius: 150,
                 padding: 12,
                 margin: 4,

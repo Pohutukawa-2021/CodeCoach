@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
+  font-family: "Roboto";
 }
 
 *,
@@ -66,10 +67,8 @@ body {
 }
 
 .large-screen-logo {
-  background-color: #FFFFFF;
-  padding: 12px 20px;
-  color: #12558A;
-  border-radius: 8px;
+  border-radius: none;
+  margin: 0;
 }
 .large-screen-logo:hover {
   background-color: #FFFFFF;
@@ -85,6 +84,7 @@ body {
   cursor: pointer;
   padding: 6px 12px;
   display: flex;
+  font-family: "Roboto";
 }
 .nav-question-button:hover {
   background-color: #80BEEC;
@@ -100,14 +100,13 @@ body {
 }
 
 .nav-avatar-link {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
+  width: 28px;
+  height: 34px;
   background-color: #DDDDDD;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   color: #031B44;
   font-weight: bold;
   margin-right: 6px;
@@ -122,8 +121,8 @@ body {
   align-items: center;
   margin-right: 6px;
   text-decoration: none;
-  width: 38px;
-  height: 38px;
+  width: 34px;
+  height: 44px;
   border-radius: 50%;
   justify-content: center;
   border: none;
@@ -174,6 +173,49 @@ body {
   transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
 }
 
+.menu {
+  background: #F4F8FB;
+  border-radius: 8px;
+  position: absolute;
+  font-size: 1.2rem;
+  padding: 12px;
+  top: 54px;
+  right: 6px;
+  width: 150px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+  -webkit-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.signout-text {
+  text-decoration: none;
+  color: #031B44;
+  font-size: 1.2rem;
+  background-color: #F4F8FB;
+  border: none;
+  cursor: pointer;
+}
+
+/* Display different header logo dependig on screen size */
+@media screen and (min-width: 415px) {
+  .mobile-logo-container {
+    display: none;
+  }
+}
+@media screen and (max-width: 415px) {
+  .large-screen-logo {
+    display: none;
+  }
+}
 /* layout columns styling */
 .max-width-container {
   width: 100vw;
@@ -273,7 +315,7 @@ body {
 }
 
 .input-field-standard {
-  height: 51px;
+  height: 44px;
   font-size: 1rem;
   border: none;
   border: 1px solid #031B44;
@@ -426,18 +468,19 @@ body {
 /* styling chats */
 .chats-list {
   display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .chats-list-item {
   padding: 0;
   display: flex;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
   flex-direction: column;
   flex-direction: row;
   align-items: center;
   text-decoration: none;
+  text-overflow: ellipsis;
 }
 
 .chats-list-avatar {
@@ -451,25 +494,26 @@ body {
   margin-left: 8px;
   padding: 0;
   color: #031B44;
+  flex-direction: column;
+  width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  flex-direction: column;
-  width: 36%;
 }
 
 .chats-list-username {
   margin: 0 0 4px 0;
-  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
 }
 
 .chats-list-message {
   margin: 0;
-  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .chat-layout-container {
@@ -490,21 +534,22 @@ body {
 }
 
 .chat-input-container {
-  width: 100%;
+  margin: 0 auto;
+  width: 94%;
   display: flex;
   justify-content: center;
-  padding: 12px 0 12px 12px;
+  padding: 16px;
   background-color: #F4F8FB;
 }
 
 .chat-input {
-  width: 90%;
+  width: 100%;
   background-color: #DDDDDD;
   border: none;
   height: 46px;
   font-size: 1.2rem;
   border-radius: 26px;
-  padding: 0 12px;
+  padding: 0 16px;
 }
 .chat-input:focus {
   box-shadow: 0px 0px 3px #80BEEC;

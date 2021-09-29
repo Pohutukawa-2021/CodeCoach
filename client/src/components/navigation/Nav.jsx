@@ -17,31 +17,33 @@ function Nav() {
     return (
       <div className="nav">
         <div className="nav-left-col">
-          <Link to="/app" className="nav-link large-screen-logo">Logo</Link>
+          <Link to="/app" className="nav-link large-screen-logo-container">
+            <img src="./images/Logo.png" alt="codecoach logo" classname="large-screen-logo" />
+          </Link>
         </div>
         <div className="nav-center-col">
-          <Link to="/app" className="nav-link nav-link-active">
+          <Link to="/app" className="nav-link">
             <HomeOutline
               color={'#ffffff'}
               height="30px"
               width="30px"
             />
           </Link>
-          <Link to="/app/users" className="nav-link nav-link-active">
+          <Link to="/app/users" className="nav-link">
             <PeopleOutline
               color={'#ffffff'}
               height="30px"
               width="30px"
             />
           </Link>
-          <Link to="/app/messaging" className="nav-link nav-link-active">
+          <Link to="/app/messaging" className="nav-link">
             <ChatbubbleEllipsesOutline
               color={'#ffffff'}
               height="30px"
               width="30px"
             />
           </Link>
-          <Link to="/app/createpost" className="nav-link nav-link-ask-question nav-link-active">
+          <Link to="/app/createpost" className="nav-link nav-link-ask-question">
             <button className="nav-question-button">Ask Question</button>
           </Link>
         </div>

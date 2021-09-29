@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100vw;
+  font-family: "Roboto";
 }
 *,
 *:before,
@@ -78,10 +79,8 @@ $background-hover: #b1ddff;
 }
 
 .large-screen-logo {
-    background-color: $white;
-    padding: 12px 20px;
-    color: $primary;
-    border-radius: 8px;
+    border-radius: none;
+    margin: 0;
 
     &:hover {
       background-color: $white;
@@ -98,6 +97,7 @@ $background-hover: #b1ddff;
     cursor: pointer;
     padding: 6px 12px;
     display: flex;
+    font-family: "Roboto";
 
     &:hover {
       background-color: $secondary;
@@ -115,14 +115,13 @@ $background-hover: #b1ddff;
 }
 
 .nav-avatar-link {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
+    width: 28px;
+    height: 34px;
     background-color: $grey;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.25rem;
     color: $darktext;
     font-weight: bold;
     margin-right: 6px;
@@ -138,8 +137,8 @@ $background-hover: #b1ddff;
     align-items: center;
     margin-right: 6px;
     text-decoration: none;
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 44px;
     border-radius: 50%;
     justify-content: center;
     border: none;
@@ -186,6 +185,51 @@ $background-hover: #b1ddff;
 }
 .nav-triangle:after {
 	  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.menu {
+    background: $background;
+    border-radius: 8px;
+    position: absolute;
+    font-size: 1.2rem;
+    padding: 12px;
+    top: 54px;
+    right: 6px;
+    width: 150px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    -webkit-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.signout-text {
+  text-decoration: none;
+  color: $darktext;
+  font-size: 1.2rem;
+  background-color: $background;
+  border: none;
+  cursor: pointer;
+}
+
+/* Display different header logo dependig on screen size */
+@media screen and (min-width: 415px) {
+  .mobile-logo-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .large-screen-logo {
+    display: none;
+  }
 }
 
 /* layout columns styling */
@@ -288,7 +332,7 @@ $background-hover: #b1ddff;
 }
 
 .input-field-standard {
-  height: 51px;
+  height: 44px;
   font-size: 1rem;
   border: none;
   border: 1px solid $darktext;
@@ -442,19 +486,20 @@ $background-hover: #b1ddff;
 
 /* styling chats */ 
 .chats-list {
-  display: flex;
+  display: flex;  
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;  
 }
 
 .chats-list-item {
   padding: 0;
   display: flex;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
   flex-direction: column; 
   flex-direction: row;
   align-items: center; 
   text-decoration: none;
+  text-overflow: ellipsis;
 }
 
 .chats-list-avatar {
@@ -468,25 +513,26 @@ $background-hover: #b1ddff;
   margin-left: 8px;
   padding: 0;
   color: $darktext;
+  flex-direction: column;
+  width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
-  flex-direction: column;
-  width: 36%;
+  white-space: nowrap;  
 }
 
 .chats-list-username {
   margin: 0 0 4px 0;
-  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
 }
 
 .chats-list-message {
   margin: 0;
-  text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .chat-layout-container {
@@ -507,21 +553,22 @@ $background-hover: #b1ddff;
 }
 
 .chat-input-container {
-  width: 100%;
+  margin: 0 auto;
+  width: 94%;
   display: flex;
   justify-content: center;
-  padding: 12px 0 12px 12px;
+  padding: 16px;
   background-color: $background;
 }
 
 .chat-input {
-  width: 90%;
+  width: 100%;
   background-color: $grey;
   border: none;
   height: 46px;
   font-size: 1.2rem;
   border-radius: 26px;
-  padding: 0 12px;
+  padding: 0 16px;
 
   &:focus {
     box-shadow: 0px 0px 3px $secondary;
@@ -537,8 +584,6 @@ $background-hover: #b1ddff;
   background-color: $background;
   border: none;
 }
-
-
 
 /* landing page styling */ 
 .greetpage-container {

@@ -12,7 +12,7 @@ function GreetPage() {
   return (
     <div className="max-width-container">
       <div className="greetpage-container">
-        <img src="/Logo.png" alt="codecoach-logo" className='logo-image' />
+        <img src="/logo.png" alt="codecoach-logo" className='logo-image' />
         <div className="greetpage-content-container">
           <div className="greetpage-text-container">
             <h1 className="greetpage-title">Become a<br />mentor</h1>
