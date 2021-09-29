@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import commentsByPost from "../../redux/actions/commentsByPost";
+import { counter }  from "../../redux/actions/counter"
 import { useHistory } from "react-router";
+import { changeAnswered } from "../../redux/actions/answered";
+
 export function QuestionPost() {
   const history = useHistory();
   const allPosts = useSelector((state) => state.posts);
   const { postId } = useParams();
+  const [disable, setDisable] = useState(false)
+  const dispatch = useDispatch();
+
   const id = Number(postId);
   // const [waiting, setWaiting] = useState(true);
-  const dispatch = useDispatch();
   let post = {
     body: "loading",
     comments: [],
@@ -17,6 +22,8 @@ export function QuestionPost() {
     post_date: "69/69/69",
     post_tags: "",
     post_time: "",
+    post_votes: 4,
+    post_answered: false,
     question: "loading...",
     user: {
       name: "loading...",
@@ -37,7 +44,23 @@ export function QuestionPost() {
     postId: id,
     comment: "",
   });
+  
+  const [vote, setVote] = useState({
+    postId: id,
+    votes: post.post_votes,
+  });
 
+  useEffect(() => {
+    const voteForm = {
+      postId: id,
+      votes: post.post_votes,
+    }
+    if (vote !== voteForm)
+    dispatch(counter(vote))
+    return () => {
+    }
+  }, [vote])
+  
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -51,6 +74,39 @@ export function QuestionPost() {
       comment: "",
     });
   }
+  console.log('NEWpost', post);
+  function handleUpClick(e){
+    setVote({
+      postId: id,
+      votes: Number(e.target.value) + vote.votes,
+    })
+    setDisable(true)
+  }
+
+  function handleDownClick(e) {
+    setVote({
+      postId: id,
+      votes: Number(e.target.value) + vote.votes,
+    })
+    setDisable(true)
+  }
+
+  function handleAnswerClick(e) {
+      const { value } = e.target
+      console.log(value);
+      if (Number(value) === 0) {
+      dispatch(changeAnswered({
+        id: id,
+        answered: 1,
+      }))
+    } else {
+      dispatch(changeAnswered({
+        id: id,
+        answered: 0,
+      }))
+    }
+  }
+
   let commentShown = [];
   if (post.comments.length > commentNumber) {
     for (let i = 0; i < commentNumber; i++) {
@@ -70,6 +126,15 @@ export function QuestionPost() {
     <div>
       <div className="whole-post">
         <div className="question-title-body">
+        <div className="vote-container">
+      <button disabled={disable} value={1} onClick={handleUpClick} className="upvote">
+          Up Vote
+      </button>
+      <p className="counter">{post.post_votes}</p>
+      <button disabled={disable} value={-1} onClick={handleDownClick} className="downvote">
+          Down Vote
+      </button>
+    </div>
           <h1>Question: {post.question}</h1>
           <h2> {post.body}</h2>
         </div>
@@ -80,7 +145,6 @@ export function QuestionPost() {
             Post created: {post.post_time} ({post.post_date})
           </small>
         </div>
-
         <div className="comments">
           <h2> {post.comments.length} Answers</h2>
 
@@ -135,6 +199,7 @@ export function QuestionPost() {
             Post
           </button>
           {currentUser.id === post.user.id ? (
+            <>
             <button
               type="submit"
               className="button-primary"
@@ -143,6 +208,15 @@ export function QuestionPost() {
             >
               Edit
             </button>
+            <div>
+              <button 
+              onClick={handleAnswerClick} 
+              value={post.post_answered}
+              >
+                Answered
+              </button>
+            </div>
+            </>
           ) : (
             ""
           )}

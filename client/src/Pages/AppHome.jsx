@@ -1,11 +1,12 @@
 import React from "react";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
 import { QuestionForm } from "../components/posts/QuestionForm";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
 import { QuestionPost } from "../components/posts/QuestionPost";
 import UserProfile from "../components/users/UserProfile";
@@ -17,6 +18,9 @@ import { QuestionEdit } from "../components/posts/QuestionEdit";
 import SearchBar from "../components/SearchBar";
 import SearchQuestions from "../components/posts/SearchedQuestions";
 import Tags from "../components/Tags";
+import Filter from "../components/Filter";
+import FilteredPosts from "../components/posts/FilteredPosts";
+
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -43,11 +47,12 @@ function AppHome() {
       ) : (
         <>
           <Header />
-          <SearchBar />
           <UsersOnline />
+              <SearchBar />
           <Switch>
             <Route exact path={path}>
               <Tags />
+              <Filter />
               <QuestionList />
             </Route>
             <Route exact path={`${path}/messaging/`}>
@@ -77,6 +82,11 @@ function AppHome() {
             </Route>
             <Route path={`${path}/search`}>
               <SearchQuestions />
+            </Route>
+            <Route exact path={`${path}/:filter`}>
+              <Tags />
+              <Filter />
+              <FilteredPosts />
             </Route>
           </Switch>
         </>

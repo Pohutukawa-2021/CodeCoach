@@ -7,6 +7,7 @@ module.exports = {
   addCommentById,
   getCommentsByPost,
   updatePost,
+  updateVote
 };
 
 const { getUserData, getUserDataById } = require("./users");
@@ -40,6 +41,8 @@ function changeShape(post, db = connection) {
         post_date: post.date,
         post_time: post.time,
         post_tags: tags,
+        post_votes: post.votes,
+        post_answered: post.answered,
         user: {
           name: user.username,
           role: user.role,
@@ -66,6 +69,8 @@ function addPost(post, authToken, db = connection) {
     date: date,
     time: time,
     tags: post.tags,
+    votes: 0,
+    answered: false
   };
   return getUserData(authToken).then((rows) => {
     //console.log(rows);
@@ -121,4 +126,10 @@ function getCommentsByPost(post, db = connection) {
 }
 function updatePost(post, db = connection) {
   return db("posts").where("id", post.id).update(post);
+}
+
+function updateVote(post, db = connection) {
+  const newPost = {votes: post.votes}
+  console.log('NEWpost',post);
+  return db("posts").where("id", post.postId).update(newPost);
 }
