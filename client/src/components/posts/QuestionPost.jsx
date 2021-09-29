@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import commentsByPost from "../../redux/actions/commentsByPost";
-import { counter }  from "../../redux/actions/counter"
+import { counter } from "../../redux/actions/counter";
 import { useHistory } from "react-router";
 import { changeAnswered } from "../../redux/actions/answered";
 
@@ -10,7 +10,7 @@ export function QuestionPost() {
   const history = useHistory();
   const allPosts = useSelector((state) => state.posts);
   const { postId } = useParams();
-  const [disable, setDisable] = useState(false)
+  const [disable, setDisable] = useState(false);
   const dispatch = useDispatch();
 
   const id = Number(postId);
@@ -42,7 +42,7 @@ export function QuestionPost() {
     postId: id,
     comment: "",
   });
-  
+
   const [vote, setVote] = useState({
     postId: id,
     votes: post.post_votes,
@@ -52,13 +52,11 @@ export function QuestionPost() {
     const voteForm = {
       postId: id,
       votes: post.post_votes,
-    }
-    if (vote !== voteForm)
-    dispatch(counter(vote))
-    return () => {
-    }
-  }, [vote])
-  
+    };
+    if (vote !== voteForm) dispatch(counter(vote));
+    return () => {};
+  }, [vote]);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -72,34 +70,42 @@ export function QuestionPost() {
       comment: "",
     });
   }
-  function handleUpClick(e){
+  function handleUpClick(e) {
     setVote({
       postId: id,
       votes: Number(e.target.value) + vote.votes,
-    })
-    setDisable(true)
+    });
+    setDisable(true);
   }
 
   function handleDownClick(e) {
     setVote({
       postId: id,
       votes: Number(e.target.value) + vote.votes,
-    })
-    setDisable(true)
+    });
+    setDisable(true);
   }
 
   function handleAnswerClick(e) {
-      const { value } = e.target
-      if (Number(value) === 0) {
-      dispatch(changeAnswered({
-        id: id,
-        answered: 1,
-      }))
+    e.preventDefault();
+    const { value } = e.target;
+    console.log(value);
+    console.log(typeof value);
+    console.log(post.post_answered);
+    if (value === "false") {
+      dispatch(
+        changeAnswered({
+          id: id,
+          answered: true,
+        })
+      );
     } else {
-      dispatch(changeAnswered({
-        id: id,
-        answered: 0,
-      }))
+      dispatch(
+        changeAnswered({
+          id: id,
+          answered: false,
+        })
+      );
     }
   }
 
@@ -122,15 +128,25 @@ export function QuestionPost() {
     <div>
       <div className="whole-post">
         <div className="question-title-body">
-        <div className="vote-container">
-      <button disabled={disable} value={1} onClick={handleUpClick} className="upvote">
-          Up Vote
-      </button>
-      <p className="counter">{post.post_votes}</p>
-      <button disabled={disable} value={-1} onClick={handleDownClick} className="downvote">
-          Down Vote
-      </button>
-    </div>
+          <div className="vote-container">
+            <button
+              disabled={disable}
+              value={1}
+              onClick={handleUpClick}
+              className="upvote"
+            >
+              Up Vote
+            </button>
+            <p className="counter">{post.post_votes}</p>
+            <button
+              disabled={disable}
+              value={-1}
+              onClick={handleDownClick}
+              className="downvote"
+            >
+              Down Vote
+            </button>
+          </div>
           <h1>Question: {post.question}</h1>
           <h2> {post.body}</h2>
         </div>
@@ -196,22 +212,19 @@ export function QuestionPost() {
           </button>
           {currentUser.id === post.user.id ? (
             <>
-            <button
-              type="submit"
-              className="button-primary"
-              onClick={handleEdit}
-              data-testid="submitButton"
-            >
-              Edit
-            </button>
-            <div>
-              <button 
-              onClick={handleAnswerClick} 
-              value={post.post_answered}
+              <button
+                type="submit"
+                className="button-primary"
+                onClick={handleEdit}
+                data-testid="submitButton"
               >
-                Answered
+                Edit
               </button>
-            </div>
+              <div>
+                <button onClick={handleAnswerClick} value={post.post_answered}>
+                  Answered
+                </button>
+              </div>
             </>
           ) : (
             ""

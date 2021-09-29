@@ -10,7 +10,7 @@ function Filter() {
 
   function handleClickA(e) {
     if (link.answered.link === "/app/posts/answered") {
-      setLink({ ...link, answered: { link: "/app/posts/", style: "clicked" } });
+      setLink({ ...link, answered: { link: "/app", style: "clicked" } });
     } else {
       setLink({
         ...link,
@@ -23,7 +23,7 @@ function Filter() {
     if (link.unanswered.link === "/app/posts/unanswered") {
       setLink({
         ...link,
-        unanswered: { link: "/app/posts/", style: "clicked" },
+        unanswered: { link: "/app", style: "clicked" },
       });
     } else {
       setLink({
@@ -37,7 +37,7 @@ function Filter() {
     if (link.myquestions.link === "/app/posts/myquestions") {
       setLink({
         ...link,
-        myquestions: { link: "/app/posts/", style: "clicked" },
+        myquestions: { link: "/app", style: "clicked" },
       });
     } else {
       setLink({

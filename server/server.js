@@ -24,7 +24,7 @@ const {
   addCommentById,
   getCommentsByPost,
   updatePost,
-  updateVote
+  updateVote,
 } = require("./db/post");
 
 //message functions
@@ -133,18 +133,20 @@ io.on("connection", (socket) => {
         });
         break;
       case "server/updatePost":
+        console.log(action.data);
         updatePost(action.data).then(() => {
           getAllPosts().then((allPosts) => {
+            console.log(allPosts);
             io.emit("action", { type: "setPosts", data: allPosts });
           });
         });
         break;
       case "server/counter":
-          updateVote(action.data).then(() =>{
-            getAllPosts().then((allPosts) => {
-              io.emit("action", { type: "setPosts", data: allPosts });
-            });
-          })
+        updateVote(action.data).then(() => {
+          getAllPosts().then((allPosts) => {
+            io.emit("action", { type: "setPosts", data: allPosts });
+          });
+        });
         break;
     }
   });

@@ -10,7 +10,9 @@ function FilteredPosts() {
   let filteredPosts = [];
 
   if (filter === "answered") {
-    const answeredPosts = allPosts.filter((post) => post.post_answered === 1);
+    const answeredPosts = allPosts.filter(
+      (post) => post.post_answered === true
+    );
     filteredPosts = answeredPosts;
   } else if (filter === "myquestions") {
     const myquestions = allPosts.filter(
@@ -18,7 +20,9 @@ function FilteredPosts() {
     );
     filteredPosts = myquestions;
   } else {
-    const unansweredPosts = allPosts.filter((post) => post.post_answered === 0);
+    const unansweredPosts = allPosts.filter(
+      (post) => post.post_answered === false
+    );
     filteredPosts = unansweredPosts;
   }
 
