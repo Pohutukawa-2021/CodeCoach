@@ -7,6 +7,8 @@ exports.up = function (knex) {
     table.string("date");
     table.string("time");
     table.string("tags");
+    table.integer("votes");
+    table.boolean("answered")
   });
 };
 

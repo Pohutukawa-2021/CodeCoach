@@ -5,6 +5,8 @@ import usersOnline from "./reducers/usersOnline";
 import users from "./reducers/users";
 import waiting from "./reducers/waiting";
 import commentsByPost from "./reducers/comments";
+import counter from "./reducers/counter";
+
 import search from "./reducers/search";
 import posts from "./reducers/posts";
 import tags from "./reducers/tags";
@@ -20,6 +22,7 @@ const allReducers = combineReducers({
   posts,
   commentsByPost,
   users,
+  counter,
   search,
   tags,
   tagsFilter,

@@ -1,7 +1,7 @@
 function tags(state = [], action) {
   switch (action.type) {
     case "addTags":
-      return [...state, ...action.data];
+      return action.data;
     default:
       return state;
   }
