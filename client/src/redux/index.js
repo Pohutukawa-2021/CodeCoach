@@ -6,7 +6,7 @@ import users from "./reducers/users";
 import waiting from "./reducers/waiting";
 import commentsByPost from "./reducers/comments";
 import counter from "./reducers/counter";
-
+import searchUser from "./reducers/searchUser";
 import search from "./reducers/search";
 import posts from "./reducers/posts";
 import tags from "./reducers/tags";
@@ -26,6 +26,7 @@ const allReducers = combineReducers({
   search,
   tags,
   tagsFilter,
+  searchUser,
 });
 
 export default allReducers;

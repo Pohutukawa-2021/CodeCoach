@@ -5,19 +5,21 @@ import { useParams } from "react-router";
 
 function FilteredPosts() {
   const allPosts = useSelector((state) => state.posts);
-  const currentUser = useSelector((state) => state.userAccount)
-  const { filter } = useParams()
+  const currentUser = useSelector((state) => state.userAccount);
+  const { filter } = useParams();
   let filteredPosts = [];
-  
+
   if (filter === "answered") {
-    const answeredPosts = allPosts.filter(post => post.post_answered === 1)
-    filteredPosts = answeredPosts
+    const answeredPosts = allPosts.filter((post) => post.post_answered === 1);
+    filteredPosts = answeredPosts;
   } else if (filter === "myquestions") {
-     const myquestions = allPosts.filter(post => post.user.id === currentUser.id)
-     filteredPosts = myquestions
+    const myquestions = allPosts.filter(
+      (post) => post.user.id === currentUser.id
+    );
+    filteredPosts = myquestions;
   } else {
-    const unansweredPosts = allPosts.filter(post => post.post_answered === 0)
-    filteredPosts = unansweredPosts
+    const unansweredPosts = allPosts.filter((post) => post.post_answered === 0);
+    filteredPosts = unansweredPosts;
   }
 
   return (
