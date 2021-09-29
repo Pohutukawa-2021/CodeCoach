@@ -3,7 +3,7 @@
 Code Coach is a react-app hoping to create a new way to connect developers. We hoped to create a platform where one can build a mentee and mentor relationship between a junior and senior developer. This is created by students at [EDA](https://devacademy.co.nz/) as a final project to showcase within 1 week.
 
 <p align="center">
-<img src="./client/public/Logo.png" width="400" height="80" alt="code coach"/>
+<img src="./client/public/images/Logo.png" width="400" height="80" alt="code coach"/>
 </p>
 
 ### Installation
@@ -36,7 +36,7 @@ User authentication is handled by [Auth0](https://auth0.com/)
 ### ERD / Planning / Execution
 
 <p align="center">
-<img src="./client/public/ERD.png" width="450" height="230 alt="erd"/>
+<img src="./client/public/ERD.png" width="500" height="230 alt="erd"/>
 </p>
 
 The diagram above shows the current schema of our database. 
@@ -58,5 +58,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - [Prabhnoor Singh](https://github.com/Prabhnoor-2001) / [LinkedIn](https://www.linkedin.com/in/prabhnoor-singh-8804b521a/)
 - [Dianne Plaza](https://github.com/dianneplz) / [LinkedIn](https://www.linkedin.com/in/dianne-plaza-848915180/)
 - [Caleb Perrett](https://github.com/caleb-perrett) / [LinkedIn](https://www.linkedin.com/in/caleb-perrett-60b12ab1/)
-- [Alan Cheng](https://github.com/nzalancheng)
-
+- [Alan Cheng](https://github.com/nzalancheng) / [LinkedIn](https://www.linkedin.com/in/alan-cheng-b68186141/)
