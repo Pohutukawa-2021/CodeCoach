@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
@@ -15,12 +14,15 @@ import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
 import QuestionList from "../components/posts/QuestionList";
 import { QuestionEdit } from "../components/posts/QuestionEdit";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SearchBarPosts";
 import SearchQuestions from "../components/posts/SearchedQuestions";
 import Tags from "../components/Tags";
 import Filter from "../components/Filter";
 import FilteredPosts from "../components/posts/FilteredPosts";
-
+import SearchBarUser from "../components/SearchBarUsers";
+import SearchedUsersList from "../components/users/SearchedUsers";
+import UserFilter from "../components/UserFilter";
+import FilteredUsers from "../components/users/FilteredUsers";
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -39,7 +41,6 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
-  //console.log(userAccount);
   return (
     <div>
       {waiting ? (
@@ -47,48 +48,72 @@ function AppHome() {
       ) : (
         <>
           <Header />
-          <UsersOnline />
-              <SearchBar />
-          <Switch>
-            <Route exact path={path}>
-              <Tags />
-              <Filter />
-              <QuestionList />
-            </Route>
-            <Route exact path={`${path}/messaging/`}>
+          <div className="max-width-container">
+            <div className="main-container">
+            <Switch>
+              <Route exact path={path}>
+                <div className="layout-left-col">
+                  <h1>Home</h1>
+                  <SearchBar />
+                  <Tags />
+                  <Filter />
+                  <QuestionList />
+                </div>
+              </Route>
+              <Route exact path={`${path}/messaging/`}>
               <MessageListComponent />
             </Route>
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
-            <Route path={`${path}/createpost`}>
+            <Route exact path={`${path}/createpost`}>
               <QuestionForm />
             </Route>
-            <Route path={`${path}/post/:postId`}>
+            <Route exact path={`${path}/post/:postId`}>
+              <SearchBar />
               <Tags />
               <QuestionPost />
             </Route>
-            <Route path={`${path}/users`}>
+            <Route exact path={`${path}/users`}>
+              <SearchBarUser />
+              <UserFilter />
               <ProfilePage />
             </Route>
-            <Route path={`${path}/myprofile`}>
+            <Route exact path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
-            <Route path={`${path}/editprofile`}>
+            <Route exact path={`${path}/editprofile`}>
               <EditProfile />
             </Route>
-            <Route path={`${path}/editquestion/:postId`}>
+            <Route exact path={`${path}/editquestion/:postId`}>
               <QuestionEdit />
             </Route>
-            <Route path={`${path}/search`}>
-              <SearchQuestions />
+            <Route exact path={`${path}/searchusers`}>
+              <SearchBarUser />
+              <SearchedUsersList />
             </Route>
-            <Route exact path={`${path}/:filter`}>
+            <Route exact path={`${path}/posts/:filter`}>
               <Tags />
               <Filter />
               <FilteredPosts />
             </Route>
-          </Switch>
+            <Route exact path={`${path}/search`}>
+              <SearchBar />
+              <Tags />
+              <Filter />
+              <SearchQuestions />
+            </Route>
+            <Route exact path={`${path}/users/:filter`}>
+              <SearchBarUser />
+              <UserFilter />
+              <FilteredUsers />
+            </Route>
+                </Switch>
+              <Route exact path={path}>
+                <UsersOnline />
+              </Route>
+            </div>
+          </div>
         </>
       )}
     </div>

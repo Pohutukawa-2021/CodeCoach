@@ -9,11 +9,12 @@ function UsersOnline() {
     let test = [];
     Object.entries(usersOnline).forEach(([key, value]) => {
       test.push(
-        <li key={key} id={value.auth_id}>
-          <Link to={`/app/messaging/${value.id}`}>
-            <img src={value.image_url} alt={value.username} />
+        <div key={key} id={value.auth_id}>
+          <Link to={`/app/messaging/${value.id}`} className="online-user-link">
+            <img src={value.image_url} alt={value.username} className="online-user-avatar" />
+            <p className="onlineusers-name">{value.username}</p>
           </Link>
-        </li>
+        </div>
       );
     });
     return test;
@@ -21,9 +22,9 @@ function UsersOnline() {
 
   const onlineList = setUsersOnlineList();
   return (
-    <div>
-      <h3>Online Users</h3>
-      <ul>{onlineList}</ul>
+    <div className="layout-right-col">
+      <h3 className="right-col-title">Online Users</h3>
+      <div className="online-user-list">{onlineList}</div>
     </div>
   );
 }

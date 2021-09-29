@@ -1,0 +1,683 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  font-family: "Roboto";
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/* vars */
+/* colors styles */
+$primary: #12558A;
+$secondary: #80BEEC;
+$darktext: #031B44;
+$lighttext: #F4F6F7;
+$background: #F4F8FB;
+$white: #FFFFFF;
+$grey: #DDDDDD;
+$offsetYellow: #FCD35B;
+$offsetOrange: #FF760C;
+$offsetGreen: #77B69E;
+$background-hover: #b1ddff;
+
+
+/* header */
+.header-container {
+    background-color: $primary;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+.mobile-logo-container {
+    background-color: $white;
+    color: $darktext;
+}
+
+/* nav */
+.nav {
+    display: flex;
+    width: 100vw;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.nav-left-col {
+    display: flex;
+}
+
+.nav-center-col {
+    display: flex;
+    align-items: center;        
+}
+
+.nav-right-col {
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    margin: 0 24px;
+    padding: 8px 10px 4px 10px;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: $secondary;
+      color: $primary;
+      transition: background-color 0.2s ease;
+      -webkit-transition: background-color 0.2s ease;
+    }
+}
+
+.large-screen-logo {
+    border-radius: none;
+    margin: 0;
+
+    &:hover {
+      background-color: $white;
+    }
+}
+
+.nav-question-button {
+    background-color: $primary;
+    color: $lighttext;
+    border: 2px solid $lighttext;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 6px 12px;
+    display: flex;
+    font-family: "Roboto";
+
+    &:hover {
+      background-color: $secondary;
+      transition: background-color 0.15s ease;
+      -webkit-transition: background-color 0.15s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+}
+
+.nav-link-ask-question {
+  padding: 0;
+}
+
+.nav-avatar-link {
+    width: 28px;
+    height: 34px;
+    background-color: $grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.25rem;
+    color: $darktext;
+    font-weight: bold;
+    margin-right: 6px;
+
+    &:hover {
+      background-color: $grey;
+      color: $darktext;
+    }
+}
+
+.nav-triangle-button {
+    display: flex;
+    align-items: center;
+    margin-right: 6px;
+    text-decoration: none;
+    width: 34px;
+    height: 44px;
+    border-radius: 50%;
+    justify-content: center;
+    border: none;
+    background-color: $primary;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $secondary;
+      transition: background-color 0.15s ease;
+      -webkit-transition: background-color 0.15s ease;
+    }
+
+    &:focus {
+      outline: none;
+    }
+}
+
+.nav-triangle {
+    display: flex;
+    position: relative;
+    background-color: $lighttext;
+    margin-left: 2px;
+    text-align: left;
+}
+.nav-triangle:before,
+.nav-triangle:after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+}
+.nav-triangle,
+.nav-triangle:before,
+.nav-triangle:after {
+    width:  7px;
+    height: 7px;
+    border-top-right-radius: 40%;
+}
+
+.nav-triangle {
+	  transform: rotate(0deg) skewX(-30deg) scale(1,.866);
+}
+.nav-triangle:before {
+	  transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.nav-triangle:after {
+	  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}
+
+.menu {
+    background: $background;
+    border-radius: 8px;
+    position: absolute;
+    font-size: 1.2rem;
+    padding: 12px;
+    top: 54px;
+    right: 6px;
+    width: 150px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+    -webkit-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.signout-text {
+  text-decoration: none;
+  color: $darktext;
+  font-size: 1.2rem;
+  background-color: $background;
+  border: none;
+  cursor: pointer;
+}
+
+/* Display different header logo dependig on screen size */
+@media screen and (min-width: 415px) {
+  .mobile-logo-container {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .large-screen-logo {
+    display: none;
+  }
+}
+
+/* layout columns styling */
+.max-width-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container {
+  width: 100%;
+  max-width: 1600px;
+  margin-top: 92px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.layout-left-col {
+  width: 300px;
+  margin-left: 20px;
+}
+
+.layout-center-col {
+  width: 780px;
+  background-color: $background;
+  display: flex;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+.layout-right-col {
+  width: 300px;
+  margin-right: 20px;
+}
+
+.center-col-container {
+  width: 94%;
+  position: relative;
+}
+
+.left-col-title {
+  font-size: 2.2rem;
+  margin-top: 0;
+  
+}
+
+.right-col-title {
+  font-size: 1.4rem;
+  margin-top: 0;
+  font-weight: lighter;
+}
+
+.center-col-title {
+  font-size: 1.4rem;
+  font-weight: lighter;
+}
+
+/* styling online users */
+.online-user-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.online-user-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.online-user-link {
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+}
+
+.onlineusers-name {
+  font-size: 1.2rem;
+  margin-left: 8px;
+  color: $darktext;
+}
+
+/* styling forms */
+.form-container {
+  width: 92%;
+  margin: 28px auto 0 auto;
+}
+
+.form-title {
+  margin-top: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin: 22px 0;
+}
+
+.form-label {
+  margin: 6px 0;
+}
+
+.input-field-standard {
+  height: 44px;
+  font-size: 1rem;
+  border: none;
+  border: 1px solid $darktext;
+  border-radius: 8px;
+  padding: 6px;
+  font-family: "Roboto";
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.input-field-textarea {
+  height: 204px;
+}
+
+.post-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.small-button {
+  height: 36px;
+  padding: 0 22px;
+  margin: 22px 0 64px 0;
+  color: $lighttext;
+  border: none;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.small-button-styling {
+  background-color: $secondary;
+  width: 100%;
+}
+
+.discard-button {
+  background-color: $offsetOrange;
+}
+
+.post-button {
+  background-color: $offsetGreen;
+  margin-left: 14px;
+}
+
+/* styling profiles */
+.profile-container {
+  margin: 54px auto 0 auto;
+  width: 90%;
+}
+
+.profile-header-container {
+  display: flex;
+}
+
+.profile-title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 22px;
+}
+
+.profile-content-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.profile-avatar {
+  width: 164px;
+  height: 164px;
+  border-radius: 50%;
+}
+
+.profile-username {
+  font-size: 3.4rem;
+  margin-bottom: 0;
+}
+
+.profile-content {
+  font-size: 1.2rem;
+  margin: 16px 0;
+}
+
+.profile-content-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 32px 0 0 0;
+}
+
+.edit-profile-button-link {
+  text-decoration: none;
+  color: $lighttext;
+}
+
+/* styling users page */
+.users-container {
+  display: grid;
+  grid-template-columns: repeat(3, 32%);
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 54px;
+}
+
+.user-container {
+  background-color: $secondary;
+  margin: 7px 0;
+  padding: 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: $darktext;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+  cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: $background-hover;
+    transition: background-color 0.15s ease;
+    -webkit-transition: background-color 0.15s ease;
+  }
+}
+
+.user-container:first-child {
+  max-width: 100%;
+  height: auto;
+}
+
+.users-header-container {
+  display: flex;
+  align-items: center;
+}
+
+.users-avatar-container {
+  width: 84px;
+  height: 84px;  
+}
+
+.users-avatar {
+  object-fit: cover;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+}
+
+.users-username {
+  margin-left: 8px;
+}
+
+/* styling chats */ 
+.chats-list {
+  display: flex;  
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;  
+}
+
+.chats-list-item {
+  padding: 0;
+  display: flex;
+  flex-direction: column; 
+  flex-direction: row;
+  align-items: center; 
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+
+.chats-list-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+
+.chats-list-details {
+  display: flex;
+  margin-left: 8px;
+  padding: 0;
+  color: $darktext;
+  flex-direction: column;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;  
+}
+
+.chats-list-username {
+  margin: 0 0 4px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+}
+
+.chats-list-message {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chat-layout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.chat-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 89vh;
+  border-radius: 8px;
+  background-color: $background;
+}
+
+.chat-input-container {
+  margin: 0 auto;
+  width: 94%;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  background-color: $background;
+}
+
+.chat-input {
+  width: 100%;
+  background-color: $grey;
+  border: none;
+  height: 46px;
+  font-size: 1.2rem;
+  border-radius: 26px;
+  padding: 0 16px;
+
+  &:focus {
+    box-shadow: 0px 0px 3px $secondary;
+    outline: none;
+  }
+}
+
+.chat-button {
+  border-radius: 50%;
+  transform: rotate(45deg);
+  cursor: pointer;
+  position: relative;
+  background-color: $background;
+  border: none;
+}
+
+/* landing page styling */ 
+.greetpage-container {
+  width: 100vw;  
+  height: 100vh;
+  background-color: $primary;
+  display: flex;
+  justify-content: center;
+}
+
+.logo-image {
+  width: 210px;
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.greetpage-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.greetpage-title {
+  color: $lighttext;
+  font-weight: bold;
+  font-size: 36px;
+  letter-spacing: .1rem;
+  text-align: center;
+}
+
+.greetpage-image { 
+  width: 480px; 
+    object-fit: contain;
+}
+
+.greetpage-subtext {
+  color: $lighttext;
+  font-size: 24px;
+}
+
+/* login button styling */
+.large-button {
+    display: flex;
+    justify-content: center;
+    border: none;
+    padding: 10px 82px;
+    background-color: $secondary;
+    color: $darktext;
+    font-family: "Roboto";
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;    
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+
+    &:hover {
+      background: $background-hover;
+      transition: background-color 0.2s ease;
+      -webkit-transition: background-color 0.2s ease;
+    }
+}
+
+/* styling user popup */
+.user-popup-container {
+  background-color: $background;
+  position: absolute;
+  top: 0;
+  left: -22px;
+  width: 106%;
+  border-radius: 8px;
+}
+
+.user-popup {
+  width: 90%;
+  margin: 54px auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 36px;
+  right: 36px;
+  font-size: 24px;
+  background-color: $background;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $background-hover;
+    transition: background-color 0.2s ease;
+    -webkit-transition: background-color 0.2s ease;
+  }
+}
