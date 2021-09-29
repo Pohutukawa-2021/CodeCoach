@@ -24,7 +24,6 @@ export function QuestionForm() {
     dispatch(addPost(form));
     history.push("/app");
   }
-  //console.log("allposts: ", allPosts);
   return (
     <section className="flex-container">
       <form className="column-6">

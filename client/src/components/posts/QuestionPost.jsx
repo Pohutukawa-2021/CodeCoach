@@ -34,10 +34,8 @@ export function QuestionPost() {
 
   if (allPosts.length !== 0) {
     post = allPosts.find((post) => post.postId === id);
-    // console.log(allPosts);
   }
   const currentUser = useSelector((state) => state.userAccount);
-  // console.log(allPosts);
   const [commentNumber, setCommentNumber] = useState(5);
 
   const [form, setForm] = useState({
@@ -74,7 +72,6 @@ export function QuestionPost() {
       comment: "",
     });
   }
-  console.log('NEWpost', post);
   function handleUpClick(e){
     setVote({
       postId: id,
@@ -93,7 +90,6 @@ export function QuestionPost() {
 
   function handleAnswerClick(e) {
       const { value } = e.target
-      console.log(value);
       if (Number(value) === 0) {
       dispatch(changeAnswered({
         id: id,
