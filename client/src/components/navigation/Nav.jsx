@@ -18,7 +18,7 @@ function Nav() {
       <div className="nav">
         <div className="nav-left-col">
           <Link to="/app" className="nav-link large-screen-logo-container">
-            <img src="../../../public/Logo.png" classname="large-screen-logo" />
+            <img src="./images/Logo.png" alt="codecoach logo" classname="large-screen-logo" />
           </Link>
         </div>
         <div className="nav-center-col">
