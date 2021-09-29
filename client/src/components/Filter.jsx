@@ -53,11 +53,10 @@ function Filter() {
       <div className="filter-label">
         <Link
           to={link.answered.link}
-          className={link.answered.style}
           id="answered"
+          className={link.answered.style}
           onClick={handleClickA}
         >
-          <input className="filter-checkbox" type="checkbox" />
           Answered
         </Link>
       </div>
@@ -68,7 +67,6 @@ function Filter() {
           id="unanswered"
           onClick={handleClickB}
         >
-          <input className="filter-checkbox" type="checkbox" />
           Unanswered
         </Link>
       </div>
@@ -79,7 +77,6 @@ function Filter() {
           id="myquestions"
           onClick={handleClickC}
         >
-          <input className="filter-checkbox" type="checkbox" />
           My Questions
         </Link>
       </div>

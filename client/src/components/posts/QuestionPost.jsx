@@ -14,6 +14,7 @@ export function QuestionPost() {
   const { postId } = useParams();
   const [disable, setDisable] = useState(false);
   const dispatch = useDispatch();
+  const [className, setClassName] = useState("answered-unclicked")
 
   const id = Number(postId);
   // const [waiting, setWaiting] = useState(true);
@@ -89,18 +90,18 @@ export function QuestionPost() {
   }
 
   function handleAnswerClick(e) {
-    e.preventDefault();
-    const { value } = e.target;
-    console.log(value);
-    console.log(typeof value);
-    console.log(post.post_answered);
-    if (value === "false") {
-      dispatch(
-        changeAnswered({
-          id: id,
-          answered: true,
-        })
-      );
+    e.preventDefault()
+    const { value } = e.target
+    if (className === "answered-unclicked") {
+      setClassName("answered-click")
+    } else {
+      setClassName("answered-unclicked")
+    }
+      if (Number(value) === 0) {
+      dispatch(changeAnswered({
+        id: id,
+        answered: 1,
+      }))
     } else {
       dispatch(
         changeAnswered({
@@ -202,7 +203,7 @@ export function QuestionPost() {
             </label>
             <textarea
               className="answer-input"
-              name="Comment"
+              name="comment"
               value={form.comment}
               placeholder="Comment"
               onChange={handleChange}
@@ -212,12 +213,13 @@ export function QuestionPost() {
             {currentUser.id === post.user.id ? (
               <div className="post-buttons">
                 <div className="answered-button">
-                  <button
-                    onClick={handleAnswerClick}
+              <button 
+              onClick={handleAnswerClick} 
                     value={post.post_answered}
-                  >
-                    Edit
-                  </button>
+                    className={className}
+              >
+                Answered
+              </button>
                 </div>
                 <div className="other-buttons-container">
                   <button
