@@ -14,10 +14,16 @@ function GreetPage() {
       <div className="greetpage-container">
         <img src="/Logo.png" alt="codecoach-logo" className='logo-image' />
         <div className="greetpage-content-container">
-          <p className="greetpage-title">A new way to connect<br />with developers</p>
-          <img src="/Connection.png" alt="connected" className='greetpage-image' />
-          <p className="greetpage-subtext">Connect・Learn・Code</p>
-          <LoginButton />
+          <div className="greetpage-text-container">
+            <h1 className="greetpage-title">Become a<br />mentor</h1>
+            <h1 className="greetpage-title">Learn from<br />the best</h1>
+            <p className="greetpage-subtext">Connect learn code</p>          
+            <LoginButton />
+          </div>
+          <div className="greetpage-images-container">
+            <img src="" alt="" />
+            <img src="" alt="" />
+          </div>
         </div>
       </div>
     </div>

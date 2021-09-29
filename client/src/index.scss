@@ -451,6 +451,9 @@ $background-hover: #b1ddff;
   color: $darktext;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
   cursor: pointer;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   &:hover {
     background-color: $background-hover;
@@ -486,8 +489,20 @@ $background-hover: #b1ddff;
 }
 
 /* styling chats */ 
+.chats-list {
+  display: flex;
+}
+
 .chats-list-item {
-  padding: 0;  
+  padding: 0;
+  display: flex;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-direction: column; 
+  flex-direction: row;
+  align-items: center; 
+  text-decoration: none;
 }
 
 .chats-list-avatar {
@@ -497,20 +512,29 @@ $background-hover: #b1ddff;
 }
 
 .chats-list-details {
-  position: relative;
-  display: inline-block;
+  display: flex;
   margin-left: 8px;
   padding: 0;
-  bottom: 10px;
   color: $darktext;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  flex-direction: column;
+  width: 36%;
 }
 
 .chats-list-username {
   margin: 0 0 4px 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .chats-list-message {
   margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .chat-layout-container {
@@ -526,7 +550,6 @@ $background-hover: #b1ddff;
   flex-direction: column;
   align-items: flex-end;
   height: 89vh;
-  border: 1px solid $secondary;
   border-radius: 8px;
   background-color: $background;
 }
@@ -536,7 +559,6 @@ $background-hover: #b1ddff;
   display: flex;
   justify-content: center;
   padding: 12px 0 12px 12px;
-  border-top: 1px solid $secondary;
   background-color: $background;
 }
 

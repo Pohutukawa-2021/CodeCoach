@@ -78,6 +78,7 @@ function ChatComponent() {
               text: {
                 fontSize: 16,
                 color: "#F4F6F7",
+                textAlign: "center",
               },
               chatbubble: {
                 borderRadius: 150,
