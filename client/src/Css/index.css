@@ -241,6 +241,7 @@ body {
   display: flex;
   justify-content: center;
   border-radius: 8px;
+  margin-bottom: 54px;
 }
 
 .layout-right-col {

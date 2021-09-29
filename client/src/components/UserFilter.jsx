@@ -43,7 +43,6 @@ function UserFilter() {
           id="junior"
           onClick={handleClickA}
         >
-          <input className="filter-checkbox" type="checkbox" />
           Junior
         </Link>
       </div>
@@ -54,7 +53,6 @@ function UserFilter() {
           id="senior"
           onClick={handleClickB}
         >
-          <input className="filter-checkbox" type="checkbox" />
           Senior
         </Link>
       </div>
