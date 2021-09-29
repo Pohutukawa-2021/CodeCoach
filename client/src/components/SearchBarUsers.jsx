@@ -30,9 +30,10 @@ function SearchBarUser() {
     const userList = findUsers();
     dispatch(searchUserAction(userList));
     setSearchUser("");
-    history.push("/app/blah");
+    // console.log("drgdgdgdfg", userList);
+    history.push("/app/searchusers");
   }
-  console.log(findUsers());
+  //console.log(findUsers());
   return (
     <div>
       <form action="/" method="get">

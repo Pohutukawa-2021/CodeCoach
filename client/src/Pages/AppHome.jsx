@@ -22,6 +22,8 @@ import Filter from "../components/Filter";
 import FilteredPosts from "../components/posts/FilteredPosts";
 import SearchBarUser from "../components/SearchBarUsers";
 import SearchedUsersList from "../components/users/SearchedUsers";
+import UserFilter from "../components/UserFilter";
+import FilteredUsers from "../components/users/FilteredUsers";
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -61,41 +63,47 @@ function AppHome() {
             <Route exact path={`${path}/messaging/:id`}>
               <ChatComponent />
             </Route>
-            <Route path={`${path}/createpost`}>
+            <Route exact path={`${path}/createpost`}>
               <QuestionForm />
             </Route>
-            <Route path={`${path}/post/:postId`}>
+            <Route exact path={`${path}/post/:postId`}>
               <SearchBar />
               <Tags />
               <QuestionPost />
             </Route>
-            <Route path={`${path}/users`}>
+            <Route exact path={`${path}/users`}>
               <SearchBarUser />
+              <UserFilter />
               <ProfilePage />
             </Route>
-            <Route path={`${path}/myprofile`}>
+            <Route exact path={`${path}/myprofile`}>
               <UserProfile />
             </Route>
-            <Route path={`${path}/editprofile`}>
+            <Route exact path={`${path}/editprofile`}>
               <EditProfile />
             </Route>
-            <Route path={`${path}/editquestion/:postId`}>
+            <Route exact path={`${path}/editquestion/:postId`}>
               <QuestionEdit />
             </Route>
-            <Route exact path={`${path}/:filter`}>
+            <Route exact path={`${path}/searchusers`}>
+              <SearchBarUser />
+              <SearchedUsersList />
+            </Route>
+            <Route exact path={`${path}/posts/:filter`}>
               <Tags />
               <Filter />
               <FilteredPosts />
             </Route>
-            <Route path={`${path}/blah`}>
-              <SearchBarUser />
-              <SearchedUsersList />
-            </Route>
-            <Route path={`${path}/search`}>
+            <Route exact path={`${path}/search`}>
               <SearchBar />
               <Tags />
               <Filter />
               <SearchQuestions />
+            </Route>
+            <Route exact path={`${path}/users/:filter`}>
+              <SearchBarUser />
+              <UserFilter />
+              <FilteredUsers />
             </Route>
           </Switch>
         </>
