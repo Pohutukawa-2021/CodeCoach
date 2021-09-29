@@ -6,7 +6,6 @@ function QuestionList() {
   const allPosts = useSelector((state) => state.posts);
   const allTags = useSelector((state) => state.tags);
   const tagsFilter = useSelector((state) => state.tagsFilter);
-
   const dispatch = useDispatch();
   function handleTags() {
     let tagsToDispatch = [];

@@ -15,12 +15,13 @@ import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
 import QuestionList from "../components/posts/QuestionList";
 import { QuestionEdit } from "../components/posts/QuestionEdit";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SearchBarPosts";
 import SearchQuestions from "../components/posts/SearchedQuestions";
 import Tags from "../components/Tags";
 import Filter from "../components/Filter";
 import FilteredPosts from "../components/posts/FilteredPosts";
-
+import SearchBarUser from "../components/SearchBarUsers";
+import SearchedUsersList from "../components/users/SearchedUsers";
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -47,9 +48,9 @@ function AppHome() {
         <>
           <Header />
           <UsersOnline />
-              <SearchBar />
           <Switch>
             <Route exact path={path}>
+              <SearchBar />
               <Tags />
               <Filter />
               <QuestionList />
@@ -64,10 +65,12 @@ function AppHome() {
               <QuestionForm />
             </Route>
             <Route path={`${path}/post/:postId`}>
+              <SearchBar />
               <Tags />
               <QuestionPost />
             </Route>
             <Route path={`${path}/users`}>
+              <SearchBarUser />
               <ProfilePage />
             </Route>
             <Route path={`${path}/myprofile`}>
@@ -79,13 +82,20 @@ function AppHome() {
             <Route path={`${path}/editquestion/:postId`}>
               <QuestionEdit />
             </Route>
-            <Route path={`${path}/search`}>
-              <SearchQuestions />
-            </Route>
             <Route exact path={`${path}/:filter`}>
               <Tags />
               <Filter />
               <FilteredPosts />
+            </Route>
+            <Route path={`${path}/blah`}>
+              <SearchBarUser />
+              <SearchedUsersList />
+            </Route>
+            <Route path={`${path}/search`}>
+              <SearchBar />
+              <Tags />
+              <Filter />
+              <SearchQuestions />
             </Route>
           </Switch>
         </>
