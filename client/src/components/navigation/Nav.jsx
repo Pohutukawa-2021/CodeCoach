@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-import { ChatbubbleEllipsesOutline } from 'react-ionicons'
-import { PeopleOutline } from 'react-ionicons'
-import { HomeOutline } from 'react-ionicons'
-import { useDetectOutsideClick } from "../../useDetectOutsideClick"
-import LogoutButton from "../buttons/LogoutButton"
+import { ChatbubbleEllipsesOutline } from "react-ionicons";
+import { PeopleOutline } from "react-ionicons";
+import { HomeOutline } from "react-ionicons";
+import { useDetectOutsideClick } from "../../useDetectOutsideClick";
+import LogoutButton from "../buttons/LogoutButton";
 
 function Nav() {
   const { isAuthenticated } = useAuth0();
@@ -18,27 +18,23 @@ function Nav() {
       <div className="nav">
         <div className="nav-left-col">
           <Link to="/app" className="nav-link large-screen-logo-container">
-            <img src="./images/Logo.png" alt="codecoach logo" classname="large-screen-logo" />
+            <img
+              src="/images/Logo.png"
+              alt="codecoach logo"
+              classname="large-screen-logo"
+            />
           </Link>
         </div>
         <div className="nav-center-col">
           <Link to="/app" className="nav-link">
-            <HomeOutline
-              color={'#ffffff'}
-              height="30px"
-              width="30px"
-            />
+            <HomeOutline color={"#ffffff"} height="30px" width="30px" />
           </Link>
           <Link to="/app/users" className="nav-link">
-            <PeopleOutline
-              color={'#ffffff'}
-              height="30px"
-              width="30px"
-            />
+            <PeopleOutline color={"#ffffff"} height="30px" width="30px" />
           </Link>
           <Link to="/app/messaging" className="nav-link">
             <ChatbubbleEllipsesOutline
-              color={'#ffffff'}
+              color={"#ffffff"}
               height="30px"
               width="30px"
             />
@@ -48,11 +44,14 @@ function Nav() {
           </Link>
         </div>
         <div className="nav-right-col">
-          <Link to="/app/myprofile" className="nav-link nav-avatar-link">CP</Link>
+          <Link to="/app/myprofile" className="nav-link nav-avatar-link">
+            CP
+          </Link>
           <button onClick={onClick} className="nav-triangle-button">
             <div className="nav-triangle"></div>
           </button>
-          <div ref={dropdownRef}
+          <div
+            ref={dropdownRef}
             className={`menu ${isActive ? "active" : "inactive"}`}
           >
             <div>
