@@ -19,7 +19,6 @@ function getAllPosts(db = connection) {
       return await Promise.all(
         allPosts.map(async (post) => {
           return await changeShape(post).then((newObj) => {
-            // console.log(newObj);
             return newObj;
           });
         })
@@ -62,7 +61,6 @@ function addPost(post, authToken, db = connection) {
     today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear();
   var time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  console.log(post);
   const newPost = {
     title: post.title,
     text: post.body,
@@ -73,12 +71,10 @@ function addPost(post, authToken, db = connection) {
     answered: false
   };
   return getUserData(authToken).then((rows) => {
-    //console.log(rows);
     newPost["user_id"] = rows[0].id;
     return db("posts")
       .insert(newPost)
       .then(() => {
-        // console.log("data:",data);
         return getAllPosts().then((data) => data);
       })
       .catch((err) => {
@@ -101,7 +97,6 @@ function addCommentById(postId, comment, authToken, db = connection) {
     comment_date: date,
     comment_time: time,
   };
-  //console.log(commentObj);
   return getUserData(authToken).then((rows) => {
     commentObj["user_id"] = rows[0].id;
     return db("comments").insert(commentObj);
@@ -130,6 +125,5 @@ function updatePost(post, db = connection) {
 
 function updateVote(post, db = connection) {
   const newPost = {votes: post.votes}
-  console.log('NEWpost',post);
   return db("posts").where("id", post.postId).update(newPost);
 }

@@ -17,7 +17,6 @@ function FilteredPosts() {
      filteredPosts = myquestions
   } else {
     const unansweredPosts = allPosts.filter(post => post.post_answered === 0)
-    console.log('0', unansweredPosts);
     filteredPosts = unansweredPosts
   }
 

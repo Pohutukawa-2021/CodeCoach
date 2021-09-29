@@ -8,7 +8,6 @@ function QuestionList() {
   const tagsFilter = useSelector((state) => state.tagsFilter);
 
   const dispatch = useDispatch();
-  // console.log(allTags);
   function handleTags() {
     let tagsToDispatch = [];
     allPosts.map((post) => {
