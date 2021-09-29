@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
@@ -71,7 +70,7 @@ function AppHome() {
                 <QuestionForm />
               </Route>
               <Route exact path={`${path}/post/:postId`}>
-                <PostComponent />
+                <QuestionPost />
               </Route>
               <Route path={`${path}/users`}>
                 <ProfilePage />

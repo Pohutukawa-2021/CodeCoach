@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 function UserProfile() {
   const user = useSelector((state) => state.userAccount)
   return (
-<<<<<<< HEAD
     <>
       <div className="layout-left-col"></div>
       <div className="layout-center-col">
@@ -35,17 +34,6 @@ function UserProfile() {
       </div>
       <div className="layout-right-col"></div>
     </>
-=======
-    <div className='user-container'>
-      <img className='avatar' src={user.image_url} alt={user.username} />
-      <p>username: {user.username}</p>
-      <p>{user.email}</p>
-      <p>Role: {user.role}</p>
-      <p>Experience: {user.experience}</p>
-      <p>Bio: {user.bio}</p>
-      <NavLink to="/app/editprofile">Edit details</NavLink>
-    </div>
->>>>>>> 79f2565f318cb9d7c1982834f8bd06846670262d
   )
 }
 
