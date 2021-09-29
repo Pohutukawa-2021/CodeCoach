@@ -84,7 +84,7 @@ function ChatComponent() {
                 backgroundColor: "#12558A",
                 borderRadius: 150,
                 padding: 12,
-                margin: 4,
+                margin: 8,
               },
             }}
           />

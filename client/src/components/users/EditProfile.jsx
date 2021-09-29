@@ -32,12 +32,14 @@ function EditProfile() {
       <div className="layout-left-col"></div>
       <div className="layout-center-col">
         <section className="center-col-container">
+          <h1 className="center-col-title">Edit profile</h1>
           <form className="form-container">
             <div className="form-field">
               <label htmlFor="name" className="form-label">
                 Name
               </label>
               <input
+                className="input-field-standard"
                 name="name"
                 value={form.name}
                 placeholder={user.username}
@@ -48,7 +50,7 @@ function EditProfile() {
             <label htmlFor='role' className='form-label'>Role</label>
             <select
               onChange={handleChange}
-              className='select'
+              className="input-field-standard"
               name='role'>
               <option hidden>Select from this list</option>
               <option value="Junior">Junior</option>
@@ -57,9 +59,9 @@ function EditProfile() {
             </div>
             <div className="form-field">
             <label htmlFor='experience' className='form-label'>Experience</label>
-            <select
+              <select
+              className="input-field-standard"
               onChange={handleChange}
-              className='select'
               name='experience'>
               <option hidden>Select from this list</option>
               <option value="0-1 year experience">0-1 year experience</option>
@@ -74,6 +76,7 @@ function EditProfile() {
                 Bio
               </label>
               <input
+                className="input-field-standard"
                 name="bio"
                 type="text"
                 value={form.bio}
@@ -83,7 +86,7 @@ function EditProfile() {
             </div>
             <button
               type="submit"
-              className="button-primary"
+              className="small-button small-button-styling"
               onClick={handleClick}
               data-testid="submitButton">
               Save
