@@ -5,9 +5,13 @@ import usersOnline from "./reducers/usersOnline";
 import users from "./reducers/users";
 import waiting from "./reducers/waiting";
 import commentsByPost from "./reducers/comments";
+import counter from "./reducers/counter";
 
+import search from "./reducers/search";
 import posts from "./reducers/posts";
+import tags from "./reducers/tags";
 import { combineReducers } from "redux";
+import tagsFilter from "./reducers/tagsFilter";
 
 const allReducers = combineReducers({
   testReducer,
@@ -17,7 +21,11 @@ const allReducers = combineReducers({
   messages,
   posts,
   commentsByPost,
-  users
+  users,
+  counter,
+  search,
+  tags,
+  tagsFilter,
 });
 
 export default allReducers;

@@ -5,9 +5,9 @@ import ProfilePopUp from './ProfilePopUp'
 function UsersList() {
   const [popUp, setPopUp] = useState(false)
   const users = useSelector((state) => state.users)
-  const [userPopUp, setUserPopUp] = useState({ users })
-  
+  const [userPopUp, setUserPopUp] =useState({users})
   return (
+<<<<<<< HEAD
     <>
       <main className='users-container'>
         {users.map((user) =>
@@ -47,6 +47,29 @@ function UsersList() {
             </div>
           </div>
         </ProfilePopUp>
+=======
+      <div className='user-container'>
+        {users.map((user) => 
+          <div key={user.id}>
+          <img className='avatar' src={user.image_url} alt={user.username} onClick={() => {
+            setUserPopUp(user)
+            setPopUp(true)}}/>
+          <span>Username: {user.username}</span>
+          <span>{user.email}</span>
+          <span>Role: {user.role}</span>
+          <span>Experience: {user.experience}</span>
+          <span>Bio: {user.bio}</span>
+        </div>
+        )}     
+      <ProfilePopUp trigger={popUp} setTrigger={setPopUp}>
+        <img className='avatar' src={userPopUp.image_url} alt={userPopUp.username} />
+        <span>Username: {userPopUp.username}</span>
+          <span>{userPopUp.email}</span>
+          <span>Role: {userPopUp.role}</span>
+          <span>Experience: {userPopUp.experience}</span>
+          <span>Bio: {userPopUp.bio}</span>
+      </ProfilePopUp> 
+>>>>>>> 79f2565f318cb9d7c1982834f8bd06846670262d
       </div>
     </>
   );

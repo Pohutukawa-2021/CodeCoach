@@ -67,6 +67,7 @@ function ChatComponent() {
 
   const messages = setMessages();
   return (
+<<<<<<< HEAD
     <div className="layout-center-col">
       <div className="chat-layout-container">
         <div className="chat-container">
@@ -107,6 +108,29 @@ function ChatComponent() {
           </div>
         </div>
       </div>
+=======
+    <div className="chat">
+      <ChatFeed
+        messages={messages}
+        showSenderName
+        bubblesCentered={false}
+        bubbleStyles={{
+          text: {
+            fontSize: 30,
+          },
+          chatbubble: {
+            borderRadius: 70,
+            padding: 40,
+          },
+        }}
+      />
+      <input
+        onKeyDown={(e) => onEnter(e)}
+        value={userText}
+        onChange={(e) => setUserText(e.target.value)}
+      />
+      <button onClick={() => sendMessage()}>Send</button>
+>>>>>>> 79f2565f318cb9d7c1982834f8bd06846670262d
     </div>
   );
 }

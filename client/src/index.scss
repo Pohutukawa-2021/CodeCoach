@@ -1,7 +1,4 @@
-/* global styling */
-html, body {
-  box-sizing: border-box;
-  font-family: "Roboto";
+body {
   margin: 0;
   padding: 0;
   width: 100vw;
@@ -189,51 +186,6 @@ $background-hover: #b1ddff;
 }
 .nav-triangle:after {
 	  transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
-}
-
-.menu {
-    background: $background;
-    border-radius: 8px;
-    position: absolute;
-    font-size: 1.2rem;
-    padding: 12px;
-    top: 51px;
-    right: 6px;
-    width: 150px;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-    -webkit-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
-}
-
-.menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.signout-text {
-  text-decoration: none;
-  color: $darktext;
-  font-size: 1.2rem;
-  background-color: $background;
-  border: none;
-  cursor: pointer;
-}
-
-/* Display different header logo dependig on screen size */
-@media screen and (min-width: 415px) {
-  .mobile-logo-container {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 415px) {
-  .large-screen-logo-container {
-    display: none;
-  }
 }
 
 /* layout columns styling */

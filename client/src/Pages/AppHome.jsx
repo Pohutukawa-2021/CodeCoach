@@ -1,17 +1,25 @@
 import React from "react";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import UsersOnline from "../components/UsersOnline";
 import { useAuth0 } from "@auth0/auth0-react";
+
+import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
 import { QuestionForm } from "../components/posts/QuestionForm";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
 import ChatComponent from "../components/ChatComponent";
-import { PostComponent } from "../components/posts/PostComponent";
+import { QuestionPost } from "../components/posts/QuestionPost";
 import UserProfile from "../components/users/UserProfile";
-import MessageListComponent from "../components/MessageListComponent";
+import MessageListComponent from "../components/MessageListComponent/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
+import QuestionList from "../components/posts/QuestionList";
+import { QuestionEdit } from "../components/posts/QuestionEdit";
+import SearchBar from "../components/SearchBar";
+import SearchQuestions from "../components/posts/SearchedQuestions";
+import Tags from "../components/Tags";
+import Filter from "../components/Filter";
+import FilteredPosts from "../components/posts/FilteredPosts";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -31,7 +39,6 @@ function AppHome() {
       dispatch(sendUserDetails(defaultUser));
     }
   }
-  //console.log(userAccount);
   return (
     <div>
       {waiting ? (
@@ -45,6 +52,10 @@ function AppHome() {
               <Route exact path={path}>
                 <div className="layout-left-col">
                   <h1>Home</h1>
+                  <SearchBar />
+                  <Tags />
+                  <Filter />
+                  <QuestionList />
                 </div>
               </Route>
               <Route exact path={`${path}/messaging/`}>
@@ -71,7 +82,18 @@ function AppHome() {
               </Route>
               <Route path={`${path}/editprofile`}>
                 <EditProfile />
-              </Route>
+                  </Route>
+                  <Route path={`${path}/editquestion/:postId`}>
+              <QuestionEdit />
+            </Route>
+            <Route path={`${path}/search`}>
+              <SearchQuestions />
+            </Route>
+            <Route exact path={`${path}/:filter`}>
+              <Tags />
+              <Filter />
+              <FilteredPosts />
+            </Route>
                 </Switch>
               <Route exact path={path}>
                 <UsersOnline />
