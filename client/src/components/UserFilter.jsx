@@ -34,7 +34,7 @@ function UserFilter() {
   }
 
   return (
-    <div className="layout-left-col">
+    <div>
       <p className="search-filter-tags-label">Filters</p>
       <div className="filter-label">
         <Link

@@ -50,56 +50,71 @@ export function QuestionEdit() {
 
   return (
     <>
-      <h1> {post.post_date}</h1>
-      <section className="flex-container">
-        <form className="column-6">
-          <div className="field">
-            <label htmlFor="firstName" className="form-label">
-              Title
-            </label>
-            <input
-              name="title"
-              value={form.title}
-              placeholder="summary"
-              onChange={handleChange}
-            ></input>
-          </div>
-          <div className="field">
-            <label htmlFor="lastName" className="form-label">
-              Body
-            </label>
-            <input
-              name="text"
-              value={form.text}
-              placeholder="details"
-              onChange={handleChange}
-            ></input>
-          </div>
-          <label htmlFor="myBrowser">Tags:</label>
-          <input
-            list="tags"
-            name="tags"
-            placeholder='Tags...seperate by " , "'
-            value={form.tags}
-            onChange={handleChange}
-          />
-          <datalist id="tags">
-            <option value="Java," />
-            <option value="Javascript," />
-            <option value="Python," />
-            <option value="C#," />
-            <option value="ArnoldC," />
-          </datalist>
-          <button
-            type="submit"
-            className="button-primary"
-            onClick={handleClick}
-            data-testid="submitButton"
-          >
-            Edit
-          </button>
-        </form>
-      </section>
+      <div className="layout-left-col"></div>
+      <div className="layout-center-col">
+      
+      <section className="center-col-container">
+          <h2 className="center-col-title form-title">Edit question</h2>
+          <p>{post.post_date}</p>
+          <form className="form-container">          
+            <div className="form-field">
+              <label htmlFor="firstName" className="form-label">
+                Title
+              </label>
+              <input
+                className="input-field-standard"
+                type="text"
+                name="title"
+                value={form.title}
+                placeholder="Title"
+                onChange={handleChange}
+              ></input>
+            </div>
+            <div className="form-field">
+              <label htmlFor="lastName" className="form-label">
+                Body
+              </label>
+              <textarea
+                className="input-field-standard input-field-textarea"
+                type="text"
+                name="body"
+                value={form.body}
+                onChange={handleChange}
+              ></textarea>
+            </div>
+            <div className="form-field">
+              <label for="myBrowser" className="form-label">
+                Tags
+              </label>
+              <input
+                list="tags"
+                name="tags"
+                placeholder='Tags...seperate by " , "'
+                onChange={handleChange}
+                className="input-field-standard"
+              />
+              <datalist id="tags" className="input-field-standard">
+                <option value="Java," />
+                <option value="Javascript," />
+                <option value="Python," />
+                <option value="C#," />
+                <option value="ArnoldC," />
+              </datalist>
+            </div>
+            <div className="post-buttons-container">
+              <button
+                type="submit"
+                className="small-button post-button"
+                onClick={handleClick}
+                data-testid="submitButton"
+              >
+                Save
+              </button>
+            </div>
+            </form>
+          </section>
+      </div>
+      <div className="layout-right-col"></div>
     </>
   );
 }

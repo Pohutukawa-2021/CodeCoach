@@ -49,7 +49,7 @@ function MessageListComponent() {
 
   const messageList = getUsersInConversationWith();
   return (
-    <div className="layout-left-col">
+    <div>
       <h1 className="left-col-title">Chats</h1>
       <div className="chats-list">{messageList}</div>
     </div>
