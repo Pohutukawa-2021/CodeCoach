@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { SearchBarUser } from "../components/SearchBarUsers"
+
 function UserFilter() {
   const [link, setLink] = useState({
     junior: { link: "/app/users/junior", style: "unclicked" },
@@ -32,25 +34,27 @@ function UserFilter() {
   }
 
   return (
-    <div>
-      <p>Filters</p>
-      <div>
+    <div className="layout-left-col">
+      <p className="search-filter-tags-label">Filters</p>
+      <div className="filter-label">
         <Link
           to={link.junior.link}
           className={link.junior.style}
           id="junior"
           onClick={handleClickA}
         >
+          <input className="filter-checkbox" type="checkbox" />
           Junior
         </Link>
       </div>
-      <div>
+      <div className="filter-label">
         <Link
           to={link.senior.link}
           className={link.senior.style}
           id="senior"
           onClick={handleClickB}
         >
+          <input className="filter-checkbox" type="checkbox" />
           Senior
         </Link>
       </div>

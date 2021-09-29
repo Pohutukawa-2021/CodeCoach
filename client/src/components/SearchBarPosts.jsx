@@ -4,6 +4,8 @@ import { useState } from "react";
 import Search from "../redux/actions/search";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { SearchOutline } from 'react-ionicons'
+
 function SearchBar() {
   const allPosts = useSelector((state) => state.posts);
   const history = useHistory();
@@ -76,11 +78,13 @@ function SearchBar() {
   }
   return (
     <div>
-      <form action="/" method="get">
-        <label htmlFor="header-search">
-          <span className="visually-hidden">Search</span>
+      <form action="/" method="get" className="search-form-container">
+        <div className="search-container">
+        <label htmlFor="header-search" className="search-filter-tags-label">
+          <span>Search</span>
         </label>
-        <input
+          <input
+          className="input-field-standard search-field"
           type="text"
           id="text-search"
           placeholder="Search"
@@ -88,10 +92,16 @@ function SearchBar() {
           value={searchPost}
           onChange={handleChange}
         />
-        <button type="submit" onClick={handleClick}>
-          Search
+        <button type="submit" onClick={handleClick} className="search-button">
+          <SearchOutline
+            color={'#031B44'} 
+            height="30px"
+            width="30px"
+          />
         </button>
+        </div>
       </form>
+      
     </div>
   );
 }

@@ -53,31 +53,39 @@ function AppHome() {
             <Switch>
               <Route exact path={path}>
                 <div className="layout-left-col">
-                  <h1>Home</h1>
+                  <h1 className="left-col-title">Home</h1>
                   <SearchBar />
-                  <Tags />
                   <Filter />
-                  <QuestionList />
-                </div>
+                  <Tags />                  
+                  </div>
+                  <div className="layout-center-col">
+                    <QuestionList />
+                  </div>
               </Route>
               <Route exact path={`${path}/messaging/`}>
-              <MessageListComponent />
-            </Route>
-            <Route exact path={`${path}/messaging/:id`}>
-              <ChatComponent />
-            </Route>
-            <Route exact path={`${path}/createpost`}>
-              <QuestionForm />
-            </Route>
-            <Route exact path={`${path}/post/:postId`}>
+                <MessageListComponent />
+                <UsersOnline />
+              </Route>
+              <Route exact path={`${path}/messaging/:id`}>
+                <MessageListComponent />
+                <ChatComponent />
+                <UsersOnline />
+              </Route>
+              <Route exact path={`${path}/createpost`}>
+                <QuestionForm />
+              </Route>
+              <Route exact path={`${path}/post/:postId`}>
               <SearchBar />
               <Tags />
               <QuestionPost />
             </Route>
             <Route exact path={`${path}/users`}>
-              <SearchBarUser />
-              <UserFilter />
+              <div className="layout-left-col">
+                <SearchBarUser />
+                <UserFilter />
+              </div>
               <ProfilePage />
+              <UsersOnline />  
             </Route>
             <Route exact path={`${path}/myprofile`}>
               <UserProfile />
