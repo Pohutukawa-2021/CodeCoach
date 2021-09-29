@@ -29,28 +29,29 @@ function Tags() {
   }
   return (
     <>
-      {selectedTags.map((tag) => {
-        return (
-          <p>
-            {" "}
-            {tag}{" "}
-            <button className="close-btn" value={tag} onClick={handleClick}>
-              &#10005;
-            </button>{" "}
-          </p>
-        );
-      })}
-      <div className="tags">
-        <label htmlFor="experience" className="form-label">
+      <div className="tags-container">
+        <label htmlFor="experience" className="search-filter-tags-label tags-label">
           Tags
         </label>
-        <select onChange={handleChange} className="select" name="experience">
+        <select onChange={handleChange} className="input-field-standard tags-field" name="experience">
           <option hidden>Select Tags</option>
           {allTags.map((tag) => {
             return <option value={tag}>{tag}</option>;
           })}
         </select>
-      </div>
+       
+        {selectedTags.map((tag) => {
+          return (
+            <p className="tag">
+              {" "}
+              {tag}{" "}
+              <button className="tag-close-button" value={tag} onClick={handleClick}>
+                &#10005;
+              </button>{" "}
+            </p>
+          );
+        })}
+      </div> 
     </>
   );
 }

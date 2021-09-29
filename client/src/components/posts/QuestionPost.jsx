@@ -5,6 +5,8 @@ import commentsByPost from "../../redux/actions/commentsByPost";
 import { counter }  from "../../redux/actions/counter"
 import { useHistory } from "react-router";
 import { changeAnswered } from "../../redux/actions/answered";
+import { CaretUpOutline } from 'react-ionicons'
+import { CaretDownOutline } from 'react-ionicons'
 
 export function QuestionPost() {
   const history = useHistory();
@@ -119,22 +121,29 @@ export function QuestionPost() {
     history.push(`/app/editquestion/${post.postId}`);
   }
   return (
-    <div>
-      <div className="whole-post">
-        <div className="question-title-body">
-        <div className="vote-container">
-      <button disabled={disable} value={1} onClick={handleUpClick} className="upvote">
-          Up Vote
-      </button>
-      <p className="counter">{post.post_votes}</p>
-      <button disabled={disable} value={-1} onClick={handleDownClick} className="downvote">
-          Down Vote
-      </button>
-    </div>
-          <h1>Question: {post.question}</h1>
-          <h2> {post.body}</h2>
+    <div className="center-col-container">
+      <div className="post-details-container">
+        <h1 className="center-col-title">{post.question}</h1>
+        <div className="question-body">
+          <div className="vote-container">
+            <button disabled={disable} value={1} onClick={handleUpClick} className="vote-button">
+              <CaretUpOutline
+                color={'#FCD35B'} 
+                height="30px"
+                width="30px"
+              />
+            </button>          
+            <p className="counter">{post.post_votes}</p>
+            <button disabled={disable} value={-1} onClick={handleDownClick} className="vote-button">
+                <CaretDownOutline
+                  color={'#FCD35B'} 
+                  height="30px"
+                  width="30px"
+                />
+            </button>
+          </div>  
+          <p> {post.body}</p>
         </div>
-
         <div className="footer-note">
           <small>
             {" "}
@@ -142,23 +151,27 @@ export function QuestionPost() {
           </small>
         </div>
         <div className="comments">
-          <h2> {post.comments.length} Answers</h2>
+          <h2>{post.comments.length} Answers</h2>
 
           {commentShown.map((comment) => {
             return (
-              <div className="each-comment">
-                <p>{post.question}</p>
-                <img src={comment.image_url} alt={comment.username}></img>
-                <p>{comment.username}</p>
-                <p>{comment.comment}</p>
-                <small>
-                  {" "}
-                  {comment.comment_date} - {comment.comment_time}
-                </small>
+              <div className="user-comment-container">
+                <p className="user-comment-question-title">{post.question}</p>
+                <p className="user-comment">{comment.comment}</p>
+                <div className="user-comment-user-container">
+                  <img src={comment.image_url} alt={comment.username}></img>
+                  <p>{comment.username}</p>
+                </div>
+                <div className="user-comment-date">
+                  <small>
+                    {" "}
+                    {comment.comment_date} - {comment.comment_time}
+                  </small>
+                </div>
               </div>
             );
           })}
-          <button
+          <button className="view-more-comments-button"
             onClick={() => {
               const newNumber = commentNumber + 5;
               if (newNumber >= post.comments.length) {
@@ -169,53 +182,68 @@ export function QuestionPost() {
             }}
           >
             {" "}
-            view more comments
+            View more comments
           </button>
         </div>
 
-        <form className="column-6">
-          <div className="field">
-            <label htmlFor="firstName" className="form-label">
-              Your answer:
+        <form className="post-answer-container">
+          <div className="answer-field">
+            <label htmlFor="firstName" className="answer-label">
+              Your answer
             </label>
-            <input
-              name="comment"
+            <textarea
+              className="answer-input"
+              name="Comment"
               value={form.comment}
-              placeholder="comment"
+              placeholder="Comment"
               onChange={handleChange}
-            ></input>
+            ></textarea>
           </div>
-
-          <button
-            type="submit"
-            className="button-primary"
-            onClick={handleClick}
-            data-testid="submitButton"
-          >
-            Post
-          </button>
+          <div className="post-button-answer-container">
+            
+          
           {currentUser.id === post.user.id ? (
-            <>
-            <button
-              type="submit"
-              className="button-primary"
-              onClick={handleEdit}
-              data-testid="submitButton"
-            >
-              Edit
-            </button>
-            <div>
+              <div className="post-buttons">
+                <div className="answered-button">
               <button 
               onClick={handleAnswerClick} 
               value={post.post_answered}
               >
                 Answered
               </button>
+                </div>
+                <div className="other-buttons-container">
+            <button
+              type="submit"
+              className="post-button-answer edit"
+              onClick={handleEdit}
+                    data-testid="submitButton"
+                    id=""
+            >
+              Edit
+                </button>
+                <button
+              type="submit"
+              className="post-button-answer"
+              onClick={handleClick}
+                    data-testid="submitButton"
+            >
+              Post
+            </button>
             </div>
-            </>
+            </div>
           ) : (
-            ""
-          )}
+            <button
+              type="submit"
+              className="post-button-answer"
+              onClick={handleClick}
+              data-testid="submitButton"
+            >
+              Post
+            </button>
+            )}
+            
+          </div>
         </form>
       </div>
 

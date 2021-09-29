@@ -67,8 +67,7 @@ function ChatComponent() {
 
   const messages = setMessages();
   return (
-    <div className="layout-center-col">
-      <div className="chat-layout-container">
+      <div className="center-col-container chat-layout-container">
         <div className="chat-container">
           <ChatFeed
             messages={messages}
@@ -108,7 +107,6 @@ function ChatComponent() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

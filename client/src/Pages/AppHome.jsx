@@ -23,6 +23,7 @@ import SearchBarUser from "../components/SearchBarUsers";
 import SearchedUsersList from "../components/users/SearchedUsers";
 import UserFilter from "../components/UserFilter";
 import FilteredUsers from "../components/users/FilteredUsers";
+
 function emailToUsername(email) {
   let username = email.split("@");
   return username[0];
@@ -50,76 +51,143 @@ function AppHome() {
           <Header />
           <div className="max-width-container">
             <div className="main-container">
-            <Switch>
-              <Route exact path={path}>
-                <div className="layout-left-col">
-                  <h1 className="left-col-title">Home</h1>
-                  <SearchBar />
-                  <Filter />
-                  <Tags />                  
+              <Switch>
+                <Route exact path={path}>
+                  <div className="layout-left-col">
+                    <h1 className="left-col-title">Home</h1>
+                    <SearchBar />
+                    <Filter />
+                    <Tags />                  
                   </div>
                   <div className="layout-center-col">
                     <QuestionList />
                   </div>
-              </Route>
-              <Route exact path={`${path}/messaging/`}>
-                <MessageListComponent />
-                <UsersOnline />
-              </Route>
-              <Route exact path={`${path}/messaging/:id`}>
-                <MessageListComponent />
-                <ChatComponent />
-                <UsersOnline />
-              </Route>
-              <Route exact path={`${path}/createpost`}>
-                <QuestionForm />
-              </Route>
-              <Route exact path={`${path}/post/:postId`}>
-              <SearchBar />
-              <Tags />
-              <QuestionPost />
-            </Route>
-            <Route exact path={`${path}/users`}>
-              <div className="layout-left-col">
-                <SearchBarUser />
-                <UserFilter />
-              </div>
-              <ProfilePage />
-              <UsersOnline />  
-            </Route>
-            <Route exact path={`${path}/myprofile`}>
-              <UserProfile />
-            </Route>
-            <Route exact path={`${path}/editprofile`}>
-              <EditProfile />
-            </Route>
-            <Route exact path={`${path}/editquestion/:postId`}>
-              <QuestionEdit />
-            </Route>
-            <Route exact path={`${path}/searchusers`}>
-              <SearchBarUser />
-              <SearchedUsersList />
-            </Route>
-            <Route exact path={`${path}/posts/:filter`}>
-              <Tags />
-              <Filter />
-              <FilteredPosts />
-            </Route>
-            <Route exact path={`${path}/search`}>
-              <SearchBar />
-              <Tags />
-              <Filter />
-              <SearchQuestions />
-            </Route>
-            <Route exact path={`${path}/users/:filter`}>
-              <SearchBarUser />
-              <UserFilter />
-              <FilteredUsers />
-            </Route>
-                </Switch>
-              <Route exact path={path}>
-                <UsersOnline />
-              </Route>
+                  <div className="layout-right-col">
+                    <UsersOnline />
+                  </div>
+                </Route>
+                  
+                <Route exact path={`${path}/messaging/`}>
+                  <div className="layout-left-col">
+                    <MessageListComponent />
+                  </div>
+                  <div className="layout-right-col">
+                    <UsersOnline />
+                  </div>
+                </Route>
+                  
+                <Route exact path={`${path}/messaging/:id`}>
+                  <div className="layout-left-col">
+                    <MessageListComponent />
+                  </div>
+                  <div className="layout-center-col">
+                    <ChatComponent />
+                  </div>
+                  <div className="layout-right-col">
+                    <UsersOnline />
+                  </div>
+                </Route>
+                  
+                <Route exact path={`${path}/createpost`}>
+                  <QuestionForm />
+                </Route>
+                  
+                <Route exact path={`${path}/post/:postId`}>
+                  <div className="layout-left-col">
+                    <h1 className="left-col-title">Home</h1>
+                    <SearchBar />
+                    <Filter />
+                    <Tags />                  
+                  </div>
+                  <div className="layout-center-col">
+                    <QuestionPost />
+                  </div>
+                  <div className="layout-right-col">
+                     <UsersOnline /> 
+                  </div>
+                </Route>
+                  
+                <Route exact path={`${path}/users`}>
+                  <div className="layout-left-col">
+                    <SearchBarUser />
+                    <UserFilter />
+                  </div>
+                  <div className="layout-center-col">
+                    <ProfilePage />
+                  </div>
+                  <div className="layout-right-col">
+                    <UsersOnline /> 
+                  </div> 
+                </Route>
+                  
+                <Route exact path={`${path}/myprofile`}>
+                  <UserProfile />
+                </Route>
+                  
+                <Route exact path={`${path}/editprofile`}>
+                  < EditProfile />
+                </Route>
+                  
+                <Route exact path={`${path}/editquestion/:postId`}>
+                  <QuestionEdit />
+                </Route>
+                  
+                <Route exact path={`${path}/searchusers`}>
+                  <div className="layout-left-col">
+                    <SearchBarUser />
+                    <UserFilter />
+                  </div>
+                  <div className="layout-center-col">
+                    <SearchedUsersList />
+                  </div>
+                  <div className="layout-right-col">
+                    <UsersOnline />
+                  </div>
+                </Route>
+                  
+                <Route exact path={`${path}/posts/:filter`}>
+                  <div className="layout-left-col">
+                    <h1 className="left-col-title">Home</h1>
+                    <SearchBar />
+                    <Filter />
+                    <Tags />                  
+                  </div>
+                  <div className="layout-center-col">
+                    <FilteredPosts />
+                  </div>
+                  <div className="layout-right-col">
+                    <UsersOnline />
+                  </div>
+                </Route>
+                  
+                <Route exact path={`${path}/search`}>
+                  <div className="layout-left-col">
+                    <h1 className="left-col-title">Home</h1>
+                    <SearchBar />
+                    <Filter />
+                    <Tags />                  
+                  </div>
+                  <div className="layout-center-col">
+                    <SearchQuestions />
+                  </div>
+                  <div className="layout-right-col">
+                    <UsersOnline />
+                  </div>
+                </Route>
+                  
+                <Route exact path={`${path}/users/:filter`}>
+                  <div className="layout-left-col">
+                    <SearchBarUser />
+                    <UserFilter />
+                  </div>
+                  <div className="layout-center-col">
+                    <FilteredUsers />
+                  </div>
+                  <div className="layout-right-col">
+                    <UsersOnline />
+                  </div>
+                </Route>
+              </Switch>
             </div>
           </div>
         </>
