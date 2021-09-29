@@ -36,12 +36,12 @@ User authentication is handled by [Auth0](https://auth0.com/)
 ### ERD / Planning / Execution
 
 <p align="center">
-<img src="./client/public/ERD.png" width="600" height="330 alt="erd"/>
+<img src="./client/public/ERD.png" width="450" height="230 alt="erd"/>
 </p>
 
 The diagram above shows the current schema of our database. 
 
-See the open issues #addlink to roadmap for a list of proposed features (and known issues) in our
+See the open issues for a list of proposed features (and known issues) in our
  [Board](https://codecoach.atlassian.net/jira/software/projects/COD/boards/1) in Jira.
 
 ### Design
