@@ -6,6 +6,7 @@
   "scripts": {
     "test": "cd ./client && npm run test",
     "dev": "npm-run-all --parallel startServer startClient",
+    "start": "node ./server/server.js",
     "startClient": "cd ./client && npm run start",
     "startServer": "cd ./server && npm run dev",
     "install --legacy-peer-deps": "npm-run-all --parallel installServer installClient",
