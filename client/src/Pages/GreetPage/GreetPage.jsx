@@ -4,11 +4,12 @@ import { Redirect } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function GreetPage() {
-  const { isAuthenticated } = useAuth0();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   if (isAuthenticated) {
     return <Redirect to="/app/" />;
   }
+
   return (
     <div>
       <img src="/logo.png" alt="codecoach-logo" className="logo-image" />

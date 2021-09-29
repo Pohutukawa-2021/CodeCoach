@@ -24,10 +24,11 @@ function QuestionList() {
     });
     dispatch(tags(tagsToDispatch));
   }
+
   useEffect(() => {
     handleTags();
-    }, [])
-  
+  }, [allPosts]);
+
   function tagPosts(tags) {
     let arr = [];
     tags.map((tag) => {

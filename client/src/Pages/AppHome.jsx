@@ -68,11 +68,6 @@ function AppHome() {
               <Tags />
               <QuestionPost />
             </Route>
-            <Route path={`${path}/:filter`}>
-              <Tags />
-              <Filter />
-              <FilteredPosts />
-            </Route>
             <Route path={`${path}/users`}>
               <ProfilePage />
             </Route>
@@ -87,6 +82,11 @@ function AppHome() {
             </Route>
             <Route path={`${path}/search`}>
               <SearchQuestions />
+            </Route>
+            <Route exact path={`${path}/:filter`}>
+              <Tags />
+              <Filter />
+              <FilteredPosts />
             </Route>
           </Switch>
         </>
