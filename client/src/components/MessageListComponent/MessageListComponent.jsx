@@ -34,7 +34,6 @@ function MessageListComponent() {
 
     return sortedArray.map((msg) => {
       return (
-<<<<<<< HEAD:client/src/components/MessageListComponent.jsx
         <div key={uuidv4()}>
           <Link to={`/app/messaging/${msg.userDetailsId}`} className="chats-list-item">
             <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} className="chats-list-avatar"/>            
@@ -42,14 +41,8 @@ function MessageListComponent() {
               <p className="chats-list-username">{msg.userDetailsUsername}</p>
               <p className="chats-list-message">{msg.userLastMessage}</p>
             </div>
-=======
-        <li key={uuidv4()}>
-          <Link to={`/app/messaging/${msg.userDetailsId}`}>
-            <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} />
-            <p>{msg.userLastMessage}</p>
->>>>>>> 79f2565f318cb9d7c1982834f8bd06846670262d:client/src/components/MessageListComponent/MessageListComponent.jsx
           </Link>
-        </li>
+        </div>
       );
     });
   }
