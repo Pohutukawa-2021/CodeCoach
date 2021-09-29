@@ -118,6 +118,7 @@ export function QuestionForm() {
             </form>
           </section>
       </div>
+      <div className="layout-right-col"></div>
     </>  
   );
 }

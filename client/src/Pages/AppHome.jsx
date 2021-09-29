@@ -81,18 +81,18 @@ function AppHome() {
               </Route>
               <Route path={`${path}/editprofile`}>
                 <EditProfile />
-                  </Route>
-                  <Route path={`${path}/editquestion/:postId`}>
+              </Route>
+                <Route path={`${path}/editquestion/:postId`}>
               <QuestionEdit />
-            </Route>
-            <Route path={`${path}/search`}>
-              <SearchQuestions />
-            </Route>
-            <Route exact path={`${path}/:filter`}>
-              <Tags />
-              <Filter />
-              <FilteredPosts />
-            </Route>
+              </Route>
+              <Route path={`${path}/search`}>
+                <SearchQuestions />
+              </Route>
+              <Route exact path={`${path}/:filter`}>
+                <Tags />
+                <Filter />
+                <FilteredPosts />
+              </Route>
                 </Switch>
               <Route exact path={path}>
                 <UsersOnline />
