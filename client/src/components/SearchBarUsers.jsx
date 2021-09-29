@@ -37,12 +37,10 @@ function SearchBarUser() {
   }
   //console.log(findUsers());
   return (
-    <div className="layout-left-col">
+    <div>
+      <h1 className="left-col-title">Users</h1>
       <form action="/" method="get" className="search-form-container">
         <div className="search-container">
-        <label htmlFor="header-search" className="search-filter-tags-label">
-          <span>Search</span>
-        </label>
         <input
           className="input-field-standard search-field"
           type="text"

@@ -3,6 +3,7 @@ body {
   padding: 0;
   width: 100vw;
   font-family: "Roboto";
+  overflow-x: hidden;
 }
 
 *,
@@ -117,7 +118,7 @@ body {
 .nav-triangle-button {
   display: flex;
   align-items: center;
-  margin-right: 6px;
+  margin-right: 12px;
   text-decoration: none;
   width: 34px;
   height: 44px;
@@ -178,7 +179,7 @@ body {
   font-size: 1.2rem;
   padding: 12px;
   top: 54px;
-  right: 6px;
+  right: 12px;
   width: 150px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
   opacity: 0;
@@ -416,12 +417,11 @@ body {
   grid-template-columns: repeat(3, 32%);
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 54px;
 }
 
 .user-container {
-  background-color: #80BEEC;
-  margin: 7px 0;
+  background-color: #b1ddff;
+  margin: 22px 0;
   padding: 18px;
   border-radius: 8px;
   text-decoration: none;
@@ -433,7 +433,7 @@ body {
   white-space: nowrap;
 }
 .user-container:hover {
-  background-color: #b1ddff;
+  background-color: #80BEEC;
   transition: background-color 0.15s ease;
   -webkit-transition: background-color 0.15s ease;
 }
@@ -518,27 +518,25 @@ body {
 .chat-layout-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  width: 100%;
+  align-items: center;
 }
 
 .chat-container {
   display: flex;
-  width: 100%;
   flex-direction: column;
-  align-items: flex-end;
   height: 89vh;
+  width: 106%;
   border-radius: 8px;
   background-color: #F4F8FB;
 }
 
 .chat-input-container {
-  margin: 0 auto;
-  width: 94%;
+  width: 49vw;
   display: flex;
-  justify-content: center;
-  padding: 16px;
+  align-items: center;
   background-color: #F4F8FB;
+  height: 74px;
+  margin-left: 22px;
 }
 
 .chat-input {
@@ -652,7 +650,7 @@ body {
   -webkit-transition: background-color 0.2s ease;
 }
 
-/* styling search filters */
+/* styling search filters tags */
 .search-container {
   width: 100%;
   padding: 0;
@@ -664,6 +662,7 @@ body {
 
 .search-filter-tags-label {
   font-size: 22px;
+  margin-top: 22px;
 }
 
 .search-field {
@@ -703,4 +702,267 @@ body {
 
 .home-filters {
   margin-left: 0;
+}
+
+.tags-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tags-field {
+  background-color: #F4F8FB;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  width: 94%;
+}
+
+.tags-label {
+  margin-bottom: 14px;
+}
+
+.tag {
+  background-color: #12558A;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin: 6px 0 0 0;
+}
+
+.tag-close-button {
+  color: #FFFFFF;
+  background-color: #12558A;
+  border: none;
+  cursor: pointer;
+  margin-left: 4px;
+  padding: 4px 8px;
+  border-radius: 50%;
+}
+.tag-close-button:hover {
+  background-color: #b1ddff;
+  transition: background-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease;
+}
+
+/* question list styling */
+.question-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.question-container {
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: flex-start;
+  width: 94%;
+  margin-top: 22px;
+  padding: 16px 24px;
+  text-decoration: none;
+  color: #031B44;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
+}
+.question-container:hover {
+  background-color: #F4F8FB;
+  transition: background-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease;
+}
+
+.question-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 14px;
+}
+
+.question-votes {
+  text-align: center;
+  font-weight: bold;
+}
+
+.question-answers {
+  text-align: center;
+  padding: 6px;
+  background-color: #FCD35B;
+  border-radius: 8px;
+}
+
+.question-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.user-question {
+  display: flex;
+  align-items: center;
+}
+.user-question img {
+  width: 58px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+
+.question-details {
+  margin-top: 4px;
+  max-width: 540px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.question-name {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.post-tags {
+  background-color: #12558A;
+  display: inline-block;
+  padding: 0 12px;
+  margin-top: 0;
+  margin-right: 6px;
+  color: #F4F6F7;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+/* post details */
+.question-body {
+  display: flex;
+  color: #031B44;
+}
+
+.vote-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 14px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.vote-button {
+  background-color: #F4F8FB;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-note {
+  display: flex;
+  justify-content: flex-end;
+  color: #031B44;
+}
+
+.user-comment-container {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.user-comment-question-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-comment-user-container {
+  display: flex;
+  align-items: center;
+}
+.user-comment-user-container img {
+  width: 36px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.user-comment-date {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.view-more-comments-button {
+  background-color: #F4F8FB;
+  border: none;
+  color: #031B44;
+  cursor: pointer;
+  margin-bottom: 32px;
+  font-weight: bold;
+}
+.view-more-comments-button:hover {
+  color: #80BEEC;
+}
+
+.answer-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.answer-label {
+  margin-bottom: 14px;
+  font-size: 20px;
+}
+
+.answer-input {
+  height: 100px;
+  border-radius: 8px;
+  padding: 14px;
+  border: 1px solid #031B44;
+  font-size: 1rem;
+  width: 90%;
+  margin: 0 auto;
+  font-family: "Roboto";
+}
+.answer-input:focus {
+  box-shadow: 0px 0px 3px #80BEEC;
+  outline: none;
+}
+
+.post-button-answer-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 12px;
+  margin-top: 22px;
+}
+.post-button-answer-container button {
+  border: none;
+  border-radius: 8px;
+  height: 36px;
+  padding: 0 22px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #F4F6F7;
+  background-color: #77B69E;
+}
+
+.post-buttons {
+  display: flex;
+  width: 100%;
+}
+
+.answered-button {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.other-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.post-button-answer {
+  margin-left: 8px;
+}
+
+.edit {
+  background-color: #FF760C !important;
 }

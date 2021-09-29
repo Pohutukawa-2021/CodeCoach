@@ -80,14 +80,11 @@ function SearchBar() {
     <div>
       <form action="/" method="get" className="search-form-container">
         <div className="search-container">
-        <label htmlFor="header-search" className="search-filter-tags-label">
-          <span>Search</span>
-        </label>
           <input
           className="input-field-standard search-field"
           type="text"
           id="text-search"
-          placeholder="Search"
+          placeholder="Search posts"
           name="s"
           value={searchPost}
           onChange={handleChange}

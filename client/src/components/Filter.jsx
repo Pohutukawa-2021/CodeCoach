@@ -48,7 +48,7 @@ function Filter() {
   }
 
   return (
-    <div className="layout-left-col home-filters">
+    <div className="home-filters">
       <p className="search-filter-tags-label">Filters</p>
       <div className="filter-label">
         <Link

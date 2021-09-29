@@ -40,9 +40,7 @@ function Nav() {
           </Link>
         </div>
         <div className="nav-right-col">
-          <Link to="/app/myprofile" className="nav-link nav-avatar-link">
-            CP
-          </Link>
+          <Link to="/app/myprofile" className="nav-link nav-avatar-link">ME</Link>
           <button onClick={onClick} className="nav-triangle-button">
             <div className="nav-triangle"></div>
           </button>
