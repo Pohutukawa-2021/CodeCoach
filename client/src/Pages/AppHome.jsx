@@ -2,7 +2,6 @@ import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useAuth0 } from "@auth0/auth0-react";
-
 import UsersOnline from "../components/UsersOnline/UsersOnline";
 import { sendUserDetails } from "../redux/actions/user";
 import Header from "../layouts/header/Header";
@@ -46,37 +45,44 @@ function AppHome() {
       ) : (
         <>
           <Header />
-          <UsersOnline />
-              <SearchBar />
-          <Switch>
-            <Route exact path={path}>
-              <Tags />
-              <Filter />
-              <QuestionList />
-            </Route>
-            <Route exact path={`${path}/messaging/`}>
-              <MessageListComponent />
-            </Route>
-            <Route exact path={`${path}/messaging/:id`}>
-              <ChatComponent />
-            </Route>
-            <Route path={`${path}/createpost`}>
-              <QuestionForm />
-            </Route>
-            <Route path={`${path}/post/:postId`}>
-              <Tags />
-              <QuestionPost />
-            </Route>
-            <Route path={`${path}/users`}>
-              <ProfilePage />
-            </Route>
-            <Route path={`${path}/myprofile`}>
-              <UserProfile />
-            </Route>
-            <Route path={`${path}/editprofile`}>
-              <EditProfile />
-            </Route>
-            <Route path={`${path}/editquestion/:postId`}>
+          <div className="max-width-container">
+            <div className="main-container">
+            <Switch>
+              <Route exact path={path}>
+                <div className="layout-left-col">
+                  <h1>Home</h1>
+                  <SearchBar />
+                  <Tags />
+                  <Filter />
+                  <QuestionList />
+                </div>
+              </Route>
+              <Route exact path={`${path}/messaging/`}>
+                <MessageListComponent />
+                <UsersOnline />                    
+              </Route>
+              <Route path={`${path}/messaging/:id`}>
+                <MessageListComponent />
+                <ChatComponent />
+                <UsersOnline />
+              </Route>
+              <Route path={`${path}/createpost`}>
+                <QuestionForm />
+              </Route>
+              <Route exact path={`${path}/post/:postId`}>
+                <QuestionPost />
+              </Route>
+              <Route path={`${path}/users`}>
+                <ProfilePage />
+                <UsersOnline />
+              </Route>
+              <Route exact path={`${path}/myprofile`}>
+                <UserProfile />
+              </Route>
+              <Route path={`${path}/editprofile`}>
+                <EditProfile />
+                  </Route>
+                  <Route path={`${path}/editquestion/:postId`}>
               <QuestionEdit />
             </Route>
             <Route path={`${path}/search`}>
@@ -87,7 +93,12 @@ function AppHome() {
               <Filter />
               <FilteredPosts />
             </Route>
-          </Switch>
+                </Switch>
+              <Route exact path={path}>
+                <UsersOnline />
+              </Route>
+            </div>
+          </div>
         </>
       )}
     </div>

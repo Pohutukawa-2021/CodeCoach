@@ -34,12 +34,15 @@ function MessageListComponent() {
 
     return sortedArray.map((msg) => {
       return (
-        <li key={uuidv4()}>
-          <Link to={`/app/messaging/${msg.userDetailsId}`}>
-            <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} />
-            <p>{msg.userLastMessage}</p>
+        <div key={uuidv4()}>
+          <Link to={`/app/messaging/${msg.userDetailsId}`} className="chats-list-item">
+            <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} className="chats-list-avatar"/>            
+            <div className="chats-list-details">
+              <p className="chats-list-username">{msg.userDetailsUsername}</p>
+              <p className="chats-list-message">{msg.userLastMessage}</p>
+            </div>
           </Link>
-        </li>
+        </div>
       );
     });
   }

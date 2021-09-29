@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 import { v4 as uuidv4 } from "uuid";
+import { PaperPlane } from 'react-ionicons'
 
 function ChatComponent() {
   const [userText, setUserText] = useState("");
@@ -66,27 +67,46 @@ function ChatComponent() {
 
   const messages = setMessages();
   return (
-    <div className="chat">
-      <ChatFeed
-        messages={messages}
-        showSenderName
-        bubblesCentered={false}
-        bubbleStyles={{
-          text: {
-            fontSize: 30,
-          },
-          chatbubble: {
-            borderRadius: 70,
-            padding: 40,
-          },
-        }}
-      />
-      <input
-        onKeyDown={(e) => onEnter(e)}
-        value={userText}
-        onChange={(e) => setUserText(e.target.value)}
-      />
-      <button onClick={() => sendMessage()}>Send</button>
+    <div className="layout-center-col">
+      <div className="chat-layout-container">
+        <div className="chat-container">
+          <ChatFeed
+            messages={messages}
+            showSenderName
+            bubblesCentered={false}
+            bubbleStyles={{
+              text: {
+                fontSize: 16,
+                color: "#F4F6F7",
+                textAlign: "center",
+              },
+              chatbubble: {
+                borderRadius: 150,
+                padding: 12,
+                margin: 4,
+              },
+            }}
+          />
+          <div className="chat-input-container">
+            <input
+              onKeyDown={(e) => onEnter(e)}
+              value={userText}
+              onChange={(e) => setUserText(e.target.value)}
+              className="chat-input"
+              required
+            />
+            <button className="chat-button" onClick={() => sendMessage()}>
+              <PaperPlane
+                color={'#80BEEC'} 
+                title={"send-message"}
+                height="38px"
+                width="38px"
+                className="chat-button-icon"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

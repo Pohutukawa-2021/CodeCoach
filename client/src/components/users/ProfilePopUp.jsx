@@ -2,11 +2,11 @@ import React  from 'react'
 
 function ProfilePopUp(props) {
   return (props.trigger) ? (
-    <div className="popup">
-      <div className="popup-inner">
+    <div>
+      <button className="close-button" onClick={() => props.setTrigger(false)}>&#10005;</button>
+      <div>
        {props.children}
       </div>
-        <button className="close-btn" onClick={() => props.setTrigger(false)}>&#10005;</button>
     </div>
   ) : "";
 }
