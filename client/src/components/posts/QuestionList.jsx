@@ -67,7 +67,6 @@ function QuestionList() {
                   <div className="question-content">
                     <h2 className="question-name">{post.question}</h2>
                     <p className="question-details">{post.body}</p>
-
                     <div className="question-tags">
                       {post.post_tags.map((tag) => {
                         return <p className="post-tags">{tag}</p>;
