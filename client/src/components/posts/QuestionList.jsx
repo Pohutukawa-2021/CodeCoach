@@ -51,7 +51,7 @@ function QuestionList() {
                   <Link to={`/app/post/${post.postId}`} className="question-container">
                     <div className="question-stats">
                       <p className="question-votes">{post.post_votes}<br />votes</p>
-                      <p className="question-answers">{post.post_answered}<br />answers</p>
+                      <p className="question-answers">{post.comments.length}<br />answers</p>
                     </div>
                     <div className="question-content">
                       <h2 className="question-name">{post.question}</h2>

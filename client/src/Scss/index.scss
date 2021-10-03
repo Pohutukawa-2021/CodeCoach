@@ -1007,3 +1007,58 @@ $background-hover: #b1ddff;
   border-radius: 4px;
   padding: 4px 8px;
 }
+
+/* styling new landing page */
+.new-greetpage-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: $primary;
+  display: flex;
+  justify-content: center;
+}
+
+.codecoach-logo {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 210px;
+}
+
+.greetpage-content-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20%;
+}
+
+.wording-container {
+  position: absolute;
+  top: 18%;
+  left: 21%;
+}
+
+.greetpage-header {
+  font-size: 54px;
+  color: $white;
+}
+
+.greetpage-subtext {
+  color: $secondary;
+  margin-bottom: 14%;
+}
+
+.getstarted-button {
+  display: inline-block
+}
+
+.codesnippet {
+  box-shadow: 8px 8px 0 rgb(0 0 0 / 0.5);
+  position: absolute;
+  bottom: 47.5%;
+  right: 22%;
+}
+
+.comms-image {
+  position: absolute;
+  bottom: 20%;
+  right: 19%;
+}

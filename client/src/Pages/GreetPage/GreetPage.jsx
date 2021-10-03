@@ -11,28 +11,20 @@ function GreetPage() {
   }
 
   return (
-    <div className="greetpage-container">
+    <div className="new-greetpage-container">
+      <img className="codecoach-logo" src="/images/Logo.png" alt="codecoach-logo" />
       <div className="greetpage-content-container">
-        <div className="header-container">
-          <div className="large-screen-logo-container">
-            <img src="/images/logo.png" alt="codecoach-logo" />
+        <div className="wording-container">
+          <h1 className="greetpage-header">Become a<br />mentor.<br />Learn from<br />the best.</h1>
+          <h2 className="greetpage-subtext">Connect learn code</h2>
+          <div className="getstarted-button">
+            <LoginButton />
           </div>
         </div>
-
-        <p className="greetpage-subtext">
-          A new way to connect with developers
-        </p>
-        <div className="center">
-          <img
-            src="/images/connection.png"
-            alt="connected"
-            className="greetpage-image"
-          />
-        </div>
-        <p className="greetpage-subtext">Connect・Learn・Code</p>
-        <div className="center">
-          <LoginButton />
-        </div>
+        <div className="greetpage-images">
+          <img src="/images/code-snippet-landingpage.png" alt="" className="codesnippet" />
+          <img src="/images/chat-landingpage.svg" alt="" className="comms-image" />
+        </div>          
       </div>
     </div>
   );

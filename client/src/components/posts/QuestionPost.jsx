@@ -126,7 +126,7 @@ export function QuestionPost() {
   }
   function handleEdit(e) {
     history.push(`/app/editquestion/${post.postId}`);
-  }
+  } console.log(post)
   return (
     <div className="center-col-container">
       <div className="post-details-container">
