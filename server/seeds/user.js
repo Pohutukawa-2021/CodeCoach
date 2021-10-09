@@ -27,6 +27,160 @@ exports.seed = function (knex) {
             bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
           experience: "5+ years experience",
         },
+        {
+          id: 3,
+          email: "tester3@gmail.com",
+          username: "tester3",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 4,
+          email: "tester4@gmail.com",
+          username: "tester4",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 5,
+          email: "tester5@gmail.com",
+          username: "tester5",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 6,
+          email: "tester6@gmail.com",
+          username: "tester6",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 7,
+          email: "tester7@gmail.com",
+          username: "tester7",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 8,
+          email: "tester8@gmail.com",
+          username: "tester8",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 9,
+          email: "tester9@gmail.com",
+          username: "tester9",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 10,
+          email: "tester10@gmail.com",
+          username: "tester10",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 11,
+          email: "tester11@gmail.com",
+          username: "tester11",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 12,
+          email: "tester12@gmail.com",
+          username: "tester12",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 13,
+          email: "tester13@gmail.com",
+          username: "tester13",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 14,
+          email: "tester14@gmail.com",
+          username: "tester14",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 15,
+          email: "tester15@gmail.com",
+          username: "tester15",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        },
+        {
+          id: 16,
+          email: "tester16@gmail.com",
+          username: "tester16",
+          role: "junior",
+          auth_id: "auth0|614ae95061718e0069e33e77",
+          image_url:
+            "https://s.gravatar.com/avatar/5091f298eb10686c05fb110c95c7ce0d?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fte.png",
+            bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nulla felis, luctus et nunc vestibulum, cursus iaculis risus.",
+          experience: "5+ years experience",
+        }
       ]);
     });
 };

@@ -641,11 +641,12 @@ $background-hover: #b1ddff;
 /* styling user popup */
 .user-popup-container {
   background-color: $background;
-  position: absolute;
-  top: 0;
-  left: -22px;
-  width: 106%;
+  position: fixed;
+  top: 92px;
+  left: 363px;
+  width: 778px;
   border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
 }
 
 .user-popup {
