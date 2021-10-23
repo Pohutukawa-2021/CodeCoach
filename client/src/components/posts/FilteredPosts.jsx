@@ -10,7 +10,9 @@ function FilteredPosts() {
   let filteredPosts = [];
 
   if (filter === "answered") {
-    const answeredPosts = allPosts.filter((post) => post.post_answered === 1);
+    const answeredPosts = allPosts.filter(
+      (post) => post.post_answered === true
+    );
     filteredPosts = answeredPosts;
   } else if (filter === "myquestions") {
     const myquestions = allPosts.filter(
@@ -18,42 +20,53 @@ function FilteredPosts() {
     );
     filteredPosts = myquestions;
   } else {
-    const unansweredPosts = allPosts.filter((post) => post.post_answered === 0);
+    const unansweredPosts = allPosts.filter(
+      (post) => post.post_answered === false
+    );
     filteredPosts = unansweredPosts;
   }
 
   return (
     <>
       <div className="center-col-container">
-      <div className="question-list-container">
-        {filteredPosts.map((post) => {
-          return (
-            <Link to={`/app/post/${post.postId}`} className="question-container">
-                    <div className="question-stats">
-                      <p className="question-votes">{post.post_votes}<br />votes</p>
-                      <p className="question-answers">{post.post_answered}<br />answers</p>
-                    </div>
-                    <div className="question-content">
-                      <h2 className="question-name">{post.question}</h2>
-                      <p className="question-details">{post.body}</p>
-                    
-                    <div className="question-tags">
-                      {post.post_tags.map((tag) => {
-                        return (
-                          <p className="post-tags">{tag}</p>
-                        );
-                      })}
-                    </div>
-                    <div className="user-question">                      
-                      <img src={post.user.image} alt={post.user.name}></img>
-                      <h3 className="user-icon-name">{post.user.name} </h3>
-                      </div>
-                    </div>
+        <div className="question-list-container">
+          {filteredPosts.map((post) => {
+            return (
+              <Link
+                to={`/app/post/${post.postId}`}
+                className="question-container"
+              >
+                <div className="question-stats">
+                  <p className="question-votes">
+                    {post.post_votes}
+                    <br />
+                    votes
+                  </p>
+                  <p className="question-answers">
+                    {post.comments.length}
+                    <br />
+                    answers
+                  </p>
+                </div>
+                <div className="question-content">
+                  <h2 className="question-name">{post.question}</h2>
+                  <p className="question-details">{post.body}</p>
+
+                  <div className="question-tags">
+                    {post.post_tags.map((tag) => {
+                      return <p className="post-tags">{tag}</p>;
+                    })}
+                  </div>
+                  <div className="user-question">
+                    <img src={post.user.image} alt={post.user.name}></img>
+                    <h3 className="user-icon-name">{post.user.name} </h3>
+                  </div>
+                </div>
               </Link>
-          );
-        })}
+            );
+          })}
         </div>
-        </div>
+      </div>
     </>
   );
 }

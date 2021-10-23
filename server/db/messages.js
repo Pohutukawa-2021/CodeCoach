@@ -30,12 +30,16 @@ function addUserMessageRelationship(msgId, toId, fromId, db = connection) {
 function addMessage(msgObj, db = connection) {
   const newMessage = {
     message: msgObj.data.message,
-    date: msgObj.data.date,
-    time: msgObj.data.time,
+    date: db.fn.now(),
   };
   return db("messages")
     .insert(newMessage)
-    .then(([id]) => {
-      return addUserMessageRelationship(id, msgObj.data.to, msgObj.data.from);
+    .returning("id")
+    .then((id) => {
+      return addUserMessageRelationship(
+        parseInt(id),
+        msgObj.data.to,
+        msgObj.data.from
+      );
     });
 }

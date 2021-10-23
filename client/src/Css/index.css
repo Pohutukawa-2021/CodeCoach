@@ -16,7 +16,7 @@ body {
 /* colors styles */
 /* header */
 .header-container {
-  background-color: #12558A;
+  background-color: #12558a;
   width: 100vw;
   display: flex;
   align-items: center;
@@ -26,8 +26,8 @@ body {
 }
 
 .mobile-logo-container {
-  background-color: #FFFFFF;
-  color: #031B44;
+  background-color: #ffffff;
+  color: #031b44;
 }
 
 /* nav */
@@ -61,8 +61,8 @@ body {
   border-radius: 50%;
 }
 .nav-link:hover {
-  background-color: #80BEEC;
-  color: #12558A;
+  background-color: #80beec;
+  color: #12558a;
   transition: background-color 0.2s ease;
   -webkit-transition: background-color 0.2s ease;
 }
@@ -74,9 +74,9 @@ body {
 }
 
 .nav-question-button {
-  background-color: #12558A;
-  color: #F4F6F7;
-  border: 2px solid #F4F6F7;
+  background-color: #12558a;
+  color: #f4f6f7;
+  border: 2px solid #f4f6f7;
   border-radius: 8px;
   font-size: 16px;
   text-decoration: none;
@@ -86,7 +86,7 @@ body {
   font-family: "Roboto";
 }
 .nav-question-button:hover {
-  background-color: #80BEEC;
+  background-color: #80beec;
   transition: background-color 0.15s ease;
   -webkit-transition: background-color 0.15s ease;
 }
@@ -101,18 +101,18 @@ body {
 .nav-avatar-link {
   width: 28px;
   height: 34px;
-  background-color: #DDDDDD;
+  background-color: #dddddd;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.25rem;
-  color: #031B44;
+  color: #031b44;
   font-weight: bold;
   margin-right: 6px;
 }
 .nav-avatar-link:hover {
-  background-color: #DDDDDD;
-  color: #031B44;
+  background-color: #dddddd;
+  color: #031b44;
 }
 
 .nav-triangle-button {
@@ -125,11 +125,11 @@ body {
   border-radius: 50%;
   justify-content: center;
   border: none;
-  background-color: #12558A;
+  background-color: #12558a;
   cursor: pointer;
 }
 .nav-triangle-button:hover {
-  background-color: #80BEEC;
+  background-color: #80beec;
   transition: background-color 0.15s ease;
   -webkit-transition: background-color 0.15s ease;
 }
@@ -140,7 +140,7 @@ body {
 .nav-triangle {
   display: flex;
   position: relative;
-  background-color: #F4F6F7;
+  background-color: #f4f6f7;
   margin-left: 2px;
   text-align: left;
 }
@@ -173,7 +173,7 @@ body {
 }
 
 .menu {
-  background: #F4F8FB;
+  background: #f4f8fb;
   border-radius: 8px;
   position: absolute;
   font-size: 1.2rem;
@@ -197,9 +197,9 @@ body {
 
 .signout-text {
   text-decoration: none;
-  color: #031B44;
+  color: #031b44;
   font-size: 1.2rem;
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   border: none;
   cursor: pointer;
 }
@@ -237,7 +237,7 @@ body {
 
 .layout-center-col {
   width: 780px;
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   display: flex;
   justify-content: center;
   border-radius: 8px;
@@ -291,7 +291,7 @@ body {
 .onlineusers-name {
   font-size: 1.2rem;
   margin-left: 8px;
-  color: #031B44;
+  color: #031b44;
 }
 
 /* styling forms */
@@ -319,7 +319,7 @@ body {
   height: 34px;
   font-size: 1rem;
   border: none;
-  border: 1px solid #031B44;
+  border: 1px solid #031b44;
   border-radius: 8px;
   padding: 6px;
   font-family: "Roboto";
@@ -341,7 +341,7 @@ body {
   height: 36px;
   padding: 0 22px;
   margin: 22px 0 64px 0;
-  color: #F4F6F7;
+  color: #f4f6f7;
   border: none;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
   border-radius: 4px;
@@ -350,16 +350,16 @@ body {
 }
 
 .small-button-styling {
-  background-color: #80BEEC;
+  background-color: #80beec;
   width: 94%;
 }
 
 .discard-button {
-  background-color: #FF760C;
+  background-color: #ff760c;
 }
 
 .post-button {
-  background-color: #77B69E;
+  background-color: #77b69e;
   margin-left: 14px;
 }
 
@@ -409,7 +409,7 @@ body {
 
 .edit-profile-button-link {
   text-decoration: none;
-  color: #F4F6F7;
+  color: #f4f6f7;
 }
 
 /* styling users page */
@@ -426,7 +426,7 @@ body {
   padding: 18px;
   border-radius: 8px;
   text-decoration: none;
-  color: #031B44;
+  color: #031b44;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.26);
   cursor: pointer;
   text-overflow: ellipsis;
@@ -434,7 +434,7 @@ body {
   white-space: nowrap;
 }
 .user-container:hover {
-  background-color: #80BEEC;
+  background-color: #80beec;
   transition: background-color 0.15s ease;
   -webkit-transition: background-color 0.15s ease;
 }
@@ -468,15 +468,14 @@ body {
 /* styling chats */
 .chats-list {
   display: flex;
+  flex-direction: column !important;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
 .chats-list-item {
-  padding: 0;
+  padding-top: 0.5rem;
   display: flex;
-  flex-direction: column;
   flex-direction: row;
   align-items: center;
   text-decoration: none;
@@ -493,12 +492,11 @@ body {
   display: flex;
   margin-left: 8px;
   padding: 0;
-  color: #031B44;
+  color: #031b44;
   flex-direction: column;
   width: 100%;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
 }
 
 .chats-list-username {
@@ -528,21 +526,21 @@ body {
   height: 89vh;
   width: 106%;
   border-radius: 8px;
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
 }
 
 .chat-input-container {
   width: 49vw;
   display: flex;
   align-items: center;
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   height: 74px;
   margin-left: 22px;
 }
 
 .chat-input {
   width: 100%;
-  background-color: #DDDDDD;
+  background-color: #dddddd;
   border: none;
   height: 46px;
   font-size: 1.2rem;
@@ -550,7 +548,7 @@ body {
   padding: 0 16px;
 }
 .chat-input:focus {
-  box-shadow: 0px 0px 3px #80BEEC;
+  box-shadow: 0px 0px 3px #80beec;
   outline: none;
 }
 
@@ -559,7 +557,7 @@ body {
   transform: rotate(45deg);
   cursor: pointer;
   position: relative;
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   border: none;
 }
 
@@ -567,7 +565,7 @@ body {
 .greetpage-container {
   width: 100vw;
   height: 100vh;
-  background-color: #12558A;
+  background-color: #12558a;
   display: flex;
   justify-content: center;
 }
@@ -580,7 +578,7 @@ body {
 }
 
 .greetpage-title {
-  color: #F4F6F7;
+  color: #f4f6f7;
   font-weight: bold;
   font-size: 36px;
   letter-spacing: 0.1rem;
@@ -593,7 +591,7 @@ body {
 }
 
 .greetpage-subtext {
-  color: #F4F6F7;
+  color: #f4f6f7;
   font-size: 24px;
 }
 
@@ -603,8 +601,8 @@ body {
   justify-content: center;
   border: none;
   padding: 10px 82px;
-  background-color: #80BEEC;
-  color: #031B44;
+  background-color: #80beec;
+  color: #031b44;
   font-family: "Roboto";
   font-size: 20px;
   cursor: pointer;
@@ -620,7 +618,7 @@ body {
 
 /* styling user popup */
 .user-popup-container {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   position: absolute;
   top: 0;
   left: -22px;
@@ -638,7 +636,7 @@ body {
   top: 36px;
   right: 36px;
   font-size: 24px;
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   border: none;
   border-radius: 50%;
   width: 38px;
@@ -667,7 +665,7 @@ body {
 }
 
 .search-field {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   margin-top: 10px;
   padding-left: 10px;
 }
@@ -678,14 +676,18 @@ body {
   bottom: 4px;
   border-radius: 40%;
   border: none;
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   cursor: pointer;
 }
 
-#senior, #junior, #answered, #unanswered, #myquestions {
+#senior,
+#junior,
+#answered,
+#unanswered,
+#myquestions {
   text-decoration: none;
   font-size: 20px;
-  color: #031B44;
+  color: #031b44;
   cursor: pointer;
 }
 
@@ -712,7 +714,7 @@ body {
 }
 
 .tags-field {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-left: 10px;
@@ -724,16 +726,16 @@ body {
 }
 
 .tag {
-  background-color: #12558A;
-  color: #FFFFFF;
+  background-color: #12558a;
+  color: #ffffff;
   padding: 6px 12px;
   border-radius: 8px;
   margin: 6px 0 0 0;
 }
 
 .tag-close-button {
-  color: #FFFFFF;
-  background-color: #12558A;
+  color: #ffffff;
+  background-color: #12558a;
   border: none;
   cursor: pointer;
   margin-left: 4px;
@@ -754,19 +756,19 @@ body {
 }
 
 .question-container {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   display: flex;
   align-items: flex-start;
   width: 94%;
   margin-top: 22px;
   padding: 16px 24px;
   text-decoration: none;
-  color: #031B44;
+  color: #031b44;
   border-radius: 8px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.14);
 }
 .question-container:hover {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   transition: background-color 0.2s ease;
   -webkit-transition: background-color 0.2s ease;
 }
@@ -786,7 +788,7 @@ body {
 .question-answers {
   text-align: center;
   padding: 6px;
-  background-color: #FCD35B;
+  background-color: #fcd35b;
   border-radius: 8px;
 }
 
@@ -821,12 +823,12 @@ body {
 }
 
 .post-tags {
-  background-color: #12558A;
+  background-color: #12558a;
   display: inline-block;
   padding: 0 12px;
   margin-top: 0;
   margin-right: 6px;
-  color: #F4F6F7;
+  color: #f4f6f7;
   font-size: 1rem;
   border-radius: 4px;
 }
@@ -834,7 +836,7 @@ body {
 /* post details */
 .question-body {
   display: flex;
-  color: #031B44;
+  color: #031b44;
 }
 
 .vote-container {
@@ -848,7 +850,7 @@ body {
 }
 
 .vote-button {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   border: none;
   cursor: pointer;
 }
@@ -856,14 +858,14 @@ body {
 .footer-note {
   display: flex;
   justify-content: flex-end;
-  color: #031B44;
+  color: #031b44;
 }
 
 .user-comment-container {
   margin-bottom: 28px;
   display: flex;
   flex-direction: column;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 8px;
   padding: 18px;
 }
@@ -889,15 +891,15 @@ body {
 }
 
 .view-more-comments-button {
-  background-color: #F4F8FB;
+  background-color: #f4f8fb;
   border: none;
-  color: #031B44;
+  color: #031b44;
   cursor: pointer;
   margin-bottom: 32px;
   font-weight: bold;
 }
 .view-more-comments-button:hover {
-  color: #80BEEC;
+  color: #80beec;
 }
 
 .answer-field {
@@ -914,14 +916,14 @@ body {
   height: 100px;
   border-radius: 8px;
   padding: 14px;
-  border: 1px solid #031B44;
+  border: 1px solid #031b44;
   font-size: 1rem;
   width: 90%;
   margin: 0 auto;
   font-family: "Roboto";
 }
 .answer-input:focus {
-  box-shadow: 0px 0px 3px #80BEEC;
+  box-shadow: 0px 0px 3px #80beec;
   outline: none;
 }
 
@@ -940,8 +942,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
-  color: #F4F6F7;
-  background-color: #77B69E;
+  color: #f4f6f7;
+  background-color: #77b69e;
 }
 
 .post-buttons {
@@ -966,15 +968,15 @@ body {
 }
 
 .answered-click {
-  background-color: #FCD35B !important;
+  background-color: #fcd35b !important;
 }
 
 .edit {
-  background-color: #FF760C !important;
+  background-color: #ff760c !important;
 }
 
 .clicked {
-  background-color: #FCD35B !important;
+  background-color: #fcd35b !important;
   border-radius: 4px;
   padding: 4px 8px;
 }

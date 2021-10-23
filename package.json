@@ -1,18 +1,20 @@
 {
-  "name": "codecoach",
+  "name": "thecodecoach",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "cd ./client && npm run test",
     "dev": "npm-run-all --parallel startServer startClient",
-    "startClient": "cd ./client && npm run start",
+    "start": "node ./server/server.js",
+    "startClient": "cd ./client && npm run watch",
     "startServer": "cd ./server && npm run dev",
-    "install --legacy-peer-deps": "npm-run-all --parallel installServer installClient",
+    "install": "npm-run-all --parallel installServer installClient",
     "migrate": "cd ./server && npx knex migrate:latest && npx knex seed:run",
     "seed": "cd ./server && npx knex seed:run",
-    "installServer": "cd ./server && npm install",
-    "installClient": "cd ./client && npm install"
+    "installServer": "cd ./server && npm install && npm run build",
+    "installClient": "cd ./client && npm install && npm run build",
+    "deploy": "git add . && git commit -m 'deploy' && git push heroku deploy-trial:main"
   },
   "repository": {
     "type": "git",
@@ -30,9 +32,13 @@
     "npm-run-all": "^4.1.5"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "react-chat-elements": "^10.16.0",
     "react-chat-ui": "^0.4.0",
     "react-web-gifted-chat": "^0.6.7",
     "uuid": "^8.3.2"
+  },
+  "engines": {
+    "node": "12.18.0"
   }
 }

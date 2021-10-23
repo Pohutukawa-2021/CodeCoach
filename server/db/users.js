@@ -15,10 +15,6 @@ function getAllUsers(db = connection) {
   return db("users").select();
 }
 
-function getUserDataById(userId, db = connection) {
-  return db("users").where({ id: userId }).first();
-}
-
 function createUser(authId, db = connection) {
   const newUser = {
     email: "",
@@ -26,14 +22,24 @@ function createUser(authId, db = connection) {
     role: "",
     auth_id: authId,
     image_url: "",
+    bio: "",
+    experience: "",
   };
   return db("users")
     .insert(newUser)
-    .then(([id]) => {
-      return getUserDataById(id).then((data) => {
-        return data;
-      });
+    .returning("id")
+    .then((id) => {
+      return getUserDataById(parseInt(id)).catch((err) =>
+        console.log(err.toString())
+      );
+    })
+    .catch((err) => {
+      console.log(err.toString());
     });
+}
+
+function getUserDataById(userId, db = connection) {
+  return db("users").where({ id: userId }).first();
 }
 
 function updateUserDetails(user, authToken, db = connection) {

@@ -2,17 +2,17 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import commentsByPost from "../../redux/actions/commentsByPost";
-import { counter }  from "../../redux/actions/counter"
+import { counter } from "../../redux/actions/counter";
 import { useHistory } from "react-router";
 import { changeAnswered } from "../../redux/actions/answered";
-import { CaretUpOutline } from 'react-ionicons'
-import { CaretDownOutline } from 'react-ionicons'
+import { CaretUpOutline } from "react-ionicons";
+import { CaretDownOutline } from "react-ionicons";
 
 export function QuestionPost() {
   const history = useHistory();
   const allPosts = useSelector((state) => state.posts);
   const { postId } = useParams();
-  const [disable, setDisable] = useState(false)
+  const [disable, setDisable] = useState(false);
   const dispatch = useDispatch();
   const [className, setClassName] = useState("answered-unclicked")
 
@@ -45,7 +45,7 @@ export function QuestionPost() {
     postId: id,
     comment: "",
   });
-  
+
   const [vote, setVote] = useState({
     postId: id,
     votes: post.post_votes,
@@ -55,13 +55,11 @@ export function QuestionPost() {
     const voteForm = {
       postId: id,
       votes: post.post_votes,
-    }
-    if (vote !== voteForm)
-    dispatch(counter(vote))
-    return () => {
-    }
-  }, [vote])
-  
+    };
+    if (vote !== voteForm) dispatch(counter(vote));
+    return () => {};
+  }, [vote]);
+
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -75,20 +73,20 @@ export function QuestionPost() {
       comment: "",
     });
   }
-  function handleUpClick(e){
+  function handleUpClick(e) {
     setVote({
       postId: id,
       votes: Number(e.target.value) + vote.votes,
-    })
-    setDisable(true)
+    });
+    setDisable(true);
   }
 
   function handleDownClick(e) {
     setVote({
       postId: id,
       votes: Number(e.target.value) + vote.votes,
-    })
-    setDisable(true)
+    });
+    setDisable(true);
   }
 
   function handleAnswerClick(e) {
@@ -105,10 +103,12 @@ export function QuestionPost() {
         answered: 1,
       }))
     } else {
-      dispatch(changeAnswered({
-        id: id,
-        answered: 0,
-      }))
+      dispatch(
+        changeAnswered({
+          id: id,
+          answered: false,
+        })
+      );
     }
   }
 
@@ -133,22 +133,24 @@ export function QuestionPost() {
         <h1 className="center-col-title">{post.question}</h1>
         <div className="question-body">
           <div className="vote-container">
-            <button disabled={disable} value={1} onClick={handleUpClick} className="vote-button">
-              <CaretUpOutline
-                color={'#FCD35B'} 
-                height="30px"
-                width="30px"
-              />
-            </button>          
-            <p className="counter">{post.post_votes}</p>
-            <button disabled={disable} value={-1} onClick={handleDownClick} className="vote-button">
-                <CaretDownOutline
-                  color={'#FCD35B'} 
-                  height="30px"
-                  width="30px"
-                />
+            <button
+              disabled={disable}
+              value={1}
+              onClick={handleUpClick}
+              className="vote-button"
+            >
+              <CaretUpOutline color={"#FCD35B"} height="30px" width="30px" />
             </button>
-          </div>  
+            <p className="counter">{post.post_votes}</p>
+            <button
+              disabled={disable}
+              value={-1}
+              onClick={handleDownClick}
+              className="vote-button"
+            >
+              <CaretDownOutline color={"#FCD35B"} height="30px" width="30px" />
+            </button>
+          </div>
           <p> {post.body}</p>
         </div>
         <div className="footer-note">
@@ -178,7 +180,8 @@ export function QuestionPost() {
               </div>
             );
           })}
-          <button className="view-more-comments-button"
+          <button
+            className="view-more-comments-button"
             onClick={() => {
               const newNumber = commentNumber + 5;
               if (newNumber >= post.comments.length) {
@@ -207,9 +210,7 @@ export function QuestionPost() {
             ></textarea>
           </div>
           <div className="post-button-answer-container">
-            
-          
-          {currentUser.id === post.user.id ? (
+            {currentUser.id === post.user.id ? (
               <div className="post-buttons">
                 <div className="answered-button">
               <button 
@@ -221,36 +222,35 @@ export function QuestionPost() {
               </button>
                 </div>
                 <div className="other-buttons-container">
-            <button
-              type="submit"
-              className="post-button-answer edit"
-              onClick={handleEdit}
+                  <button
+                    type="submit"
+                    className="post-button-answer edit"
+                    onClick={handleEdit}
                     data-testid="submitButton"
                     id=""
-            >
-              Edit
-                </button>
-                <button
-              type="submit"
-              className="post-button-answer"
-              onClick={handleClick}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    type="submit"
+                    className="post-button-answer"
+                    onClick={handleClick}
                     data-testid="submitButton"
-            >
-              Post
-            </button>
-            </div>
-            </div>
-          ) : (
-            <button
-              type="submit"
-              className="post-button-answer"
-              onClick={handleClick}
-              data-testid="submitButton"
-            >
-              Post
-            </button>
+                  >
+                    Post
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <button
+                type="submit"
+                className="post-button-answer"
+                onClick={handleClick}
+                data-testid="submitButton"
+              >
+                Post
+              </button>
             )}
-            
           </div>
         </form>
       </div>

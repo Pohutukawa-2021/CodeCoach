@@ -1,3 +1,14 @@
+const path = require("path");
+const express = require("express");
+const app = express();
+const server = require("http").createServer(app);
+const io = require("socket.io")(server);
+
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.get("/*", (req, res, next) =>
+  res.sendFile(path.join(__dirname, "../client/build/index.html"))
+);
+
 const {
   getUserData,
   createUser,
@@ -13,7 +24,7 @@ const {
   addCommentById,
   getCommentsByPost,
   updatePost,
-  updateVote
+  updateVote,
 } = require("./db/post");
 
 //message functions
@@ -22,12 +33,6 @@ const sendMessage = require("./SocketFunctions/Messages/sendMessage");
 
 //user function
 const ridOfDuplicateUsersOnline = require("./SocketFunctions/User/userOnline");
-
-const io = require("socket.io")({
-  cors: {
-    origin: "*",
-  },
-});
 
 const jwt = require("express-jwt");
 const socketioJwt = require("socketio-jwt");
@@ -128,23 +133,25 @@ io.on("connection", (socket) => {
         });
         break;
       case "server/updatePost":
+        console.log(action.data);
         updatePost(action.data).then(() => {
           getAllPosts().then((allPosts) => {
+            console.log(allPosts);
             io.emit("action", { type: "setPosts", data: allPosts });
           });
         });
         break;
       case "server/counter":
-          updateVote(action.data).then(() =>{
-            getAllPosts().then((allPosts) => {
-              io.emit("action", { type: "setPosts", data: allPosts });
-            });
-          })
+        updateVote(action.data).then(() => {
+          getAllPosts().then((allPosts) => {
+            io.emit("action", { type: "setPosts", data: allPosts });
+          });
+        });
         break;
     }
   });
 });
 
-const port = 3001;
-io.listen(port);
+const port = process.env.PORT || 3000;
+server.listen(port);
 console.log("Server is listening on port ", port);

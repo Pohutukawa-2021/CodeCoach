@@ -48,28 +48,36 @@ function QuestionList() {
           <div className="question-list-container">
             {allPosts.map((post) => {
               return (
-                  <Link to={`/app/post/${post.postId}`} className="question-container">
-                    <div className="question-stats">
-                      <p className="question-votes">{post.post_votes}<br />votes</p>
-                      <p className="question-answers">{post.post_answered}<br />answers</p>
-                    </div>
-                    <div className="question-content">
-                      <h2 className="question-name">{post.question}</h2>
-                      <p className="question-details">{post.body}</p>
-                    
+                <Link
+                  to={`/app/post/${post.postId}`}
+                  className="question-container"
+                >
+                  <div className="question-stats">
+                    <p className="question-votes">
+                      {post.post_votes}
+                      <br />
+                      votes
+                    </p>
+                    <p className="question-answers">
+                      {post.comments.length}
+                      <br />
+                      answers
+                    </p>
+                  </div>
+                  <div className="question-content">
+                    <h2 className="question-name">{post.question}</h2>
+                    <p className="question-details">{post.body}</p>
                     <div className="question-tags">
                       {post.post_tags.map((tag) => {
-                        return (
-                          <p className="post-tags">{tag}</p>
-                        );
+                        return <p className="post-tags">{tag}</p>;
                       })}
                     </div>
-                    <div className="user-question">                      
+                    <div className="user-question">
                       <img src={post.user.image} alt={post.user.name}></img>
                       <h3 className="user-icon-name">{post.user.name} </h3>
-                      </div>
                     </div>
-                  </Link>
+                  </div>
+                </Link>
               );
             })}
           </div>
@@ -78,28 +86,37 @@ function QuestionList() {
         <div className="question-list-container">
           {tagPostArr.map((post) => {
             return (
-              <Link to={`/app/post/${post.postId}`} className="question-container">
-                    <div className="question-stats">
-                      <p className="question-votes">{post.post_votes}<br />votes</p>
-                      <p className="question-answers">{post.post_answered}<br />answers</p>
-                    </div>
-                    <div className="question-content">
-                      <h2 className="question-name">{post.question}</h2>
-                      <p className="question-details">{post.body}</p>
-                    
-                    <div className="question-tags">
-                      {post.post_tags.map((tag) => {
-                        return (
-                          <p className="post-tags">{tag}</p>
-                        );
-                      })}
-                    </div>
-                    <div className="user-question">                      
-                      <img src={post.user.image} alt={post.user.name}></img>
-                      <h3 className="user-icon-name">{post.user.name} </h3>
-                      </div>
-                    </div>
-                </Link>
+              <Link
+                to={`/app/post/${post.postId}`}
+                className="question-container"
+              >
+                <div className="question-stats">
+                  <p className="question-votes">
+                    {post.post_votes}
+                    <br />
+                    votes
+                  </p>
+                  <p className="question-answers">
+                    {post.post_answered}
+                    <br />
+                    answers
+                  </p>
+                </div>
+                <div className="question-content">
+                  <h2 className="question-name">{post.question}</h2>
+                  <p className="question-details">{post.body}</p>
+
+                  <div className="question-tags">
+                    {post.post_tags.map((tag) => {
+                      return <p className="post-tags">{tag}</p>;
+                    })}
+                  </div>
+                  <div className="user-question">
+                    <img src={post.user.image} alt={post.user.name}></img>
+                    <h3 className="user-icon-name">{post.user.name} </h3>
+                  </div>
+                </div>
+              </Link>
             );
           })}
         </div>

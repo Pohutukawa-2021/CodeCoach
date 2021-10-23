@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "knex": "knex --knexfile ./server/db/knexfile.js"
+    "start": "node server.js",
+    "knex": "knex --knexfile ./knexfile.js",
+    "build": "knex migrate:latest"
   },
   "keywords": [],
   "author": "",
@@ -17,10 +19,12 @@
     "express-jwt": "^6.1.0",
     "jwks-rsa": "^2.0.4",
     "knex": "^0.21.21",
-    "nodemon": "^2.0.12",
     "pg": "^8.5.1",
     "socket.io": "^4.2.0",
     "socketio-jwt": "^4.6.2",
     "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.13"
   }
 }

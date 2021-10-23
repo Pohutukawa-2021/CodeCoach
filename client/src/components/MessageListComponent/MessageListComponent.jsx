@@ -8,6 +8,7 @@ function MessageListComponent() {
   const directMessages = useSelector((state) => state.messages);
 
   function getUserDetailsById(userId) {
+    console.log("userId:", userId);
     return allUsers.find((user) => user.id === parseInt(userId));
   }
 
@@ -35,8 +36,15 @@ function MessageListComponent() {
     return sortedArray.map((msg) => {
       return (
         <div key={uuidv4()}>
-          <Link to={`/app/messaging/${msg.userDetailsId}`} className="chats-list-item">
-            <img src={msg.userDetailsImage} alt={msg.userDetailsUsername} className="chats-list-avatar"/>            
+          <Link
+            to={`/app/messaging/${msg.userDetailsId}`}
+            className="chats-list-item"
+          >
+            <img
+              src={msg.userDetailsImage}
+              alt={msg.userDetailsUsername}
+              className="chats-list-avatar"
+            />
             <div className="chats-list-details">
               <p className="chats-list-username">{msg.userDetailsUsername}</p>
               <p className="chats-list-message">{msg.userLastMessage}</p>

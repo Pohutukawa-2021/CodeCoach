@@ -15,7 +15,7 @@ function GreetPage() {
       <div className="greetpage-content-container">
         <div className="header-container">
           <div className="large-screen-logo-container">
-            <img src="/images/logo.png" alt="codecoach-logo" />
+            <img src="/images/Logo.png" alt="codecoach-logo" />
           </div>
         </div>
 
@@ -24,12 +24,12 @@ function GreetPage() {
         </p>
         <div className="center">
           <img
-            src="/images/connection.png"
+            src="/images/Connection.png"
             alt="connected"
             className="greetpage-image"
           />
         </div>
-        <p className="greetpage-subtext">Connect・Learn・Code</p>
+        <p className="greetpage-subtext">Connect・Learn・Coding</p>
         <div className="center">
           <LoginButton />
         </div>
