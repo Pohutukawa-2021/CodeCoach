@@ -474,7 +474,7 @@ body {
 }
 
 .chats-list-item {
-  padding: 0;
+  padding-top: 0.5rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -968,7 +968,7 @@ body {
 }
 
 .answered-click {
-  background-color: #FCD35B !important;
+  background-color: #fcd35b !important;
 }
 
 .edit {
@@ -976,7 +976,7 @@ body {
 }
 
 .clicked {
-  background-color: #FCD35B !important;
+  background-color: #fcd35b !important;
   border-radius: 4px;
   padding: 4px 8px;
 }

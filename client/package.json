@@ -27,7 +27,19 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "watch": "npm-watch",
     "sass": "sass src/Scss/index.scss:src/Css/index.css --watch --no-source-map"
+  },
+  "watch": {
+    "sass": {
+      "extensions": "scss"
+    },
+    "build": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "js,jsx,css,scss"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +58,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "npm-watch": "^0.11.0"
   }
 }

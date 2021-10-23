@@ -7,7 +7,7 @@
     "test": "cd ./client && npm run test",
     "dev": "npm-run-all --parallel startServer startClient",
     "start": "node ./server/server.js",
-    "startClient": "cd ./client && npm run start",
+    "startClient": "cd ./client && npm run watch",
     "startServer": "cd ./server && npm run dev",
     "install": "npm-run-all --parallel installServer installClient",
     "migrate": "cd ./server && npx knex migrate:latest && npx knex seed:run",
