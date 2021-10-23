@@ -12,6 +12,7 @@ import UserProfile from "../components/users/UserProfile";
 import MessageListComponent from "../components/MessageListComponent/MessageListComponent";
 import ProfilePage from "./ProfilePage";
 import EditProfile from "../components/users/EditProfile";
+import EditProfilePhoto from "../components/users/EditProfilePhoto";
 import QuestionList from "../components/posts/QuestionList";
 import { QuestionEdit } from "../components/posts/QuestionEdit";
 import SearchBar from "../components/SearchBarPosts";
@@ -57,7 +58,7 @@ function AppHome() {
                     <h1 className="left-col-title">Home</h1>
                     <SearchBar />
                     <Filter />
-                    <Tags />                  
+                    <Tags />
                   </div>
                   <div className="layout-center-col">
                     <QuestionList />
@@ -66,7 +67,7 @@ function AppHome() {
                     <UsersOnline />
                   </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/messaging/`}>
                   <div className="layout-left-col">
                     <MessageListComponent />
@@ -75,7 +76,7 @@ function AppHome() {
                     <UsersOnline />
                   </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/messaging/:id`}>
                   <div className="layout-left-col">
                     <MessageListComponent />
@@ -87,26 +88,26 @@ function AppHome() {
                     <UsersOnline />
                   </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/createpost`}>
                   <QuestionForm />
                 </Route>
-                  
+
                 <Route exact path={`${path}/post/:postId`}>
                   <div className="layout-left-col">
                     <h1 className="left-col-title">Home</h1>
                     <SearchBar />
                     <Filter />
-                    <Tags />                  
+                    <Tags />
                   </div>
                   <div className="layout-center-col">
                     <QuestionPost />
                   </div>
                   <div className="layout-right-col">
-                     <UsersOnline /> 
+                    <UsersOnline />
                   </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/users`}>
                   <div className="layout-left-col">
                     <SearchBarUser />
@@ -116,22 +117,26 @@ function AppHome() {
                     <ProfilePage />
                   </div>
                   <div className="layout-right-col">
-                    <UsersOnline /> 
-                  </div> 
+                    <UsersOnline />
+                  </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/myprofile`}>
                   <UserProfile />
                 </Route>
-                  
+
                 <Route exact path={`${path}/editprofile`}>
-                  < EditProfile />
+                  <EditProfile />
                 </Route>
-                  
+
+                <Route path={`${path}/editprofilephoto`}>
+                  <EditProfilePhoto />
+                </Route>
+
                 <Route exact path={`${path}/editquestion/:postId`}>
                   <QuestionEdit />
                 </Route>
-                  
+
                 <Route exact path={`${path}/searchusers`}>
                   <div className="layout-left-col">
                     <SearchBarUser />
@@ -144,13 +149,13 @@ function AppHome() {
                     <UsersOnline />
                   </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/posts/:filter`}>
                   <div className="layout-left-col">
                     <h1 className="left-col-title">Home</h1>
                     <SearchBar />
                     <Filter />
-                    <Tags />                  
+                    <Tags />
                   </div>
                   <div className="layout-center-col">
                     <FilteredPosts />
@@ -159,13 +164,13 @@ function AppHome() {
                     <UsersOnline />
                   </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/search`}>
                   <div className="layout-left-col">
                     <h1 className="left-col-title">Home</h1>
                     <SearchBar />
                     <Filter />
-                    <Tags />                  
+                    <Tags />
                   </div>
                   <div className="layout-center-col">
                     <SearchQuestions />
@@ -174,7 +179,7 @@ function AppHome() {
                     <UsersOnline />
                   </div>
                 </Route>
-                  
+
                 <Route exact path={`${path}/users/:filter`}>
                   <div className="layout-left-col">
                     <SearchBarUser />

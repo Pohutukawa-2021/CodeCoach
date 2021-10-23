@@ -17,6 +17,8 @@ const {
   getAllUsers,
 } = require("./db/users");
 
+const { changePhoto } = require("./SocketFunctions/User/changePhoto");
+
 const {
   getAllPosts,
   changeShape,
@@ -148,6 +150,8 @@ io.on("connection", (socket) => {
           });
         });
         break;
+      case "server/updateProfilePhoto":
+        changePhoto(io, socket, action, users);
     }
   });
 });

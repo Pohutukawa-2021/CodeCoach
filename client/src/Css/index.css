@@ -407,9 +407,47 @@ body {
   margin: 32px 0 0 0;
 }
 
+.profile-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-flex > .profile-avatar {
+  margin-bottom: 1rem;
+}
+
 .edit-profile-button-link {
   text-decoration: none;
   color: #f4f6f7;
+}
+
+.profile-edit-photo {
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  background-color: #80beec;
+  color: white;
+  padding: 0.5rem;
+}
+
+/* editprofilephoto styling */
+.edit-profile-photo-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-profile-photo-form .form-field {
+  align-items: center;
+}
+
+.edit-profile-photo-form .input-field-standard {
+  width: 70%;
+}
+
+.edit-profile-photo-form .small-button.small-button-styling {
+  max-width: 10%;
 }
 
 /* styling users page */

@@ -64,6 +64,20 @@ function updateUserDetails(user, authToken, db = connection) {
     });
 }
 
+function updateUserProfilePhoto(imageUrl, authToken, db = connection) {
+  return db("users")
+    .where({ auth_id: authToken })
+    .update({ image_url: imageUrl })
+    .then(() => {
+      return getUserData(authToken).then((data) => {
+        return data[0];
+      });
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
 function getAllUsers(db = connection) {
   return db("users").select();
 }
