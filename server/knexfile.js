@@ -4,10 +4,10 @@ module.exports = {
   development: {
     client: "pg",
     connection: {
-      host: "127.0.0.1",
+      host: "db",
       user: "postgres",
-      password: "password",
-      database: "codecoach",
+      password: "postgres",
+      database: "postgres",
       charset: "utf8",
     },
     migrations: {

@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  frontend:
+    depends_on:
+      - backend
+    build: ./client
+    command: ./docker-entrypoint.sh
+    volumes:
+      - ./client:/app/
+    ports:
+      - 3000:3000
+  backend:
+    depends_on:
+      - db
+    build: ./server
+    command: ./docker-entrypoint.sh
+    volumes:
+      - ./server:/app/
+    ports:
+      - 3001:3001
+  db:
+    image: postgres:alpine3.14
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
