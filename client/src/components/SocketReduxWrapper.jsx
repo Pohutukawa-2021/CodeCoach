@@ -22,7 +22,7 @@ export function SocketReduxWrapper({ children }) {
   }, []);
 
   if (jwt !== "") {
-    const socket = io(window.location.origin, {
+    const socket = io("http://localhost:3001/", {
       query: `token=${jwt}`,
     });
 
@@ -31,7 +31,7 @@ export function SocketReduxWrapper({ children }) {
     const store = applyMiddleware(socketIoMiddleware)(createStore)(allReducers);
     return <Provider store={store}>{children}</Provider>;
   } else {
-    const socket = io(window.location.origin);
+    const socket = io("http://localhost:3000/");
     const socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
     const store = applyMiddleware(socketIoMiddleware)(createStore)(allReducers);
     return (
