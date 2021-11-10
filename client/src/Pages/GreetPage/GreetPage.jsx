@@ -29,7 +29,7 @@ function GreetPage() {
             className="greetpage-image"
           />
         </div>
-        <p className="greetpage-subtext">Kodine</p>
+        <p className="greetpage-subtext">Connect・Learn・Code</p>
         <div className="center">
           <LoginButton />
         </div>

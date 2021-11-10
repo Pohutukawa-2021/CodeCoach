@@ -6,6 +6,7 @@ module.exports = {
   updateUserDetails,
   getUserDataById,
   getAllUsers,
+  updateUserProfilePhoto,
 };
 function getUserData(authId, db = connection) {
   return db("users").where({ auth_id: authId });

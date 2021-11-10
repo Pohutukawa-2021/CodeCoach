@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { changePhotoImage } from "../../redux/actions/user";
 
 function EditProfilePhoto() {
+  const dispatch = useDispatch();
   const user = useSelector((state) => state.userAccount);
   const [url, setUrl] = useState(user.image_url);
+
+  function save(e) {
+    e.preventDefault();
+    dispatch({ type: "setWaiting" });
+    dispatch(changePhotoImage(url));
+  }
+
   return (
     <div className="edit-profile-photo-form">
       <div className="form-container">
@@ -18,7 +27,9 @@ function EditProfilePhoto() {
           ></input>
         </div>
       </div>
-      <button className="small-button small-button-styling">Save</button>
+      <button className="small-button small-button-styling" onClick={save}>
+        Save
+      </button>
     </div>
   );
 }
