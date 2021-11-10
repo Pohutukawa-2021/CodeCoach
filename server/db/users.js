@@ -6,6 +6,7 @@ module.exports = {
   updateUserDetails,
   getUserDataById,
   getAllUsers,
+  updateUserProfilePhoto,
 };
 function getUserData(authId, db = connection) {
   return db("users").where({ auth_id: authId });
@@ -54,6 +55,20 @@ function updateUserDetails(user, authToken, db = connection) {
   return db("users")
     .where({ auth_id: authToken })
     .update(updateUser)
+    .then(() => {
+      return getUserData(authToken).then((data) => {
+        return data[0];
+      });
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+}
+
+function updateUserProfilePhoto(imageUrl, authToken, db = connection) {
+  return db("users")
+    .where({ auth_id: authToken })
+    .update({ image_url: imageUrl })
     .then(() => {
       return getUserData(authToken).then((data) => {
         return data[0];

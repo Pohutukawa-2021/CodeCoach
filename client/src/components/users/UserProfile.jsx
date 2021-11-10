@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 import { useSelector } from "react-redux";
-import { NavLink } from 'react-router-dom';
-
+import { NavLink } from "react-router-dom";
 
 function UserProfile() {
-  const user = useSelector((state) => state.userAccount)
+  const user = useSelector((state) => state.userAccount);
   return (
     <>
       <div className="layout-left-col"></div>
@@ -12,7 +11,19 @@ function UserProfile() {
         <div className="center-col-container">
           <div className="profile-container">
             <div className="profile-header-container">
-              <img className='profile-avatar' src={user.image_url} alt={user.username} />
+              <div className="profile-flex">
+                <img
+                  className="profile-avatar"
+                  src={user.image_url}
+                  alt={user.username}
+                />
+                <NavLink
+                  className="profile-edit-photo"
+                  to="/app/editprofilephoto"
+                >
+                  Edit Profile Photo
+                </NavLink>
+              </div>
               <div className="profile-title-container">
                 <p className="profile-username">{user.username}</p>
                 <p>{user.email}</p>
@@ -26,7 +37,12 @@ function UserProfile() {
               <p className="profile-content-label">Bio</p>
               <p className="profile-content">{user.bio}</p>
               <button className="small-button small-button-styling">
-                <NavLink className="edit-profile-button-link" to="/app/editprofile">Edit details</NavLink>
+                <NavLink
+                  className="edit-profile-button-link"
+                  to="/app/editprofile"
+                >
+                  Edit details
+                </NavLink>
               </button>
             </div>
           </div>
@@ -34,10 +50,10 @@ function UserProfile() {
       </div>
       <div className="layout-right-col"></div>
     </>
-  )
+  );
 }
 
-export default UserProfile
+export default UserProfile;
 
 // if userAccount is === to currentUser use userAccount
 // if not use Users
