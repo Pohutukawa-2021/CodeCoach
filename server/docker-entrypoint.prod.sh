@@ -5,5 +5,5 @@ echo "waiting for backend"
 echo "running db migrations"
 npm run build
 
-echo "starting application at port 80"
-nginx -g daemon off;
+echo "starting application at port 3001"
+npm run start
