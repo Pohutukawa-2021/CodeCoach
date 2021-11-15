@@ -7,7 +7,6 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile.prod
-    command: ./docker-entrypoint.prod.sh
     ports:
       - 80:80
     restart: unless-stopped
