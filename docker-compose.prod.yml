@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  frontend:
+    depends_on:
+      - backend
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    command: ./docker-entrypoint.sh
+    ports:
+      - 80:80
+    restart: unless-stopped
+  backend:
+    depends_on:
+      - db
+    build: ./server
+    command: ./docker-entrypoint.sh
+    ports:
+      - 3001:3001
+    restart: unless-stopped
+  db:
+    image: postgres:alpine3.14
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    restart: unless-stopped
