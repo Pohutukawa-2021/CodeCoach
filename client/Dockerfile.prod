@@ -11,4 +11,4 @@ COPY . .
 # ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
 
 EXPOSE 3000
-ENTRYPOINT [ "npm", "run", "start" ]
+ENTRYPOINT ["HTTPS=true", "npm", "run", "start" ]
