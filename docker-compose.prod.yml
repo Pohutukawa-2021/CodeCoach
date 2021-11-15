@@ -7,7 +7,7 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile.prod
-    command: ./docker-entrypoint.sh
+    command: ./docker-entrypoint.prod.sh
     ports:
       - 80:80
     restart: unless-stopped
@@ -15,7 +15,7 @@ services:
     depends_on:
       - db
     build: ./server
-    command: ./docker-entrypoint.sh
+    command: ./docker-entrypoint.prod.sh
     ports:
       - 3001:3001
     restart: unless-stopped
