@@ -3,7 +3,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
 COPY . .
-ENV REACT_APP_API_URL=https://codecoach.app:3001
+ENV REACT_APP_API_URL=https://codecoach.app/socket
 RUN npm run build
 
 FROM nginx:1.12
