@@ -4,12 +4,9 @@ COPY package*.json ./
 RUN npm install --legacy-peer-deps
 COPY . .
 ENV REACT_APP_API_URL=https://codecoach.app:3001
-# RUN npm run build
+RUN npm run build
 
-# FROM nginx:1.12
-# COPY --from=build-stage /app/build /usr/share/nginx/html
-# EXPOSE 80
-# ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
-
-EXPOSE 3000
-ENTRYPOINT ["npm", "run", "start" ]
+FROM nginx:1.12
+COPY --from=build-stage /app/build /usr/share/nginx/html
+EXPOSE 80
+ENTRYPOINT [ "nginx", "-g", "daemon off;" ]

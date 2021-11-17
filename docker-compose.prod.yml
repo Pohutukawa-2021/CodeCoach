@@ -21,7 +21,7 @@ services:
       context: ./client
       dockerfile: Dockerfile.prod
     ports:
-      - 3000:3000
+      - 3000:80
     restart: unless-stopped
   backend:
     depends_on:
