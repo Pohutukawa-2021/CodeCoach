@@ -9,6 +9,7 @@ import allReducers from "../redux";
 export function SocketReduxWrapper({ children }) {
   const [jwt, setJwt] = useState("");
   const { getAccessTokenSilently } = useAuth0();
+  const port = process.env.REACT_APP_API_URL || "http://localhost:3001/";
 
   async function getToken() {
     const accessToken = await getAccessTokenSilently({
@@ -22,7 +23,7 @@ export function SocketReduxWrapper({ children }) {
   }, []);
 
   if (jwt !== "") {
-    const socket = io("http://localhost:3001/", {
+    const socket = io(port, {
       query: `token=${jwt}`,
     });
 
@@ -31,7 +32,7 @@ export function SocketReduxWrapper({ children }) {
     const store = applyMiddleware(socketIoMiddleware)(createStore)(allReducers);
     return <Provider store={store}>{children}</Provider>;
   } else {
-    const socket = io("http://localhost:3000/");
+    const socket = io(port);
     const socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
     const store = applyMiddleware(socketIoMiddleware)(createStore)(allReducers);
     return (

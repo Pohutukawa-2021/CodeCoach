@@ -4,8 +4,10 @@ services:
   frontend:
     depends_on:
       - backend
-    build: ./client
-    command: ./docker-entrypoint.sh
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    command: npm start
     volumes:
       - ./client:/app/
     ports:
