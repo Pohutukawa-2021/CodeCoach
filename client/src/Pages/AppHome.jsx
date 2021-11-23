@@ -24,6 +24,7 @@ import SearchBarUser from "../components/SearchBarUsers";
 import SearchedUsersList from "../components/users/SearchedUsers";
 import UserFilter from "../components/UserFilter";
 import FilteredUsers from "../components/users/FilteredUsers";
+import SortPostsButtons from "../components/SortPostButtons/SortPostsButtons";
 
 function emailToUsername(email) {
   let username = email.split("@");
@@ -56,6 +57,7 @@ function AppHome() {
                 <Route exact path={path}>
                   <div className="layout-left-col">
                     <h1 className="left-col-title">Home</h1>
+                    <SortPostsButtons />
                     <SearchBar />
                     <Filter />
                     <Tags />
